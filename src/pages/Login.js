@@ -1,7 +1,18 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import loginUser from '../service/AuthService';
-import useToken  from '../utils/useToken'
+import useToken from '../utils/useToken'
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const customButton = withReactContent(Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-dark me-3'
+  },
+  buttonsStyling: false
+}))
+
     
 function Login() {
   const history = useHistory()
@@ -22,7 +33,11 @@ function Login() {
         e.preventDefault()
       const { accessToken } = await loginUser(data)
       if(!accessToken) console.log(error);
-      if(!accessToken) return setError("Email or password maybe incorrect")
+      if (!accessToken) {
+        setError("Email or password maybe incorrect")
+        setLoading(false)
+        return customButton.fire('login error', error, 'error')
+      }
       setToken(accessToken)
       setLoading(false)
     }

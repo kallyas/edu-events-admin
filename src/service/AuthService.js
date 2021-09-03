@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import app from "../config/firebaseInit"
