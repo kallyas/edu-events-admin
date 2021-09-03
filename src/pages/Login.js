@@ -39,6 +39,7 @@ function Login() {
         return customButton.fire('login error', error, 'error')
       }
       setToken(accessToken)
+      history.push('/')
       setLoading(false)
     }
 

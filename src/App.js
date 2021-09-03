@@ -7,7 +7,9 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/auth/login" component={Login} />
-        <Route exact path="/" component={<>Admin logged in</>} />
+        <Route exact path="/">
+          <h2>Admin area</h2>
+        </Route>
         {/* <Route exact path="/dashboard" component={Dashboard} /> */}
       </Switch>
     </BrowserRouter>
