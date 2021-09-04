@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 
+/* eslint-disable no-unused-vars */
 // import React, { useEffect } from "react";
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
