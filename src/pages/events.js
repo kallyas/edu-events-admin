@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import { Card, Col, Row } from '@themesberg/react-bootstrap';
 
 const Events = () => {
