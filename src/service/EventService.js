@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import app from "../config/firebaseInit"
 import { collection, addDoc, getFirestore } from "firebase/firestore"; 
 
