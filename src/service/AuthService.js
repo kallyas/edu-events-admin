@@ -14,3 +14,9 @@ export default async function loginUser(data) {
         return error.message
     }
 }
+
+export const AuthService = {
+    logout: () => {
+        localStorage.removeItem("token")
+    },
+}
