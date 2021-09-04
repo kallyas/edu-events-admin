@@ -21,8 +21,8 @@ export default async function UploadImageService(image) {
       case 'running':
         console.log('Upload is running');
         break;
-      default 'undefined':
-            break;
+      default:
+          console.log('unknown error')
     }
   }, 
   (error) => {
