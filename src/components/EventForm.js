@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { Col, Row, Card, Form, Button } from '@themesberg/react-bootstrap';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
