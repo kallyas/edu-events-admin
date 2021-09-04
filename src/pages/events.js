@@ -23,7 +23,7 @@ const Events = () => {
                   </div>
                 </div>
                 <div class="col">
-                  <a class="card-link" href="#/calendar">
+                  <a class="card-link" href="/calendar">
                     <h5>Newmarket Nights</h5>
                   </a>
                   <span>
@@ -55,7 +55,7 @@ const Events = () => {
                       </div>
                     </div>
                     <div class="col">
-                      <a class="card-link" href="#/calendar">
+                      <a class="card-link" href="/calendar">
                         <h5>Newmarket Nights</h5>
                       </a>
                       <span>
