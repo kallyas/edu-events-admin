@@ -28,7 +28,7 @@ const Events = () => {
                   </a>
                   <span>
                     Organized by{' '}
-                    <a class="text-700 card-link" href="#">
+                    <a class="text-700 card-link" href="/">
                       Outbox EDU
                     </a>
                   </span>
