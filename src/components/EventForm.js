@@ -7,6 +7,15 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import createEvent from '../service/EventService';
 
+const customButton = withReactContent(
+  Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-dark me-3',
+    },
+    buttonsStyling: false,
+  })
+);
+
 const EventForm = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
@@ -16,7 +25,7 @@ const EventForm = () => {
     excerpt: '',
     categories: [],
     location: '',
-    body: ''
+    body: '',
   });
 
   const finalData = {
@@ -25,20 +34,44 @@ const EventForm = () => {
     excerpt: data.excerpt,
     categories: data.categories,
     location: data.location,
-    img_url: 'https://outbox.co.ug/sites/default/files/styles/medium_3/public/2021-07/outbox-fullstack-web-boot-camp-twitter-3.png',
+    img_url: localStorage.getItem('imgUrl'),
     body: data.body.toString(),
-    completed: false
-  }
+    completed: false,
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    console.log(data)
-    const res = await createEvent(finalData)
-    console.log(res)
+    e.preventDefault();
+    if (!finalData.img_url) {
+      return customButton.fire(
+        "Ooops, something doesn't seem right",
+        'Please upload an Image and try again',
+        'error'
+      );
+    }
+    console.log(finalData);
+    const res = await createEvent(finalData);
+    if (!res)
+      return customButton.fire(
+        'Error creating event',
+        'Something went wrong while creating an event',
+        'error'
+      );
+    customButton.fire('Sucess', 'Event created successfully', 'success');
+    setData({
+      title: '',
+      time: '',
+      date: '',
+      excerpt: '',
+      categories: [],
+      location: '',
+      body: '',
+    });
+    localStorage.removeItem('imgUrl');
   };
   const handleChange = (e) => {
-    setData({...data, [e.target.name]: e.target.value})
+    setData({ ...data, [e.target.name]: e.target.value });
   };
+
   return (
     <Card border="light" className="bg-white shadow-sm mb-4">
       <Card.Body>
@@ -75,7 +108,7 @@ const EventForm = () => {
                 <Form.Label>Time</Form.Label>
                 <Form.Control
                   required
-                  type="time" 
+                  type="time"
                   name="time"
                   defaultValue={data.time}
                   onChange={handleChange}
@@ -134,7 +167,7 @@ const EventForm = () => {
                   console.log('Editor is ready to use!', editor);
                 }}
                 onChange={(e, editor) => {
-                  data.body = editor.getData()
+                  data.body = editor.getData();
                 }}
               />
             </Col>
