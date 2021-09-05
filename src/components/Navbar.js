@@ -13,7 +13,7 @@ import Profile3 from "../assets/images/profile_placeholder.png";
 import AuthService from "../service/AuthService"
 import { Routes } from "../routes"
 
-export default ({ token, user }) => {
+export default ({ user }) => {
   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
   const history = useHistory()
@@ -93,7 +93,7 @@ export default ({ token, user }) => {
                 <div className="media d-flex align-items-center">
                   <Image src={Profile3} className="user-avatar md-avatar rounded-circle" />
                   <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                    <span className="mb-0 font-small fw-bold">{user.username}</span>
+                    <span className="mb-0 font-small fw-bold">{user.email}</span>
                   </div>
                 </div>
               </Dropdown.Toggle>
@@ -116,7 +116,7 @@ export default ({ token, user }) => {
                 <Dropdown.Item className="fw-bold"
                   onClick={() => {
                     AuthService.logout()
-                    history.push(Routes.SignIn.path)
+                    history.push(Routes.Login.path)
                 }}
                 >
                   <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
