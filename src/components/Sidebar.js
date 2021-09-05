@@ -27,7 +27,7 @@ const Sidebar = (props = {}) => {
 
   const logout = () => {
     AuthService.logout();
-    history.push(Routes.SignIn.path);
+    history.push(Routes.Login.path);
   }
 
   const onCollapse = () => setShow(!show);
@@ -112,9 +112,8 @@ const Sidebar = (props = {}) => {
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem title="Edu Events" link={'/'} />
 
-              <NavItem title="Overview" link={'/'} icon={faChartPie} />
-              <NavItem title="Transactions" icon={faHandHoldingUsd} link={'/'} />
-              <NavItem title="Schedule" link={'/'} icon={faCalendarAlt} />
+              <NavItem title="Overview" link={'/dashboard'} icon={faChartPie} />
+              <NavItem title="Events" icon={faCalendarAlt} link={'/dashboard/events'} />
               
 
               {/* <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>

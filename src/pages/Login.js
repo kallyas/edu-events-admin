@@ -39,7 +39,7 @@ function Login() {
         return customButton.fire('login error', error, 'error')
       }
       setToken(accessToken)
-      history.push('/')
+      history.push('/dashboard')
       setLoading(false)
     }
 
@@ -49,6 +49,15 @@ function Login() {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="card-group d-block d-md-flex row">
+            <div
+                className="card col-md-5 text-white py-5"
+                style={{ backgroundColor: '#096691' }}
+              >
+                <div className="card-body text-center">
+                  <h1>Outbox Edu events</h1>
+                  <p>Login to Manage outbox Edu Events</p>
+                </div>
+              </div>
               <div className="card col-md-7 p-4 mb-0">
                 <div className="card-body">
                   <h1>Login</h1>
@@ -85,16 +94,7 @@ function Login() {
                     </div>
                   </form>
                 </div>
-              </div>
-              <div
-                className="card col-md-5 text-white py-5"
-                style={{ backgroundColor: '#096691' }}
-              >
-                <div className="card-body text-center">
-                  <h1>Outbox Edu events</h1>
-                  <p>Login to Manage outbox Edu Events</p>
-                </div>
-              </div>
+              </div> 
             </div>
           </div>
         </div>

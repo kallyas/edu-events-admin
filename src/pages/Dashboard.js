@@ -19,12 +19,12 @@ const Dashboard = ({ user }) => {
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <Dropdown className="btn-toolbar">
           <Dropdown.Toggle as={Button} variant="primary" size="sm" className="me-2">
-            <FontAwesomeIcon icon={faPlus} className="me-2" />New Order
+            <FontAwesomeIcon icon={faPlus} className="me-2" />New Event
           </Dropdown.Toggle>
           <Dropdown.Menu className="dashboard-dropdown dropdown-menu-left mt-2">
             <Dropdown.Item className="fw-bold">
-              <Link to={'test'}>
-              <FontAwesomeIcon icon={faTasks} className="me-2" /> New Order
+              <Link to={'dashboard/events/new'}>
+              <FontAwesomeIcon icon={faTasks} className="me-2" /> New Event
               </Link>
             </Dropdown.Item>
           </Dropdown.Menu>
