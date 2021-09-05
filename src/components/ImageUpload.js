@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Row, Col, Card, Form, Image } from "@themesberg/react-bootstrap";
 import { useDropzone } from "react-dropzone";
 import UploadImageService from "../service/UploadImageService";
@@ -7,17 +7,21 @@ const ImageUpload = () => {
     const [files, setFiles] = useState([]);
     const { getRootProps, getInputProps } = useDropzone({
       accept: 'image/*',
-      onDrop: files => setFiles(files.map(file => ({
-        ...file,
-        preview: URL.createObjectURL(file)
-      })))
+      onDrop: files => {
+        setFiles(files.map(file => ({
+          ...file,
+          preview: URL.createObjectURL(file)
+        })));
+        console.log(files);
+        UploadImageService(files[0])
+      }
     });
   
     const ImageUploadFile = (props) => {
       const { path, preview } = props;
   
       return (
-        <Col xs={3} className="dropzone-preview">
+        <Col xs={3} className="dropzone-preview" style={{ width: '100vw'}}>
           <Image src={preview} className="dropzone-image" />
           <Card.Text className="dropzone-filename">
             {path}
@@ -26,9 +30,6 @@ const ImageUpload = () => {
       );
     };
   
-  useEffect(() => {
-    UploadImageService(files[0])
-  }, [files])
   
     return (
       <>
