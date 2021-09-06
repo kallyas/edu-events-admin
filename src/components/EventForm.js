@@ -81,6 +81,13 @@ const EventForm = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
+  // handle multi select
+  const selectFn = (e) => {
+    e.forEach(el => {
+      categories.includes(el.value) ?  console.log('yes') : setCategories([...categories, el.value])
+    })
+  }
+
   return (
     <Card border="light" className="bg-white shadow-sm mb-4">
       <Card.Body>
@@ -145,7 +152,7 @@ const EventForm = () => {
                 <Select
                   name="categories"
                   defaultInputValue={categories}
-                  onChange={(e) => { setCategories(e); console.log(e) }}
+                  onChange={(e) => selectFn(e)}
                   options={selectOptions}
                   theme={(theme) => ({
                     ...theme,
