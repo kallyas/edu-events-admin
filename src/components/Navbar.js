@@ -10,7 +10,7 @@ import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, Inp
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/images/profile_placeholder.png";
 
-import AuthService from "../service/AuthService"
+import { AuthService } from "../service/AuthService"
 import { Routes } from "../routes"
 
 export default ({ user }) => {

@@ -22,8 +22,7 @@ const Sidebar = (props = {}) => {
   const [show, setShow] = useState(false);
   const showClass = show ? "show" : "";
 
-  const { token } = props
-  const user  = decode(token)
+  const { user } = props
 
   const logout = () => {
     AuthService.logout();
@@ -97,7 +96,7 @@ const Sidebar = (props = {}) => {
                   <Image src={ProfilePicture} className="card-img-top rounded-circle border-white" />
                 </div>
                 <div className="d-block">
-                  <h6>Hi, {user?.username}</h6>
+                  <h6>Hi, {user?.email}</h6>
                   <Button variant="secondary" size="xs" className="text-dark"
                     onClick={logout}
                   >

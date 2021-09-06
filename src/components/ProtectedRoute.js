@@ -45,10 +45,10 @@ function ProtectedRoute({ component: Component, ...rest }) {
         token ? (
           <>
           <Preloader show={loaded ? false : true} />
-          <Sidebar token={token} />
+          <Sidebar user={user} />
           
           <main className="content">
-            <Navbar token={token} user={user}/>
+            <Navbar user={user}/>
               <Component token={token} {...props} user={user}/>
             <Footer toggleSettings={toggleSettings} showSettings={showSettings} />
           </main>
