@@ -6,6 +6,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import createEvent from '../service/EventService';
+import Categories from './Categories';
 
 const customButton = withReactContent(
   Swal.mixin({
@@ -40,8 +41,10 @@ const EventForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     if (!finalData.img_url) {
+      setLoading(false)
       return customButton.fire(
         "Ooops, something doesn't seem right",
         'Please upload an Image and try again',
@@ -50,12 +53,15 @@ const EventForm = () => {
     }
     console.log(finalData);
     const res = await createEvent(finalData);
-    if (!res)
+    if (!res) {
+      setLoading(false)
       return customButton.fire(
         'Error creating event',
         'Something went wrong while creating an event',
         'error'
       );
+    }
+      
     customButton.fire('Sucess', 'Event created successfully', 'success');
     setData({
       title: '',
@@ -67,6 +73,7 @@ const EventForm = () => {
       body: '',
     });
     localStorage.removeItem('imgUrl');
+    setLoading(false)
   };
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -131,18 +138,7 @@ const EventForm = () => {
               </Form.Group>
             </Col>
             <Col md={6} className="mb-3">
-              <Form.Group id="category">
-                <Form.Label>Category(s)</Form.Label>
-                <Form.Select
-                  defaultValue=""
-                  name="categories"
-                  onChange={handleChange}
-                >
-                  <option value="0">Courier Type</option>
-                  <option value="parcel">Parcel</option>
-                  <option value="shipping">shipping</option>
-                </Form.Select>
-              </Form.Group>
+              <Categories />
             </Col>
             <Col md={6} className="mb-3">
               <Form.Group id="location">

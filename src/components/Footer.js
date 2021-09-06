@@ -38,8 +38,8 @@ const Footer =  (props) => {
           <Col xs={12} lg={6} className="mb-4 mb-lg-0">
             <p className="mb-0 text-center text-xl-left">
               Copyright © {`${currentYear} `}
-              <Card.Link href="https://github.com/kallyas" target="_blank" className="text-blue text-decoration-none fw-normal">
-                Kallyas
+              <Card.Link href="https://github.com/outboxafrica" target="_blank" className="text-blue text-decoration-none fw-normal">
+                outbox EDU
             </Card.Link>
             </p>
           </Col>
