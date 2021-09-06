@@ -10,7 +10,7 @@ import {
 const storage = getStorage();
 
 export default async function UploadImageService(image) {
-  const storageRef = ref(storage, `events/${image?.name}`);
+  const storageRef = ref(storage, `events/${new Date().getTime().toString().concat(image?.name)}`);
   const uploadTask = uploadBytesResumable(storageRef, image);
 
   uploadTask.on(

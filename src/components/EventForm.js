@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { Col, Row, Card, Form, Button } from '@themesberg/react-bootstrap';
+import Select from 'react-select';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import createEvent from '../service/EventService';
-import Categories from './Categories';
+import { selectOptions, customStyles } from './SelectOptions';
 
 const customButton = withReactContent(
   Swal.mixin({
@@ -19,6 +20,7 @@ const customButton = withReactContent(
 
 const EventForm = () => {
   const [loading, setLoading] = useState(false);
+  const [categories, setCategories] = useState([])
   const [data, setData] = useState({
     title: '',
     time: '',
@@ -41,10 +43,10 @@ const EventForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
     if (!finalData.img_url) {
-      setLoading(false)
+      setLoading(false);
       return customButton.fire(
         "Ooops, something doesn't seem right",
         'Please upload an Image and try again',
@@ -54,14 +56,14 @@ const EventForm = () => {
     console.log(finalData);
     const res = await createEvent(finalData);
     if (!res) {
-      setLoading(false)
+      setLoading(false);
       return customButton.fire(
         'Error creating event',
         'Something went wrong while creating an event',
         'error'
       );
     }
-      
+
     customButton.fire('Sucess', 'Event created successfully', 'success');
     setData({
       title: '',
@@ -73,7 +75,7 @@ const EventForm = () => {
       body: '',
     });
     localStorage.removeItem('imgUrl');
-    setLoading(false)
+    setLoading(false);
   };
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -138,7 +140,26 @@ const EventForm = () => {
               </Form.Group>
             </Col>
             <Col md={6} className="mb-3">
-              <Categories />
+              <Form.Group>
+                <Form.Label>Select categories</Form.Label>
+                <Select
+                  name="categories"
+                  defaultInputValue={categories}
+                  onChange={(e) => { setCategories(e); console.log(e) }}
+                  options={selectOptions}
+                  theme={(theme) => ({
+                    ...theme,
+                    borderRadius: 0,
+                    colors: {
+                      ...theme.colors,
+                      primary25: '#61DAFB',
+                      primary: '#61DAFB',
+                    },
+                  })}
+                  styles={customStyles}
+                  isMulti
+                />
+              </Form.Group>
             </Col>
             <Col md={6} className="mb-3">
               <Form.Group id="location">

@@ -1,8 +1,5 @@
-import Select from 'react-select';
-import { Form } from '@themesberg/react-bootstrap';
 
-const Categories = () => {
-  const selectOptions = [
+  export const selectOptions = [
     { value: 'webinar', label: 'Webinar' },
     { value: 'legal tech', label: 'Legal Tech' },
     { value: 'mental health', label: 'Mental Health' },
@@ -10,7 +7,7 @@ const Categories = () => {
     { value: 'digital marketing', label: 'Digital Marketing' },
   ];
 
-  const customStyles = {
+  export const customStyles = {
     control: (provided) => ({
       ...provided,
       borderRadius: '.5rem',
@@ -42,26 +39,3 @@ const Categories = () => {
       };
     },
   };
-
-  return (
-      <Form.Group className="mb-4">
-        <Form.Label>Select categories</Form.Label>
-        <Select
-          options={selectOptions}
-          theme={(theme) => ({
-            ...theme,
-            borderRadius: 0,
-            colors: {
-              ...theme.colors,
-              primary25: '#61DAFB',
-              primary: '#61DAFB',
-            },
-          })}
-          styles={customStyles}
-          isMulti
-        />
-      </Form.Group>
-  );
-};
-
-export default Categories;
