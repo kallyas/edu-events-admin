@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Card, Col, Row } from '@themesberg/react-bootstrap';
 import getEvents from '../service/getEventsService';
 import moment from 'moment';
-import MoonLoader from 'react-spinners';
+import MoonLoader from 'react-spinners/MoonLoader';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
