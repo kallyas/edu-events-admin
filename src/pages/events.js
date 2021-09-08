@@ -1,8 +1,15 @@
 /* eslint-disable no-unused-vars */
-
+import { useState, useEffect } from 'react';
 import { Card, Col, Row } from '@themesberg/react-bootstrap';
+import getEvents from '../service/getEventsService';
+import moment from 'moment'
 
 const Events = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    getEvents().then((e) => setEvents(e));
+  }, []);
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -14,29 +21,31 @@ const Events = () => {
             <Card.Header>
               <h5 className="mb-0">Upcoming Events</h5>
             </Card.Header>
-            <Card.Body>
-              <div className="align-items-center d-block d-sm-flex border-bottom border-light pb-4 mb-4 row">
-                <div className="col-auto mb-3 mb-sm-0 col">
-                  <div className="calendar d-flex">
-                    <span class="calendar-month">Sep</span>
-                    <span class="calendar-day">4</span>
+            {events?.filter(event => !event.completed).map((event) => (
+              <Card.Body key={event.id}>
+                <div className="align-items-center d-block d-sm-flex border-bottom border-light pb-4 mb-4 row">
+                  <div className="col-auto mb-3 mb-sm-0 col">
+                    <div className="calendar d-flex">
+                      <span className="calendar-month">{ moment(event.date).format('MMM')}</span>
+                      <span className="calendar-day">{ moment(event.date).format('D') }</span>
+                    </div>
+                  </div>
+                  <div className="col">
+                    <a className="card-link" href="/calendar">
+                      <h5>{event.title}</h5>
+                    </a>
+                    <span>
+                      Organized by{' '}
+                      <a className="text-700 card-link" href="/">
+                        Outbox EDU
+                      </a>
+                    </span>
+                    <div className="small fw-bold mt-1">Time: { moment(event.date).format('h:mm a')}</div>
+                    <span className="small fw-bold">Place: {event.location}</span>
                   </div>
                 </div>
-                <div class="col">
-                  <a class="card-link" href="/calendar">
-                    <h5>Newmarket Nights</h5>
-                  </a>
-                  <span>
-                    Organized by{' '}
-                    <a class="text-700 card-link" href="/">
-                      Outbox EDU
-                    </a>
-                  </span>
-                  <div class="small fw-bold mt-1">Time: 20:00 PM</div>
-                  <span class="small fw-bold">Place: Soliz House</span>
-                </div>
-              </div>
-            </Card.Body>
+              </Card.Body>
+            ))}
           </Card>
         </Col>
         <Col xs={12} xl={4}>
@@ -46,29 +55,31 @@ const Events = () => {
                 <Card.Header>
                   <h5 className="mb-0">Past Events</h5>
                 </Card.Header>
-                <Card.Body>
-                  <div className="align-items-center d-block d-sm-flex border-bottom border-light pb-4 mb-4 row">
-                    <div className="col-auto mb-3 mb-sm-0 col">
-                      <div className="calendar d-flex">
-                        <span class="calendar-month">Sep</span>
-                        <span class="calendar-day">4</span>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <a class="card-link" href="/calendar">
-                        <h5>Newmarket Nights</h5>
-                      </a>
-                      <span>
-                        Organized by{' '}
-                        <a class="text-700 card-link" href="/">
-                          Outbox EDU
-                        </a>
-                      </span>
-                      <div class="small fw-bold mt-1">Time: 20:00 PM</div>
-                      <span class="small fw-bold">Place: Soliz House</span>
+                {events?.filter(event => event.completed).map((event) => (
+              <Card.Body key={event.id}>
+                <div className="align-items-center d-block d-sm-flex border-bottom border-light pb-4 mb-4 row">
+                  <div className="col-auto mb-3 mb-sm-0 col">
+                    <div className="calendar d-flex">
+                      <span className="calendar-month">{ moment(event.date).format('MMM')}</span>
+                      <span className="calendar-day">{ moment(event.date).format('D') }</span>
                     </div>
                   </div>
-                </Card.Body>
+                  <div className="col">
+                    <a className="card-link" href="/calendar">
+                      <h5>{event.title}</h5>
+                    </a>
+                    <span>
+                      Organized by{' '}
+                      <a className="text-700 card-link" href="/">
+                        Outbox EDU
+                      </a>
+                    </span>
+                    <div className="small fw-bold mt-1">Time: { moment(event.date).format('h:mm a')}</div>
+                    <span className="small fw-bold">Place: { event.location }</span>
+                  </div>
+                </div>
+              </Card.Body>
+            ))}
               </Card>
             </Col>
             <Col xs={12}>{/* {} */}</Col>

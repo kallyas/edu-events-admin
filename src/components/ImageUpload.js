@@ -3,6 +3,8 @@ import { Row, Col, Card, Form, Image } from "@themesberg/react-bootstrap";
 import { useDropzone } from "react-dropzone";
 import UploadImageService from "../service/UploadImageService";
 
+
+
 const ImageUpload = () => {
     const [files, setFiles] = useState([]);
     const { getRootProps, getInputProps } = useDropzone({
@@ -16,6 +18,8 @@ const ImageUpload = () => {
         UploadImageService(files[0])
       }
     });
+  
+  
   
     const ImageUploadFile = (props) => {
       const { path, preview } = props;

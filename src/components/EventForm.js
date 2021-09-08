@@ -26,7 +26,6 @@ const EventForm = () => {
     time: '',
     date: '',
     excerpt: '',
-    categories: [],
     location: '',
     body: '',
   });
@@ -35,7 +34,7 @@ const EventForm = () => {
     title: data.title,
     date: data.date.concat('T' + data.time + '+03:00'),
     excerpt: data.excerpt,
-    categories: data.categories,
+    categories: categories,
     location: data.location,
     img_url: localStorage.getItem('imgUrl'),
     body: data.body.toString(),
@@ -78,6 +77,7 @@ const EventForm = () => {
     setLoading(false);
   };
   const handleChange = (e) => {
+    console.log(finalData);
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
@@ -191,7 +191,7 @@ const EventForm = () => {
                   console.log('Editor is ready to use!', editor);
                 }}
                 onChange={(e, editor) => {
-                  data.body = editor.getData();
+                  setData({...data, body: editor.getData()})
                 }}
               />
             </Col>

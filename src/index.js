@@ -6,7 +6,7 @@ import { HashRouter } from "react-router-dom";
 import "./scss/volt.scss";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "react-datetime/css/react-datetime.css";
-
+import "./App.css"
 
 import App from './App';
 import { ScrollToTop } from "./components/index"

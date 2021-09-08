@@ -8,6 +8,7 @@ import {
 } from 'firebase/storage';
 
 const storage = getStorage();
+let progress;
 
 export default async function UploadImageService(image) {
   const storageRef = ref(storage, `events/${new Date().getTime().toString().concat(image?.name)}`);
@@ -18,8 +19,12 @@ export default async function UploadImageService(image) {
     (snapshot) => {
       // Observe state change events such as progress, pause, and resume
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Upload is ' + progress + '% done');
+      if (progress === 100) {
+        localStorage.setItem('uploaded', 'true')
+      }
+      
       switch (snapshot.state) {
         case 'paused':
           console.log('Upload is paused');
