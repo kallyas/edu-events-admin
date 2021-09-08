@@ -27,15 +27,20 @@ const Events = () => {
             <Card.Header>
               <h5 className="mb-0">Upcoming Events</h5>
             </Card.Header>
-            {loading ? (
-              <MoonLoader loading={loading} size={50}/>
-            ) : (
-              <>
-                {events
-                  ?.filter((event) => !event.completed)
-                  .map((event) => (
-                    <Card.Body key={event.id}>
-                      <div className="align-items-center d-block d-sm-flex border-bottom border-light pb-4 mb-4 row">
+            <Card.Body>
+              {loading ? (
+                <div className="events-loader">
+                  <MoonLoader loading={loading} size={50} />
+                </div>
+              ) : (
+                <>
+                  {events
+                    ?.filter((event) => !event.completed)
+                    .map((event) => (
+                      <div
+                        key={event.id}
+                        className="align-items-center d-block d-sm-flex border-bottom border-light pb-4 mb-4 row"
+                      >
                         <div className="col-auto mb-3 mb-sm-0 col">
                           <div className="calendar d-flex">
                             <span className="calendar-month">
@@ -64,10 +69,10 @@ const Events = () => {
                           </span>
                         </div>
                       </div>
-                    </Card.Body>
-                  ))}
-              </>
-            )}
+                    ))}
+                </>
+              )}
+            </Card.Body>
           </Card>
         </Col>
         <Col xs={12} xl={4}>
@@ -77,41 +82,52 @@ const Events = () => {
                 <Card.Header>
                   <h5 className="mb-0">Past Events</h5>
                 </Card.Header>
-                {events
-                  ?.filter((event) => event.completed)
-                  .map((event) => (
-                    <Card.Body key={event.id}>
-                      <div className="align-items-center d-block d-sm-flex border-bottom border-light pb-4 mb-4 row">
-                        <div className="col-auto mb-3 mb-sm-0 col">
-                          <div className="calendar d-flex">
-                            <span className="calendar-month">
-                              {moment(event.date).format('MMM')}
-                            </span>
-                            <span className="calendar-day">
-                              {moment(event.date).format('D')}
-                            </span>
+                <Card.Body>
+                  {loading ? (
+                    <div className="events-loader">
+                      <MoonLoader loading={loading} size={50} />
+                    </div>
+                  ) : (
+                    <>
+                      {events
+                        ?.filter((event) => event.completed)
+                        .map((event) => (
+                          <div
+                            key={event.id}
+                            className="align-items-center d-block d-sm-flex border-bottom border-light pb-4 mb-4 row"
+                          >
+                            <div className="col-auto mb-3 mb-sm-0 col">
+                              <div className="calendar d-flex">
+                                <span className="calendar-month">
+                                  {moment(event.date).format('MMM')}
+                                </span>
+                                <span className="calendar-day">
+                                  {moment(event.date).format('D')}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="col">
+                              <a className="card-link" href="/calendar">
+                                <h5>{event.title}</h5>
+                              </a>
+                              <span>
+                                Organized by{' '}
+                                <a className="text-700 card-link" href="/">
+                                  Outbox EDU
+                                </a>
+                              </span>
+                              <div className="small fw-bold mt-1">
+                                Time: {moment(event.date).format('h:mm a')}
+                              </div>
+                              <span className="small fw-bold">
+                                Place: {event.location}
+                              </span>
+                            </div>
                           </div>
-                        </div>
-                        <div className="col">
-                          <a className="card-link" href="/calendar">
-                            <h5>{event.title}</h5>
-                          </a>
-                          <span>
-                            Organized by{' '}
-                            <a className="text-700 card-link" href="/">
-                              Outbox EDU
-                            </a>
-                          </span>
-                          <div className="small fw-bold mt-1">
-                            Time: {moment(event.date).format('h:mm a')}
-                          </div>
-                          <span className="small fw-bold">
-                            Place: {event.location}
-                          </span>
-                        </div>
-                      </div>
-                    </Card.Body>
-                  ))}
+                        ))}
+                    </>
+                  )}
+                </Card.Body>
               </Card>
             </Col>
             <Col xs={12}>{/* {} */}</Col>
