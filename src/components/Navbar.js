@@ -9,14 +9,19 @@ import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, Inp
 
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/images/profile_placeholder.png";
-
-import { AuthService } from "../service/AuthService"
 import { Routes } from "../routes"
+import { useAuth } from "../context/AuthContext";
 
 export default ({ user }) => {
   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
   const history = useHistory()
+  const { logout } = useAuth()
+
+  const handleLogout = async () => {
+      await logout()
+      history.push(Routes.Login.path)
+  }
 
   const markNotificationsAsRead = () => {
     setTimeout(() => {
@@ -114,10 +119,7 @@ export default ({ user }) => {
                 <Dropdown.Divider />
 
                 <Dropdown.Item className="fw-bold"
-                  onClick={() => {
-                    AuthService.logout()
-                    history.push(Routes.Login.path)
-                }}
+                  onClick={handleLogout}
                 >
                   <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
                 </Dropdown.Item>

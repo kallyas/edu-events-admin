@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-import loginUser from '../service/AuthService';
-import useToken from '../utils/useToken'
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { useAuth } from '../context/AuthContext';
 
 const customButton = withReactContent(Swal.mixin({
   customClass: {
@@ -16,8 +15,7 @@ const customButton = withReactContent(Swal.mixin({
     
 function Login() {
   const history = useHistory()
-  const { setToken } = useToken()
-  const [error, setError] = useState('')
+  const { login } = useAuth()
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     email: '',
@@ -29,19 +27,18 @@ function Login() {
   };
     
     const handlesubmit = async (e) => {
-        setLoading(true)
         e.preventDefault()
-      const { accessToken } = await loginUser(data)
-      if(!accessToken) console.log(error);
-      if (!accessToken) {
-        setError("Email or password maybe incorrect")
+        try {
+          setLoading(true)
+          await login(data)
+          history.push("/dashboard")
+        } catch {
+          customButton.fire('Error', 'error logging in, try again', 'error')
+        }
+
         setLoading(false)
-        return customButton.fire('login error', error, 'error')
-      }
-      setToken(accessToken)
-      history.push('/dashboard')
-      setLoading(false)
     }
+  
 
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">

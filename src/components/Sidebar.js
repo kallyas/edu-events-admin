@@ -11,21 +11,22 @@ import { Link, useHistory } from 'react-router-dom';
 import decode from "jwt-decode"
 
 import { Routes } from "../routes";
-import AuthService from "../service/AuthService";
 import ReactHero from "../assets/images/react-hero-logo.svg";
 import ProfilePicture from "../assets/images/profile_placeholder.png";
+import { useAuth } from "../context/AuthContext";
 
 const Sidebar = (props = {}) => {
   const location = useLocation();
   const { pathname } = location;
+  const { logout } = useAuth();
   const history = useHistory();
   const [show, setShow] = useState(false);
   const showClass = show ? "show" : "";
 
   const { user } = props
 
-  const logout = () => {
-    AuthService.logout();
+  const Logout = async () => {
+    await logout()
     history.push(Routes.Login.path);
   }
 
@@ -98,7 +99,7 @@ const Sidebar = (props = {}) => {
                 <div className="d-block">
                   <h6>Hi, {user?.email}</h6>
                   <Button variant="secondary" size="xs" className="text-dark"
-                    onClick={logout}
+                    onClick={Logout}
                   >
                     <FontAwesomeIcon icon={faSignOutAlt} className="me-2" /> Sign Out
                   </Button>
