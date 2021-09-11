@@ -1,0 +1,130 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-anonymous-default-export */
+
+import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Nav, Card, Button, Table, Dropdown, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
+import { Link } from 'react-router-dom';
+import app from "../config/firebaseInit";
+import { getFirestore } from "firebase/firestore";
+import { collection,  getDocs } from "firebase/firestore";
+
+import { Routes } from "../routes"
+
+    const Projects = ({ data }) => {
+    const TableRow = (props) => {
+      const { id, title, date } = props;
+  
+      return (
+        <tr>
+          <td>
+            <Card.Link as={Link} className="fw-normal"
+              to={"#"}
+            >
+              {"#"}
+            </Card.Link>
+          </td>
+          
+          <td>
+            <span className="fw-normal">
+              {title}
+            </span>
+          </td>
+          <td>
+            <span className="fw-normal">
+              {date}
+            </span>
+          </td>
+          <td>
+            <Dropdown as={ButtonGroup}>
+              <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
+                <span className="icon icon-sm">
+                  <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                </span>
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <Link to={"#"} >
+                  <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
+                </Dropdown.Item>
+                <Dropdown.Item className="text-danger">
+                  <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </td>
+        </tr>
+      );
+    };
+  
+    return (
+      <Card border="light" className="table-wrapper table-responsive shadow-sm">
+        <Card.Body className="pt-0">
+          <Table hover className="user-table align-data-center">
+            <thead>
+              <tr>
+                <th className="border-bottom">#</th>
+                <th className="border-bottom">Project</th>
+                <th className="border-bottom">Deadline</th>
+                <th className="border-bottom">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+ {data?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
+            </tbody>
+          </Table>
+          {/* <Card.Footer className="px-3 border-0 d-lg-flex align-data-center justify-content-between">
+            <Nav>
+              <Pagination className="mb-2 mb-lg-0">
+                <Pagination.Prev>
+                  Previous
+                </Pagination.Prev>
+                <Pagination.Item active>1</Pagination.Item>
+                <Pagination.Item>2</Pagination.Item>
+                <Pagination.Item>3</Pagination.Item>
+                <Pagination.Item>4</Pagination.Item>
+                <Pagination.Item>5</Pagination.Item>
+                <Pagination.Next>
+                  Next
+                </Pagination.Next>
+              </Pagination>
+            </Nav>
+            <small className="fw-bold">
+              Showing <b>{data.length}</b> out of <b>{data.length}</b> entries
+            </small>
+          </Card.Footer> */}
+        </Card.Body>
+      </Card>
+    );
+  };
+
+  export default Projects
+
+  
+export const getStaticProps = async () => {
+      const db = getFirestore();
+  const data = []
+  try{
+      const projects = await getDocs(collection(db, "lms_projects"));      
+      projects.forEach((doc) => {
+         data.push(Object.assign({
+             id: doc.id
+         },doc.data()))
+        }); 
+         
+  }catch(err){
+      console.log(err)
+  }
+  
+  return{
+      props: {
+          data
+      }  
+      
+  }
+}

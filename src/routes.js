@@ -3,5 +3,6 @@ export const Routes = {
     Dashboard: { path: "/dashboard" },
     AddEvent: { path: "/dashboard/events/new" },
     Events: { path: "/dashboard/events" },
-    UserList: { path: "/dashboard/user-list"}
+    UserList: { path: "/dashboard/user-list"},
+    Addproject: { path: "/dashboard/addProject"}
 }
