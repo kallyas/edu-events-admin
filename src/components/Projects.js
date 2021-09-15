@@ -6,9 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Card, Button, Table, Dropdown, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
-import app from "../config/firebaseInit";
-import { getFirestore } from "firebase/firestore";
-import { collection,  getDocs } from "firebase/firestore";
 
 import { Routes } from "../routes"
 
@@ -75,7 +72,7 @@ import { Routes } from "../routes"
               </tr>
             </thead>
             <tbody>
- {data?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
+              {data?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
             </tbody>
           </Table>
           {/* <Card.Footer className="px-3 border-0 d-lg-flex align-data-center justify-content-between">
@@ -104,27 +101,3 @@ import { Routes } from "../routes"
   };
 
   export default Projects
-
-  
-export const getStaticProps = async () => {
-      const db = getFirestore();
-  const data = []
-  try{
-      const projects = await getDocs(collection(db, "lms_projects"));      
-      projects.forEach((doc) => {
-         data.push(Object.assign({
-             id: doc.id
-         },doc.data()))
-        }); 
-         
-  }catch(err){
-      console.log(err)
-  }
-  
-  return{
-      props: {
-          data
-      }  
-      
-  }
-}
