@@ -9,7 +9,7 @@ import NewEvent from "./pages/NewEvent";
 import NotFound from "./pages/NotFound";
 import UserList from "./pages/UserList";
 import { Routes } from "./routes";
-
+import Addproject from './pages/Addproject';
 require('dotenv').config()
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
         <ProtectedRoute exact path={Routes.AddEvent.path} component={NewEvent} />
         <ProtectedRoute exact path={Routes.Events.path} component={Events} />
         <ProtectedRoute exact path={Routes.UserList.path} component={UserList} />
+        <ProtectedRoute exact path={Routes.Addproject.path} component={Addproject} />
         <Route component={NotFound} />
       </Switch>
       </AuthProvider>

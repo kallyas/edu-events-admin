@@ -5,11 +5,11 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faBook, faBoxOpen, faChartPie, faFileAlt, faSignOutAlt, faTimes, faHandHoldingUsd, faCog, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt, faBook, faBoxOpen, faChartPie, faFileAlt, faSignOutAlt, faTimes, faHandHoldingUsd, faCog, faUserAlt, faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import decode from "jwt-decode"
-
+//import AssignmentIcon from '@material-ui/icons/Assignment';
 import { Routes } from "../routes";
 import ReactHero from "../assets/images/react-hero-logo.svg";
 import ProfilePicture from "../assets/images/profile_placeholder.png";
@@ -115,7 +115,7 @@ const Sidebar = (props = {}) => {
               <NavItem title="Overview" link={'/dashboard'} icon={faChartPie} />
               <NavItem title="Events" icon={faCalendarAlt} link={'/dashboard/events'} />
               <NavItem title="User List" icon={faUserAlt} link={'/dashboard/user-list'} />
-              
+                <NavItem title="Projects" icon={faBriefcase} link={'/dashboard/addProject'} />
 
               {/* <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
                 <NavItem title="Sign In" link={Routes.SignIn.path} />
