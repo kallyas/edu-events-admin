@@ -19,8 +19,7 @@
     "@fullcalendar/interaction": "^5.9.0",
     "@fullcalendar/react": "^5.9.0",
     "@fullcalendar/timegrid": "^5.9.0",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
+    "@testing-library/cypress": "^8.0.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -29,6 +28,7 @@
     "chartist": "^0.11.4",
     "chartist-plugin-tooltips-updated": "^0.1.4",
     "cloudinary": "^1.26.3",
+    "cypress": "^8.3.1",
     "datauri": "^4.1.0",
     "dotenv": "^10.0.0",
     "firebase": "^9.0.1",
@@ -67,7 +67,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "npx cypress run  --record --key f12656e4-fb5b-4ec9-a3ac-d72b9c6b2d1f",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
