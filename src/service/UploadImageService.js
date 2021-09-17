@@ -29,19 +29,25 @@ export default async function UploadImageService(image) {
         default:
           console.log('unknown error');
       }
-    },
-    (error) => {
+    }, (error) => {
       // Handle unsuccessful uploads
-    }, () => {
-      // Handle successful uploads on complete
-      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        console.log('File available at', downloadURL);
-        localStorage.setItem('imgUrl', downloadURL);
-        return downloadURL
-      });
     }
   );
 
-  return imgUrl
+  const getImgUrl = async () => {
+    // get download url from storage after upload
+    let downloadURL;
+    if (progress === 100) {
+      setTimeout(() => {
+        downloadURL = getDownloadURL(storageRef);
+      console.log(downloadURL);
+      }, 10000)
+    }
+    //return downloadURL;
+    return downloadURL;
+    
+  }
+
+
+  return imgUrl = await getImgUrl();
 }

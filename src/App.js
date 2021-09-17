@@ -1,33 +1,28 @@
 /* eslint-disable no-unused-vars */
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Provider } from 'react-redux';
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
-import { StateProvider } from "./context/AdminContext";
-import Dashboard from "./pages/Dashboard";
-import Events from "./pages/events";
-import Login from './pages/Login';
-import NewEvent from "./pages/NewEvent";
-import NotFound from "./pages/NotFound";
-import UserList from "./pages/UserList";
+import {Dashboard,Events,Login,NewEvent,NotFound,UserList, Addproject } from './pages/index'
 import { Routes } from "./routes";
-import Addproject from './pages/Addproject';
+import store from './store';
 require('dotenv').config()
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <Provider store={store}>
       <Switch>
         <Route exact path={Routes.Login.path} component={Login} />
-        <StateProvider>
         <ProtectedRoute exact path={Routes.Dashboard.path} component={Dashboard} />
         <ProtectedRoute exact path={Routes.AddEvent.path} component={NewEvent} />
         <ProtectedRoute exact path={Routes.Events.path} component={Events} />
         <ProtectedRoute exact path={Routes.UserList.path} component={UserList} />
         <ProtectedRoute exact path={Routes.Addproject.path} component={Addproject} />
-        </StateProvider>
         <Route component={NotFound} />
       </Switch>
+      </Provider>
       </AuthProvider>
     </BrowserRouter>
   );

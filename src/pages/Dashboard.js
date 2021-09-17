@@ -36,7 +36,7 @@ const Dashboard = ({ user }) => {
         </ButtonGroup>
       </div>
 
-      {/* <Row className="justify-content-md-center">
+      <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
             title="Sales Value"
@@ -120,7 +120,7 @@ const Dashboard = ({ user }) => {
             </Col>
           </Row>
         </Col>
-      </Row> */}
+      </Row>
     </>
   );
 };
