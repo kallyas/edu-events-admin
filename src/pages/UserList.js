@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCog, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown} from '@themesberg/react-bootstrap';
 import UserListTable from "../components/UserListTable";
-import { useAdmin } from '../context/AdminContext';
 import exportToCSV from '../utils/ExportToCSV';
+import { useSelector } from 'react-redux';
 
 const UserList = () => {
-  const { users } = useAdmin()
+  // const users = useSelector((state) => state.users);
 
     return (
         <>
@@ -25,7 +25,7 @@ const UserList = () => {
               <ButtonGroup>
                 <Button variant="outline-primary" size="sm">Share</Button>
                 <Button variant="outline-primary" size="sm"
-                onClick={() => exportToCSV(users, 'userList')}
+                onClick={() => exportToCSV({}, 'userList')}
                 >Export</Button>
               </ButtonGroup>
             </div>

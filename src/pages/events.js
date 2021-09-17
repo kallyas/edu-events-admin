@@ -1,12 +1,21 @@
 /* eslint-disable no-unused-vars */
 import { Card, Col, Row } from '@themesberg/react-bootstrap';
 import moment from 'moment';
+import { useContext, useEffect } from 'react';
 import MoonLoader from 'react-spinners/MoonLoader';
-import { useAdmin } from '../context/AdminContext';
+import { fetchEvents } from '../actions/eventActions'
+import { connect, useSelector } from 'react-redux';
+
+
 
 const Events = () => {
-  const { loading, events } = useAdmin()
-
+  const loading = false;
+  const { events } = useSelector((state) => state.events);
+  console.log(events);
+  useEffect(() => {
+    fetchEvents()
+  }, [])
+  
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -129,4 +138,8 @@ const Events = () => {
   );
 };
 
-export default Events;
+const mapStateToProps = state => ({
+  events: state.events.events,
+});
+
+export default connect(mapStateToProps, { fetchEvents })(Events);

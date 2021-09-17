@@ -7,4 +7,4 @@ export const UPLOAD_EVENT_IMAGE_SUCCESS = 'UPLOAD_EVENT_IMAGE_SUCCESS';
 export const GET_EVENTS = 'GET_EVENTS';
 export const GET_USERS = 'GET_USERS';
 export const GET_PROJECTS = 'GET_PROJECTS';
-export const ADD_PROJECTS = 'ADD_PROJECTS';
+export const ADD_PROJECT = 'ADD_PROJECT';

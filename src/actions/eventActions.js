@@ -12,6 +12,7 @@ export const addEvent = (event) => dispatch => {
 }
 
 export const fetchEvents = () => dispatch => {
+    console.log("fetching events");
     getEvents().then(data => {
         dispatch({
             type: GET_EVENTS,

@@ -2,16 +2,20 @@
 import { useEffect, useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useDispatch } from 'react-redux';
 
 import { Preloader, Sidebar, Footer, Navbar } from './index';
 import { Routes } from '../routes';
+import { fetchEvents } from '../actions/eventActions';
 
 function ProtectedRoute({ component: Component, ...rest }) {
   const [loaded, setLoaded] = useState(false);
   const { currentUser } = useAuth();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 1000);
+    dispatch(fetchEvents)
     return () => clearTimeout(timer);
   }, []);
 
