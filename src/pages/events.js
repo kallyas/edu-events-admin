@@ -1,21 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
 import { Card, Col, Row } from '@themesberg/react-bootstrap';
-import getEvents from '../service/getEventsService';
 import moment from 'moment';
 import MoonLoader from 'react-spinners/MoonLoader';
+import { useAdmin } from '../context/AdminContext';
 
 const Events = () => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { loading, events } = useAdmin()
 
-  useEffect(() => {
-    setLoading(true);
-    getEvents().then((e) => {
-      setEvents(e);
-      setLoading(false);
-    });
-  }, []);
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">

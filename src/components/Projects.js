@@ -1,15 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
-
-import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Card, Button, Table, Dropdown, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useAdmin } from '../context/AdminContext'
 
-import { Routes } from "../routes"
-
-    const Projects = ({ data }) => {
+    const Projects = () => {
+      const { loading, projects} = useAdmin()
     const TableRow = (props) => {
       const { id, title, date } = props;
   
@@ -72,10 +70,10 @@ import { Routes } from "../routes"
               </tr>
             </thead>
             <tbody>
-              {data?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
+              {projects?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
             </tbody>
           </Table>
-          {/* <Card.Footer className="px-3 border-0 d-lg-flex align-data-center justify-content-between">
+          <Card.Footer className="px-3 border-0 d-lg-flex align-data-center justify-content-between">
             <Nav>
               <Pagination className="mb-2 mb-lg-0">
                 <Pagination.Prev>
@@ -92,9 +90,9 @@ import { Routes } from "../routes"
               </Pagination>
             </Nav>
             <small className="fw-bold">
-              Showing <b>{data.length}</b> out of <b>{data.length}</b> entries
+              Showing <b>{projects.length}</b> out of <b>{projects.length}</b> entries
             </small>
-          </Card.Footer> */}
+          </Card.Footer>
         </Card.Body>
       </Card>
     );

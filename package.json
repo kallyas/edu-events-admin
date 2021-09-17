@@ -31,6 +31,7 @@
     "cypress": "^8.3.1",
     "datauri": "^4.1.0",
     "dotenv": "^10.0.0",
+    "file-saver": "^2.0.5",
     "firebase": "^9.0.1",
     "framer-motion": "^4.1.17",
     "jwt-decode": "^3.1.2",
@@ -62,7 +63,8 @@
     "sweetalert2": "^11.1.0",
     "sweetalert2-react-content": "^4.1.1",
     "urlencode": "^1.1.0",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "xlsx": "^0.17.2"
   },
   "scripts": {
     "start": "react-scripts start",

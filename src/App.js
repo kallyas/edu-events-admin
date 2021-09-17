@@ -2,6 +2,7 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
+import { StateProvider } from "./context/AdminContext";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/events";
 import Login from './pages/Login';
@@ -18,11 +19,13 @@ function App() {
       <AuthProvider>
       <Switch>
         <Route exact path={Routes.Login.path} component={Login} />
+        <StateProvider>
         <ProtectedRoute exact path={Routes.Dashboard.path} component={Dashboard} />
         <ProtectedRoute exact path={Routes.AddEvent.path} component={NewEvent} />
         <ProtectedRoute exact path={Routes.Events.path} component={Events} />
         <ProtectedRoute exact path={Routes.UserList.path} component={UserList} />
         <ProtectedRoute exact path={Routes.Addproject.path} component={Addproject} />
+        </StateProvider>
         <Route component={NotFound} />
       </Switch>
       </AuthProvider>

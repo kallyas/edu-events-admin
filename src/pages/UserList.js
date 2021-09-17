@@ -1,18 +1,14 @@
 
-import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCog, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown} from '@themesberg/react-bootstrap';
 import UserListTable from "../components/UserListTable";
-import getUsers from "../service/getUserService";
-
+import { useAdmin } from '../context/AdminContext';
+import exportToCSV from '../utils/ExportToCSV';
 
 const UserList = () => {
-    const [items, setItems] = useState([])
+  const { users } = useAdmin()
 
-    useEffect(() => {
-        getUsers().then(data => setItems(data))
-    })
     return (
         <>
           <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -28,7 +24,9 @@ const UserList = () => {
             <div className="btn-toolbar mb-2 mb-md-0">
               <ButtonGroup>
                 <Button variant="outline-primary" size="sm">Share</Button>
-                <Button variant="outline-primary" size="sm">Export</Button>
+                <Button variant="outline-primary" size="sm"
+                onClick={() => exportToCSV(users, 'userList')}
+                >Export</Button>
               </ButtonGroup>
             </div>
           </div>
@@ -62,7 +60,7 @@ const UserList = () => {
               </Col>
             </Row>
             </div>
-            <UserListTable items={items} />
+            <UserListTable/>
           {/* { loading ? (
             <>
             <TableSkeleton />
