@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp, faChartArea, faChartBar, faChartLine, faFlagUsa, faFolderOpen, faGlobeEurope, faPaperclip, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faAngular, faBootstrap, faReact, faVuejs } from "@fortawesome/free-brands-svg-icons";
 import { Col, Row, Card, Image, Button, ListGroup, ProgressBar } from '@themesberg/react-bootstrap';
-import { CircleChart, BarChart, SalesValueChart, SalesValueChartphone } from "./Charts";
+import { CircleChart, BarChart, GeneralValueChart, GeneralValueChartphone } from "./Charts";
 
 import Profile1 from "../assets/images/profile-picture-1.jpg";
 import ProfileCover from "../assets/images/profile-cover.jpg";
@@ -303,7 +303,7 @@ export const RankingWidget = () => {
   );
 };
 
-export const SalesValueWidget = (props) => {
+export const AnalyticsWidget = (props) => {
   const { title, value, percentage } = props;
   const percentageIcon = percentage < 0 ? faAngleDown : faAngleUp;
   const percentageColor = percentage < 0 ? "text-danger" : "text-success";
@@ -330,13 +330,13 @@ export const SalesValueWidget = (props) => {
         </div>
       </Card.Header>
       <Card.Body className="p-2">
-        <SalesValueChart />
+        <GeneralValueChart />
       </Card.Body>
     </Card>
   );
 };
 
-export const SalesValueWidgetPhone = (props) => {
+export const AnalyticsWidgetPhone = (props) => {
   const { title, value, percentage } = props;
   const percentageIcon = percentage < 0 ? faAngleDown : faAngleUp;
   const percentageColor = percentage < 0 ? "text-danger" : "text-success";
@@ -348,7 +348,7 @@ export const SalesValueWidgetPhone = (props) => {
           <h5 className="fw-normal mb-2">
             {title}
           </h5>
-          <h3>${value}</h3>
+          <h3>{value}</h3>
           <small className="fw-bold mt-2">
             <span className="me-2">Yesterday</span>
             <FontAwesomeIcon icon={percentageIcon} className={`${percentageColor} me-1`} />
@@ -363,7 +363,7 @@ export const SalesValueWidgetPhone = (props) => {
         </div>
       </Card.Header>
       <Card.Body className="p-2">
-        <SalesValueChartphone />
+        <GeneralValueChartphone />
       </Card.Body>
     </Card>
   );

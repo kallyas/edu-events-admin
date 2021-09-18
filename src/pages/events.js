@@ -5,16 +5,12 @@ import { useContext, useEffect } from 'react';
 import MoonLoader from 'react-spinners/MoonLoader';
 import { fetchEvents } from '../actions/eventActions'
 import { connect, useSelector } from 'react-redux';
+import { useAdmin } from '../context/AdminContext';
 
 
 
 const Events = () => {
-  const loading = false;
-  const { events } = useSelector((state) => state.events);
-  console.log(events);
-  useEffect(() => {
-    fetchEvents()
-  }, [])
+ const {loading, events } = useAdmin()
   
   return (
     <>
@@ -138,8 +134,5 @@ const Events = () => {
   );
 };
 
-const mapStateToProps = state => ({
-  events: state.events.events,
-});
 
-export default connect(mapStateToProps, { fetchEvents })(Events);
+export default Events

@@ -2,11 +2,13 @@
 import React from "react";
 import Chartist from "react-chartist";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+import { useAdmin } from '../context/AdminContext'
 
-export const SalesValueChart = () => {
+export const GeneralValueChart = () => {
+  const { events, users, projects} = useAdmin()
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    series: [[1, 2, 2, 3, 3, 4, 3]]
+    labels: ['Events', 'Users', 'projects'],
+    series: [[events.length, users.length, projects.length]]
   };
 
   const options = {
@@ -34,10 +36,11 @@ export const SalesValueChart = () => {
   );
 };
 
-export const SalesValueChartphone = () => {
+export const GeneralValueChartphone = () => {
+  const { events, users, projects} = useAdmin()
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    series: [[1, 2, 2, 3, 3, 4, 3]]
+    labels: ['Events', 'Users', 'projects'],
+    series: [[events.length, users.length, projects.length]]
   };
 
   const options = {

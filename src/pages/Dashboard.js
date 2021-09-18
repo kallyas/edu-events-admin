@@ -7,13 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCashRegister, faChartLine,  faPlus, faTasks } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
 
-import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../components/Widgets";
+import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, AnalyticsWidgetPhone, AcquisitionWidget } from "../components/Widgets";
 import { PageVisitsTable } from "../components/Tables";
 import { trafficShares, totalOrders } from "../data/charts";
-import { Redirect } from "react-router-dom";
-import { Routes } from "../routes";
+import { AnalyticsWidget } from '../components/AnalyticsWidget';
+import { useAdmin } from '../context/AdminContext'
 
 const Dashboard = ({ user }) => {
+  const { events, users, projects } = useAdmin()
+  const total = events.length + users.length + projects.length
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -37,21 +39,7 @@ const Dashboard = ({ user }) => {
       </div>
 
       <Row className="justify-content-md-center">
-        <Col xs={12} className="mb-4 d-none d-sm-block">
-          <SalesValueWidget
-            title="Sales Value"
-            value="10,567"
-            percentage={10.57}
-          />
-        </Col>
-        <Col xs={12} className="mb-4 d-sm-none">
-          <SalesValueWidgetPhone
-            title="Sales Value"
-            value="10,567"
-            percentage={10.57}
-          />
-        </Col>
-        <Col xs={12} sm={6} xl={4} className="mb-4">
+      <Col xs={12} sm={6} xl={4} className="mb-4">
           <CounterWidget
             category="Customers"
             title="345k"
@@ -75,12 +63,26 @@ const Dashboard = ({ user }) => {
 
         <Col xs={12} sm={6} xl={4} className="mb-4">
           <CircleChartWidget
-            title="Traffic Share"
+            title="Events Funnel"
             data={trafficShares} />
+        </Col>
+        <Col xs={12} className="mb-4 d-none d-sm-block">
+          <AnalyticsWidget
+          title="Analytics"
+          value={total}
+          percentage="1"
+          />
+        </Col>
+        <Col xs={12} className="mb-4 d-sm-none">
+          <AnalyticsWidgetPhone
+            title="Analytics"
+            value={total}
+            percentage={1}
+          />
         </Col>
       </Row>
 
-      <Row>
+      {/* <Row>
         <Col xs={12} xl={12} className="mb-4">
           <Row>
             <Col xs={12} xl={8} className="mb-4">
@@ -120,7 +122,7 @@ const Dashboard = ({ user }) => {
             </Col>
           </Row>
         </Col>
-      </Row>
+      </Row> */}
     </>
   );
 };
