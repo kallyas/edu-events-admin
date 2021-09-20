@@ -1,13 +1,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Card, Button, Table, Dropdown, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useAdmin } from '../context/AdminContext'
+
+import { projectsSelector } from '../features/projects/projectSlice'
+
 
     const Projects = () => {
-      const { loading, projects} = useAdmin()
+      const { projects } = useSelector(projectsSelector);
     const TableRow = (props) => {
       const { id, title, date } = props;
   

@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Card, Button, Table, Dropdown, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useAdmin } from '../context/AdminContext';
+import { usersSelector } from '../features/users/usersSlice';
 
     const UserListTable = () => {
-      const { loading, users } = useAdmin()
+      const { loading, users } = useSelector(usersSelector)
 
     const TableRow = (props) => {
       const { event_id, name, email, occupation } = props;

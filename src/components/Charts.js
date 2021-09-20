@@ -1,14 +1,15 @@
 
 import React from "react";
+import { useSelector } from "react-redux";
 import Chartist from "react-chartist";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
-import { useAdmin } from '../context/AdminContext'
+import { eventsSelector } from "../features/events/eventsSlice";
 
 export const GeneralValueChart = () => {
-  const { events, users, projects} = useAdmin()
+  const { events} = useSelector(eventsSelector)
   const data = {
     labels: ['Events', 'Users', 'projects'],
-    series: [[events.length, users.length, projects.length]]
+    series: [[events?.length, 28, 67]]
   };
 
   const options = {
@@ -37,10 +38,10 @@ export const GeneralValueChart = () => {
 };
 
 export const GeneralValueChartphone = () => {
-  const { events, users, projects} = useAdmin()
+  const { events} = useSelector(eventsSelector)
   const data = {
     labels: ['Events', 'Users', 'projects'],
-    series: [[events.length, users.length, projects.length]]
+    series: [[events?.length, 28, 67]]
   };
 
   const options = {

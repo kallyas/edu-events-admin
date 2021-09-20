@@ -1,16 +1,20 @@
 /* eslint-disable no-unused-vars */
 import { Card, Col, Row } from '@themesberg/react-bootstrap';
 import moment from 'moment';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import MoonLoader from 'react-spinners/MoonLoader';
-import { fetchEvents } from '../actions/eventActions'
-import { connect, useSelector } from 'react-redux';
-import { useAdmin } from '../context/AdminContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { eventsSelector, fetchEventsAsync } from '../features/events/eventsSlice';
 
 
 
 const Events = () => {
- const {loading, events } = useAdmin()
+ const { events, loading, hasErrors } = useSelector(eventsSelector)
+ const dispatch = useDispatch();
+
+ useEffect(() => {
+   dispatch(fetchEventsAsync());
+ }, [dispatch])
   
   return (
     <>

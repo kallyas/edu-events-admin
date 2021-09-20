@@ -31,7 +31,7 @@ export const AnalyticsWidget = (props) => {
           </div>
         </Card.Header>
         <Card.Body className="p-2">
-          <GeneralValueChart />
+          <GeneralValueChart  />
         </Card.Body>
       </Card>
     );

@@ -11,11 +11,16 @@ import "./App.css"
 import App from './App';
 import { ScrollToTop } from "./components/index"
 
+import { Provider } from "react-redux";
+import  store  from "./store";
+
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter basename="/">
       <ScrollToTop />
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
