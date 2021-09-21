@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const projectSlice = createSlice({
-  name: "project",
+  name: "projects",
   initialState,
   reducers: {
     fetchProjects: (state) => {
@@ -28,7 +28,7 @@ export const projectSlice = createSlice({
 
 export const { fetchProjects, fetchProjectsSuccess, fetchProjectsFailure } = projectSlice.actions;
 
-export const projectsSelector = (state) => state?.project;
+export const projectsSelector = (state) => state?.projects;
 
 export default projectSlice.reducer;
 

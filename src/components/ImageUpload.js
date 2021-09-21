@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Row, Col, Card, Form, Image } from "@themesberg/react-bootstrap";
 import { useDropzone } from "react-dropzone";
-import { useAdmin } from "../context/AdminContext";
 
 
 
 const ImageUpload = () => {
     const [files, setFiles] = useState([]);
-    const { getUrl } = useAdmin()
     const { getRootProps, getInputProps } = useDropzone({
       accept: 'image/*',
       onDrop: files => {
@@ -16,8 +14,6 @@ const ImageUpload = () => {
           preview: URL.createObjectURL(file)
         })));
         console.log(files);
-        getUrl(files[0])
-
       }
     });
   

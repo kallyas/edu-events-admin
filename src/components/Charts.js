@@ -4,12 +4,17 @@ import { useSelector } from "react-redux";
 import Chartist from "react-chartist";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 import { eventsSelector } from "../features/events/eventsSlice";
+import { projectsSelector } from "../features/projects/projectSlice"
+import { usersSelector } from "../features/users/usersSlice"
 
 export const GeneralValueChart = () => {
-  const { events} = useSelector(eventsSelector)
+  const { events } = useSelector(eventsSelector)
+  const { projects } = useSelector(projectsSelector)
+  const { users } = useSelector(usersSelector)
+
   const data = {
     labels: ['Events', 'Users', 'projects'],
-    series: [[events?.length, 28, 67]]
+    series: [[events?.length, users.length, projects.length]]
   };
 
   const options = {

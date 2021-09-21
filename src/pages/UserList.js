@@ -9,6 +9,7 @@ import { fetchUsersAsync, usersSelector } from '../features/users/usersSlice';
 import { useEffect } from 'react';
 
 const UserList = () => {
+  // eslint-disable-next-line
   const { users, loading, hasErrors } = useSelector(usersSelector)
   const dispatch = useDispatch()
 
