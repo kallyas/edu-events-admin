@@ -1,12 +1,20 @@
 
 import React from "react";
+import { useSelector } from "react-redux";
 import Chartist from "react-chartist";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+import { eventsSelector } from "../features/events/eventsSlice";
+import { projectsSelector } from "../features/projects/projectSlice"
+import { usersSelector } from "../features/users/usersSlice"
 
-export const SalesValueChart = () => {
+export const GeneralValueChart = () => {
+  const { events } = useSelector(eventsSelector)
+  const { projects } = useSelector(projectsSelector)
+  const { users } = useSelector(usersSelector)
+
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    series: [[1, 2, 2, 3, 3, 4, 3]]
+    labels: ['Events', 'Users', 'projects'],
+    series: [[events?.length, users.length, projects.length]]
   };
 
   const options = {
@@ -34,10 +42,11 @@ export const SalesValueChart = () => {
   );
 };
 
-export const SalesValueChartphone = () => {
+export const GeneralValueChartphone = () => {
+  const { events} = useSelector(eventsSelector)
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    series: [[1, 2, 2, 3, 3, 4, 3]]
+    labels: ['Events', 'Users', 'projects'],
+    series: [[events?.length, 28, 67]]
   };
 
   const options = {

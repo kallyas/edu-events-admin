@@ -7,7 +7,6 @@ import { Col, Row, Card, Image, Button, Table, ProgressBar } from '@themesberg/r
 import { pageVisits, pageTraffic, pageRanking } from "../data/tables";
 import commands from "../data/commands";
 
-console.log(commands)
 
 const ValueChange = ({ value, suffix }) => {
   const valueIcon = value < 0 ? faAngleDown : faAngleUp;

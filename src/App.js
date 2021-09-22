@@ -2,14 +2,9 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
-import Dashboard from "./pages/Dashboard";
-import Events from "./pages/events";
-import Login from './pages/Login';
-import NewEvent from "./pages/NewEvent";
-import NotFound from "./pages/NotFound";
-import UserList from "./pages/UserList";
+import {Dashboard,Events,Login,NewEvent,NotFound,UserList, Addproject } from './pages/index'
 import { Routes } from "./routes";
-import Addproject from './pages/Addproject';
+// import { StateProvider } from "./context/AdminContext";
 require('dotenv').config()
 
 function App() {

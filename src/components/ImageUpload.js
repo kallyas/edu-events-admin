@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Row, Col, Card, Form, Image } from "@themesberg/react-bootstrap";
 import { useDropzone } from "react-dropzone";
-import UploadImageService from "../service/UploadImageService";
 
 
 
@@ -15,7 +14,6 @@ const ImageUpload = () => {
           preview: URL.createObjectURL(file)
         })));
         console.log(files);
-        UploadImageService(files[0])
       }
     });
   

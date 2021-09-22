@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
 import { Card, Col, Row } from '@themesberg/react-bootstrap';
-import getEvents from '../service/getEventsService';
 import moment from 'moment';
+import { useEffect } from 'react';
 import MoonLoader from 'react-spinners/MoonLoader';
+import { useDispatch, useSelector } from 'react-redux';
+import { eventsSelector, fetchEventsAsync } from '../features/events/eventsSlice';
+
+
 
 const Events = () => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(false);
+ const { events, loading, hasErrors } = useSelector(eventsSelector)
+ const dispatch = useDispatch();
 
-  useEffect(() => {
-    setLoading(true);
-    getEvents().then((e) => {
-      setEvents(e);
-      setLoading(false);
-    });
-  }, []);
+ useEffect(() => {
+   dispatch(fetchEventsAsync());
+ }, [dispatch])
+  
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -138,4 +138,5 @@ const Events = () => {
   );
 };
 
-export default Events;
+
+export default Events

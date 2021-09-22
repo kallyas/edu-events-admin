@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
-
-import React from "react";
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Card, Button, Table, Dropdown, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
-import { Link } from 'react-router-dom';
+import { usersSelector } from '../features/users/usersSlice';
 
-import { Routes } from "../routes"
+    const UserListTable = () => {
+      const { loading, users } = useSelector(usersSelector)
 
-    const UserListTable = ({ items }) => {
     const TableRow = (props) => {
-      const { id, name, email, occupation } = props;
+      const { event_id, name, email, occupation } = props;
   
       return (
         <tr>
@@ -35,6 +35,11 @@ import { Routes } from "../routes"
           <td>
             <span className="fw-normal">
               {occupation}
+            </span>
+          </td>
+          <td>
+            <span className="fw-normal">
+              {event_id?.split('/')[2]}
             </span>
           </td>
           <td>
@@ -73,11 +78,12 @@ import { Routes } from "../routes"
                 <th className="border-bottom">Name</th>
                 <th className="border-bottom">Email</th>
                 <th className="border-bottom">Occupation</th>
+                <th className="border-bottom">Event ID</th>
                 <th className="border-bottom">Action</th>
               </tr>
             </thead>
             <tbody>
-              {items?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
+              {users?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
             </tbody>
           </Table>
           <Card.Footer className="px-3 border-0 d-lg-flex align-items-center justify-content-between">
@@ -97,7 +103,7 @@ import { Routes } from "../routes"
               </Pagination>
             </Nav>
             <small className="fw-bold">
-              Showing <b>{items.length}</b> out of <b>{items.length}</b> entries
+              Showing <b>{users.length}</b> out of <b>{users.length}</b> entries
             </small>
           </Card.Footer>
         </Card.Body>

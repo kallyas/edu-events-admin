@@ -3,20 +3,21 @@ import { Button, Dropdown, ButtonGroup } from "@themesberg/react-bootstrap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Projects from "../components/Projects";
-import { getProjects } from "../service/AddProjectService";
 import AddProjectModal from "../components/AddProjectModal";
+import { useDispatch } from "react-redux";
+import { fetchProjectsAsync } from "../features/projects/projectSlice";
 
 function AddProject() {
-  const [fetch, setFetch] = useState([]);
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch()
 
 
   const handleClickOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
   useEffect(() => {
-    getProjects().then(data => setFetch(data))
-  }, []);
+    dispatch(fetchProjectsAsync())
+  }, [dispatch]);
 
   return (
     <>
@@ -36,7 +37,7 @@ function AddProject() {
       </div>
     <div>
       <AddProjectModal show={open} handleClose={handleClose} />
-      <Projects data={fetch} />
+      <Projects />
       </div>
       </>
   );

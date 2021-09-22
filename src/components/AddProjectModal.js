@@ -154,7 +154,7 @@ const AddProjectModal = ({ show, handleClose }) => {
                 </InputGroup>
               </Form.Group>
               <Button variant="primary" type="submit" className="w-100 mt-4">
-                {loading ? 'Adding Project': 'Add Project'}
+                {loading ? 'Adding Project...': 'Add Project'}
               </Button>
             </Form>
           </Card.Body>
