@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import {
   projectsSelector,
-  createProjectsAsync,
+  createProjectAsync,
 } from "../features/projects/projectSlice";
 
 const customButton = withReactContent(
@@ -39,7 +39,7 @@ const AddProjectModal = ({ show, handleClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createProjectsAsync(data));
+    dispatch(createProjectAsync(data));
 
     if (hasErrors) return console.log("error");
     customButton.fire("Success", "Project added successfully", "success");
