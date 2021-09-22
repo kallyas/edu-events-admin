@@ -47,9 +47,8 @@ export const fetchProjectsAsync = () => {
 export const createProjectAsync = (project) => {
   return async (dispatch) => {
     AddNewProject(project)
-      .then((response) => {
+      .then(() => {
         dispatch(fetchProjectsAsync());
-        dispatch(fetchProjectsSuccess(response));
       })
       .catch((error) => {
         dispatch(fetchProjectsFailure(error));

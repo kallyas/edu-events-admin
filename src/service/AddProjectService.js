@@ -9,7 +9,6 @@ export  async function AddNewProject(data) {
         if (!docRef.id) return new Error('An error ocurred while creating an event')   
         const projectSnap = await getDoc(doc(db, "lms_projects", docRef.id))
         const project = {id: projectSnap.id, ...projectSnap.data()}
-        console.log(project);
         return project
     
 }
