@@ -16,7 +16,7 @@ export function useAuth() {
 const auth = getAuth();
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   function login({email, password}) {

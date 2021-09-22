@@ -23,14 +23,20 @@ import { PageVisitsTable } from "../components/Tables";
 import { trafficShares, totalOrders } from "../data/charts";
 import { AnalyticsWidget } from "../components/AnalyticsWidget";
 import { eventsSelector, fetchEventsAsync } from "../features/events/eventsSlice";
+import { usersSelector } from "../features/users/usersSlice";
+import { fetchProjectsAsync } from "../features/projects/projectSlice";
+import { fetchUsersAsync } from "../features/users/usersSlice";
 
-const Dashboard = ({ user }) => {
+const Dashboard = () => {
   const { events, loading, hasErrors } = useSelector(eventsSelector);
+  const { users } = useSelector(usersSelector)
   const dispatch = useDispatch();
   const total = events.length;
 
   useEffect(() => {
-    dispatch(fetchEventsAsync());
+    dispatch(fetchEventsAsync())
+    dispatch(fetchUsersAsync())
+    dispatch(fetchProjectsAsync)
   }, [dispatch]);
   return (
     <>
@@ -62,8 +68,8 @@ const Dashboard = ({ user }) => {
       <Row className="justify-content-md-center">
         <Col xs={12} sm={6} xl={4} className="mb-4">
           <CounterWidget
-            category="Customers"
-            title="345k"
+            category="Users"
+            title={`${users.length}`}
             period="Feb 1 - Apr 1"
             percentage={18.2}
             icon={faChartLine}
@@ -73,11 +79,11 @@ const Dashboard = ({ user }) => {
 
         <Col xs={12} sm={6} xl={4} className="mb-4">
           <CounterWidget
-            category="Revenue"
-            title="$43,594"
+            category="Events"
+            title={`${events.length}`}
             period="Feb 1 - Apr 1"
             percentage={28.4}
-            icon={faCashRegister}
+            icon={faChartLine}
             iconColor="shape-tertiary"
           />
         </Col>

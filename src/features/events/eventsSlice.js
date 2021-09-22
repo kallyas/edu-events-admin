@@ -24,6 +24,9 @@ export const eventsSlice = createSlice({
       state.loading = false;
       state.hasErrors = true;
     },
+    filterEvents: (state, { payload }) => {
+      state.events = payload;
+    }
   },
 });
 

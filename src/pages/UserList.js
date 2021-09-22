@@ -1,4 +1,4 @@
-
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCog, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -6,9 +6,9 @@ import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown} 
 import UserListTable from "../components/UserListTable";
 import exportToCSV from '../utils/ExportToCSV';
 import { fetchUsersAsync, usersSelector } from '../features/users/usersSlice';
-import { useEffect } from 'react';
 
 const UserList = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   // eslint-disable-next-line
   const { users, loading, hasErrors } = useSelector(usersSelector)
   const dispatch = useDispatch()
@@ -46,7 +46,10 @@ const UserList = () => {
                   <InputGroup.Text>
                     <FontAwesomeIcon icon={faSearch} />
                   </InputGroup.Text>
-                  <Form.Control type="text" placeholder="Search" />
+                  <Form.Control type="text" placeholder="Search"
+                  defaultValue={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  />
                 </InputGroup>
               </Col>
               <Col xs={4} md={2} xl={1} className="ps-md-0 text-end">
