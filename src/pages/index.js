@@ -5,6 +5,7 @@ import NewEvent from "./NewEvent";
 import NotFound from "./NotFound";
 import UserList from "./UserList";
 import Addproject from './Addproject';
+import EditEvent from "./EditEvent";
 
 export {
     Dashboard,
@@ -13,5 +14,6 @@ export {
     NewEvent,
     NotFound,
     UserList,
-    Addproject
+    Addproject,
+    EditEvent
 }

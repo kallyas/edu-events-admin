@@ -4,5 +4,6 @@ export const Routes = {
     AddEvent: { path: "/dashboard/events/new" },
     Events: { path: "/dashboard/events" },
     UserList: { path: "/dashboard/user-list"},
-    Addproject: { path: "/dashboard/addProject"}
+    Addproject: { path: "/dashboard/addProject"},
+    EditProject: { path: "/dashboard/edit/event"},
 }

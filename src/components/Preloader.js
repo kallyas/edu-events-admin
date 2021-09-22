@@ -2,7 +2,7 @@
 import React from 'react';
 import { Image } from '@themesberg/react-bootstrap';
 
-import ReactLogo from "../assets/images/react-logo-transparent.svg";
+import ReactLogo from "../assets/images/loader.png";
 
 const Preloader =  (props) => {
 

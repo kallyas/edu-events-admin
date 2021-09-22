@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
-import { useState, useEffect } from 'react'
 import { Col, Row } from '@themesberg/react-bootstrap';
 import EventForm from "../components/EventForm"
 import ImageUpload from '../components/ImageUpload';
