@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Row, Col, Card, Form, Image } from "@themesberg/react-bootstrap";
 import { useDropzone } from "react-dropzone";
+import { useDispatch } from "react-redux";
+import { Row, Col, Card, Form, Image } from "@themesberg/react-bootstrap";
 
+import { uploadImageAsync } from "../features/images/imageSlice";
 
 
 const ImageUpload = () => {
+    const dispatch = useDispatch();
     const [files, setFiles] = useState([]);
     const { getRootProps, getInputProps } = useDropzone({
       accept: 'image/*',
@@ -13,7 +16,7 @@ const ImageUpload = () => {
           ...file,
           preview: URL.createObjectURL(file)
         })));
-        console.log(files);
+        dispatch(uploadImageAsync(files[0]));
       }
     });
   

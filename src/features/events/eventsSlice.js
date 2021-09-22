@@ -53,9 +53,8 @@ export const fetchEventsAsync = () => {
 export const createEventAsync = (event) => {
   return async (dispatch) => {
     createEvent(event)
-      .then((response) => {
+      .then(() => {
         dispatch(fetchEventsAsync());
-        dispatch(fetchEventsSuccess(response));
       })
       .catch((error) => {
         dispatch(fetchEventsFailure(error));
