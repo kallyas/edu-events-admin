@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Card,
   Form,
@@ -7,45 +8,49 @@ import {
   InputGroup,
   Row,
   Col,
-} from '@themesberg/react-bootstrap';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-import { AddNewProject } from '../service/AddProjectService';
+} from "@themesberg/react-bootstrap";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import {
+  projectsSelector,
+  createProjectsAsync,
+} from "../features/projects/projectSlice";
 
 const customButton = withReactContent(
-    Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-dark me-3',
-      },
-      buttonsStyling: false,
-    })
-  );
+  Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-dark me-3",
+    },
+    buttonsStyling: false,
+  })
+);
 
 const AddProjectModal = ({ show, handleClose }) => {
-    const [loading, setLoading] = useState(false)
+  const { loading, hasErrors } = useSelector(projectsSelector);
+  const dispatch = useDispatch();
   const [data, setData] = useState({
-    title: '',
-    question: '',
-    desc: '',
-    status: '',
-    points: '',
-    date: '',
+    title: "",
+    question: "",
+    desc: "",
+    status: "",
+    points: "",
+    date: "",
   });
 
   const handleSubmit = async (e) => {
-      e.preventDefault();
-      setLoading(true)
-      const res = await AddNewProject(data);
-      if(!res) return console.log('error');
-      customButton.fire('Success', 'Project added successfully', 'success')
-      setData({
-        title: '',
-        question: '',
-        desc: '',
-        status: '',
-        points: '',
-        date: '',
-      })
+    e.preventDefault();
+    dispatch(createProjectsAsync(data));
+
+    if (hasErrors) return console.log("error");
+    customButton.fire("Success", "Project added successfully", "success");
+    setData({
+      title: "",
+      question: "",
+      desc: "",
+      status: "",
+      points: "",
+      date: "",
+    });
   };
 
   const handleChange = (e) =>
@@ -154,7 +159,7 @@ const AddProjectModal = ({ show, handleClose }) => {
                 </InputGroup>
               </Form.Group>
               <Button variant="primary" type="submit" className="w-100 mt-4">
-                {loading ? 'Adding Project...': 'Add Project'}
+                {loading ? "Adding Project..." : "Add Project"}
               </Button>
             </Form>
           </Card.Body>
