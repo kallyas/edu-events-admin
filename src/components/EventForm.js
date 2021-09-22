@@ -8,6 +8,9 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import createEvent from '../service/EventService';
 import { selectOptions, customStyles } from './SelectOptions';
+import { useDispatch, useSelector } from 'react-redux';
+import { imageSelector } from '../features/images/imageSlice';
+import { createEventAsync, eventsSelector } from '../features/events/eventsSlice';
 
 const customButton = withReactContent(
   Swal.mixin({
@@ -19,7 +22,9 @@ const customButton = withReactContent(
 );
 
 const EventForm = () => {
-  const [loading, setLoading] = useState(false);
+  const { imageUrl, uploading, uploaded } = useSelector(imageSelector)
+  const { loading } = useSelector(eventsSelector)
+  const dispatch = useDispatch();
   const [categories, setCategories] = useState([])
   const [data, setData] = useState({
     title: '',
@@ -36,16 +41,14 @@ const EventForm = () => {
     excerpt: data.excerpt,
     categories: categories,
     location: data.location,
-    img_url: localStorage.getItem('imgUrl'),
+    img_url: imageUrl,
     body: data.body.toString(),
     completed: false,
   };
 
   const handleSubmit = async (e) => {
-    setLoading(true);
     e.preventDefault();
     if (!finalData.img_url) {
-      setLoading(false);
       return customButton.fire(
         "Ooops, something doesn't seem right",
         'Please upload an Image and try again',
@@ -53,16 +56,9 @@ const EventForm = () => {
       );
     }
     console.log(finalData);
-    const res = await createEvent(finalData);
-    if (!res) {
-      setLoading(false);
-      return customButton.fire(
-        'Error creating event',
-        'Something went wrong while creating an event',
-        'error'
-      );
-    }
-
+    
+    dispatch(createEventAsync(finalData));
+   
     customButton.fire('Sucess', 'Event created successfully', 'success');
     setData({
       title: '',
@@ -73,8 +69,6 @@ const EventForm = () => {
       location: '',
       body: '',
     });
-    localStorage.removeItem('imgUrl');
-    setLoading(false);
   };
   const handleChange = (e) => {
     console.log(finalData);
