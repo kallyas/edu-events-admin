@@ -26,6 +26,7 @@ const EventForm = () => {
   const { loading } = useSelector(eventsSelector)
   const dispatch = useDispatch();
   const [categories, setCategories] = useState([])
+  console.log(loading)
   const [data, setData] = useState({
     title: '',
     time: '',
