@@ -70,8 +70,8 @@ const Dashboard = () => {
           <CounterWidget
             category="Users"
             title={`${users.length}`}
-            period="Feb 1 - Apr 1"
-            percentage={18.2}
+            // period="Feb 1 - Apr 1"
+            // percentage={18.2}
             icon={faChartLine}
             iconColor="shape-secondary"
           />
@@ -81,8 +81,8 @@ const Dashboard = () => {
           <CounterWidget
             category="Events"
             title={`${events.length}`}
-            period="Feb 1 - Apr 1"
-            percentage={28.4}
+            // period="Feb 1 - Apr 1"
+            // percentage={28.4}
             icon={faChartLine}
             iconColor="shape-tertiary"
           />

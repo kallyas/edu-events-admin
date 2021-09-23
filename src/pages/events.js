@@ -107,7 +107,7 @@ const Events = () => {
                               </div>
                             </div>
                             <div className="col">
-                              <a className="card-link" href="/calendar">
+                              <a className="card-link" href={`/dashboard/edit/event/${event.id}`}>
                                 <h5>{event.title}</h5>
                               </a>
                               <span>
