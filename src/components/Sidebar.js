@@ -1,14 +1,34 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useState } from "react";
-import SimpleBar from 'simplebar-react';
+import SimpleBar from "simplebar-react";
 import { useLocation } from "react-router-dom";
-import { CSSTransition } from 'react-transition-group';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faBook, faBoxOpen, faChartPie, faFileAlt, faSignOutAlt, faTimes, faHandHoldingUsd, faCog, faUserAlt, faBriefcase } from "@fortawesome/free-solid-svg-icons";
-import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
-import decode from "jwt-decode"
+import { CSSTransition } from "react-transition-group";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCalendarAlt,
+  faBook,
+  faBoxOpen,
+  faChartPie,
+  faFileAlt,
+  faSignOutAlt,
+  faTimes,
+  faHandHoldingUsd,
+  faCog,
+  faUserAlt,
+  faBriefcase,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  Nav,
+  Badge,
+  Image,
+  Button,
+  Dropdown,
+  Accordion,
+  Navbar,
+} from "@themesberg/react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import decode from "jwt-decode";
 //import AssignmentIcon from '@material-ui/icons/Assignment';
 import { Routes } from "../routes";
 import ReactHero from "../assets/images/react-hero-logo.svg";
@@ -23,12 +43,12 @@ const Sidebar = (props = {}) => {
   const [show, setShow] = useState(false);
   const showClass = show ? "show" : "";
 
-  const { user } = props
+  const { user } = props;
 
   const Logout = async () => {
-    await logout()
+    await logout();
     history.push(Routes.Login.path);
-  }
+  };
 
   const onCollapse = () => setShow(!show);
 
@@ -39,16 +59,19 @@ const Sidebar = (props = {}) => {
     return (
       <Accordion as={Nav.Item} defaultActiveKey={defaultKey}>
         <Accordion.Item eventKey={eventKey}>
-          <Accordion.Button as={Nav.Link} className="d-flex justify-content-between align-items-center">
+          <Accordion.Button
+            as={Nav.Link}
+            className="d-flex justify-content-between align-items-center"
+          >
             <span>
-              <span className="sidebar-icon"><FontAwesomeIcon icon={icon} /> </span>
+              <span className="sidebar-icon">
+                <FontAwesomeIcon icon={icon} />{" "}
+              </span>
               <span className="sidebar-text">{title}</span>
             </span>
           </Accordion.Button>
           <Accordion.Body className="multi-level">
-            <Nav className="flex-column">
-              {children}
-            </Nav>
+            <Nav className="flex-column">{children}</Nav>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
@@ -56,8 +79,20 @@ const Sidebar = (props = {}) => {
   };
 
   const NavItem = (props) => {
-    const { title, link, external, target, icon, image, badgeText, badgeBg = "secondary", badgeColor = "primary" } = props;
-    const classNames = badgeText ? "d-flex justify-content-start align-items-center justify-content-between" : "";
+    const {
+      title,
+      link,
+      external,
+      target,
+      icon,
+      image,
+      badgeText,
+      badgeBg = "secondary",
+      badgeColor = "primary",
+    } = props;
+    const classNames = badgeText
+      ? "d-flex justify-content-start align-items-center justify-content-between"
+      : "";
     const navItemClassName = link === pathname ? "active" : "";
     const linkProps = external ? { href: link } : { as: Link, to: link };
 
@@ -65,13 +100,31 @@ const Sidebar = (props = {}) => {
       <Nav.Item className={navItemClassName} onClick={() => setShow(false)}>
         <Nav.Link {...linkProps} target={target} className={classNames}>
           <span>
-            {icon ? <span className="sidebar-icon"><FontAwesomeIcon icon={icon} /> </span> : null}
-            {image ? <Image src={image} width={20} height={20} className="sidebar-icon svg-icon" /> : null}
+            {icon ? (
+              <span className="sidebar-icon">
+                <FontAwesomeIcon icon={icon} />{" "}
+              </span>
+            ) : null}
+            {image ? (
+              <Image
+                src={image}
+                width={20}
+                height={20}
+                className="sidebar-icon svg-icon"
+              />
+            ) : null}
 
             <span className="sidebar-text">{title}</span>
           </span>
           {badgeText ? (
-            <Badge pill bg={badgeBg} text={badgeColor} className="badge-md notification-count ms-2">{badgeText}</Badge>
+            <Badge
+              pill
+              bg={badgeBg}
+              text={badgeColor}
+              className="badge-md notification-count ms-2"
+            >
+              {badgeText}
+            </Badge>
           ) : null}
         </Nav.Link>
       </Nav.Item>
@@ -80,42 +133,75 @@ const Sidebar = (props = {}) => {
 
   return (
     <>
-      <Navbar expand={false} collapseOnSelect variant="dark" className="navbar-theme-primary px-4 d-md-none">
-        <Navbar.Brand className="me-lg-5" as={Link} to={'/'}>
+      <Navbar
+        expand={false}
+        collapseOnSelect
+        variant="dark"
+        className="navbar-theme-primary px-4 d-md-none"
+      >
+        <Navbar.Brand className="me-lg-5" as={Link} to={"/"}>
           <Image src={ReactHero} className="navbar-brand-light" />
         </Navbar.Brand>
-        <Navbar.Toggle as={Button} aria-controls="main-navbar" onClick={onCollapse}>
+        <Navbar.Toggle
+          as={Button}
+          aria-controls="main-navbar"
+          onClick={onCollapse}
+        >
           <span className="navbar-toggler-icon" />
         </Navbar.Toggle>
       </Navbar>
       <CSSTransition timeout={300} in={show} classNames="sidebar-transition">
-        <SimpleBar className={`collapse ${showClass} sidebar d-md-block bg-primary text-white`}>
+        <SimpleBar
+          className={`collapse ${showClass} sidebar d-md-block bg-primary text-white`}
+        >
           <div className="sidebar-inner px-4 pt-3">
             <div className="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
               <div className="d-flex align-items-center">
                 <div className="user-avatar lg-avatar me-4">
-                  <Image src={ProfilePicture} className="card-img-top rounded-circle border-white" />
+                  <Image
+                    src={ProfilePicture}
+                    className="card-img-top rounded-circle border-white"
+                  />
                 </div>
                 <div className="d-block">
                   <h6>Hi, {user?.email}</h6>
-                  <Button variant="secondary" size="xs" className="text-dark"
+                  <Button
+                    variant="secondary"
+                    size="xs"
+                    className="text-dark"
                     onClick={Logout}
                   >
-                    <FontAwesomeIcon icon={faSignOutAlt} className="me-2" /> Sign Out
+                    <FontAwesomeIcon icon={faSignOutAlt} className="me-2" />{" "}
+                    Sign Out
                   </Button>
                 </div>
               </div>
-              <Nav.Link className="collapse-close d-md-none" onClick={onCollapse}>
+              <Nav.Link
+                className="collapse-close d-md-none"
+                onClick={onCollapse}
+              >
                 <FontAwesomeIcon icon={faTimes} />
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Edu Events" link={'/'} />
+              <NavItem title="Edu Events" link={"/"} />
 
-              <NavItem title="Overview" link={'/dashboard'} icon={faChartPie} />
-              <NavItem title="Events" icon={faCalendarAlt} link={'/dashboard/events'} />
-              <NavItem title="User List" icon={faUserAlt} link={'/dashboard/user-list'} />
-                <NavItem title="Projects" icon={faBriefcase} link={'/dashboard/addProject'} />
+              <NavItem title="Overview" link={"/dashboard"} icon={faChartPie} />
+              <NavItem
+                title="Events"
+                icon={faCalendarAlt}
+                link={"/dashboard/events"}
+              />
+              <NavItem
+                title="User List"
+                icon={faUserAlt}
+                link={"/dashboard/user-list"}
+              />
+              <NavItem
+                title="Projects"
+                icon={faBriefcase}
+                link={"/dashboard/addProject"}
+              />
 
               {/* <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
                 <NavItem title="Sign In" link={Routes.SignIn.path} />
@@ -123,14 +209,18 @@ const Sidebar = (props = {}) => {
               </CollapsableNavItem> */}
 
               <Dropdown.Divider className="my-3 border-indigo" />
-              <NavItem title="Settings" icon={faCog} link={'/'} />
+              <NavItem
+                title="Enrollment"
+                icon={faBook}
+                link={Routes.Enrollment.path}
+              />
+              <NavItem title="Settings" icon={faCog} link={"/"} />
 
               {/* <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={faBook}>
               </CollapsableNavItem>
               <CollapsableNavItem eventKey="components/" title="Components" icon={faBoxOpen}>
             
               </CollapsableNavItem> */}
-             
             </Nav>
           </div>
         </SimpleBar>
@@ -139,4 +229,4 @@ const Sidebar = (props = {}) => {
   );
 };
 
-export default Sidebar
+export default Sidebar;

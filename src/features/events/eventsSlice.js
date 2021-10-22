@@ -26,11 +26,12 @@ export const eventsSlice = createSlice({
     },
     filterEvents: (state, { payload }) => {
       state.events = payload;
-    }
+    },
   },
 });
 
-export const { fetchEvents, fetchEventsSuccess, fetchEventsFailure } = eventsSlice.actions;
+export const { fetchEvents, fetchEventsSuccess, fetchEventsFailure } =
+  eventsSlice.actions;
 
 // a selector
 export const eventsSelector = (state) => state?.events;

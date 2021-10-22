@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useEffect, useState } from "react";
+import { Route, Redirect } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-import { Preloader, Sidebar, Footer, Navbar } from './index';
-import { Routes } from '../routes';
+import { Preloader, Sidebar, Footer, Navbar } from "./index";
+import { Routes } from "../routes";
 
 function ProtectedRoute({ component: Component, ...rest }) {
   const [loaded, setLoaded] = useState(false);
@@ -16,7 +16,7 @@ function ProtectedRoute({ component: Component, ...rest }) {
   }, []);
 
   const localStorageIsSettingsVisible = () => {
-    return localStorage.getItem('settingsVisible') === 'false' ? false : true;
+    return localStorage.getItem("settingsVisible") === "false" ? false : true;
   };
 
   const [showSettings, setShowSettings] = useState(
@@ -25,7 +25,7 @@ function ProtectedRoute({ component: Component, ...rest }) {
 
   const toggleSettings = () => {
     setShowSettings(!showSettings);
-    localStorage.setItem('settingsVisible', !showSettings);
+    localStorage.setItem("settingsVisible", !showSettings);
   };
 
   return (
@@ -35,11 +35,11 @@ function ProtectedRoute({ component: Component, ...rest }) {
         currentUser ? (
           <>
             <Preloader show={loaded ? false : true} />
-            <Sidebar user={currentUser}  />
+            <Sidebar user={currentUser} />
 
             <main className="content">
-              <Navbar user={currentUser}  />
-              <Component  {...props}  />
+              <Navbar user={currentUser} />
+              <Component {...props} />
               <Footer
                 toggleSettings={toggleSettings}
                 showSettings={showSettings}
