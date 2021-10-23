@@ -19,12 +19,18 @@ import {
 } from "@themesberg/react-bootstrap";
 import EnrollmentTable from "../components/EnrollmentTable";
 import exportToCSV from "../utils/ExportToCSV";
-import { getEnrollmentAsync } from "../features/enrollment/enrollmentSlice";
+import {
+  getEnrollmentAsync,
+  searchEnrollmentAsync,
+} from "../features/enrollment/enrollmentSlice";
 
 const Enrollment = ({ users }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm] = useState("");
   const dispatch = useDispatch();
 
+  const onChangeSearchTerm = (e) => {
+    dispatch(searchEnrollmentAsync(e.target.value));
+  };
   useEffect(() => {
     dispatch(getEnrollmentAsync());
   }, [dispatch]);
@@ -71,7 +77,7 @@ const Enrollment = ({ users }) => {
                 type="text"
                 placeholder="Search"
                 defaultValue={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={onChangeSearchTerm}
               />
             </InputGroup>
           </Col>

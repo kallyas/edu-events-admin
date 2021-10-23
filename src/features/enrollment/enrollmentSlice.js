@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import getEnrollment from "../../service/getEnrollment";
+import getEnrollment, { searchEnrollment } from "../../service/getEnrollment";
 
 const initialState = {
   loading: false,
@@ -41,6 +41,16 @@ export const getEnrollmentAsync = () => async (dispatch) => {
   try {
     dispatch(getEnrollmentStart());
     const data = await getEnrollment();
+    dispatch(getEnrollmentSuccess(data));
+  } catch (error) {
+    dispatch(getEnrollmentFailure(error));
+  }
+};
+
+export const searchEnrollmentAsync = (enrollment) => async (dispatch) => {
+  try {
+    dispatch(getEnrollmentStart());
+    const data = await searchEnrollment(enrollment);
     dispatch(getEnrollmentSuccess(data));
   } catch (error) {
     dispatch(getEnrollmentFailure(error));
