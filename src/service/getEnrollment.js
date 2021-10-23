@@ -32,5 +32,6 @@ export async function searchEnrollment(search) {
     en.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  console.log(filteredEnrollment);
   return filteredEnrollment;
 }
