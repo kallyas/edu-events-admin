@@ -32,5 +32,5 @@ export async function searchEnrollment(search) {
     en.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  return search === "" ? enrollment : filteredEnrollment;
+  return filteredEnrollment;
 }
