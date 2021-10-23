@@ -45,7 +45,7 @@ const EnrollmentTable = () => {
           </Card.Link>
         </td>
         <td>
-          <span className="fw-normal">{`${firstName} + ' ' + ${lastName}`}</span>
+          <span className="fw-normal">{`${firstName}  ${lastName}`}</span>
         </td>
         <td>
           <span className="fw-normal">{gender}</span>
