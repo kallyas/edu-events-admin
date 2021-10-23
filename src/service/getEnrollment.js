@@ -28,7 +28,18 @@ export async function searchEnrollment(search) {
     return enrollment.push({ ...doc.data(), id: doc.id });
   });
 
-  return enrollment.filter((en) =>
-    en?.firstName?.toLowerCase().includes(search?.toLowerCase())
-  );
+  return search === ""
+    ? enrollment
+    : enrollment.filter(
+        (en) =>
+          en?.firstName?.toLowerCase().includes(search?.toLowerCase()) ||
+          en?.lastName?.toLowerCase().includes(search?.toLowerCase()) ||
+          en?.email?.toLowerCase().includes(search?.toLowerCase()) ||
+          en?.phoneNumber?.toLowerCase().includes(search?.toLowerCase()) ||
+          en?.experience?.toLowerCase().includes(search?.toLowerCase()) ||
+          en?.education?.toLowerCase().includes(search?.toLowerCase()) ||
+          en?.gender?.toLowerCase().includes(search?.toLowerCase()) ||
+          en?.country?.toLowerCase().includes(search?.toLowerCase()) ||
+          en?.track?.toLowerCase().includes(search?.toLowerCase())
+      );
 }
