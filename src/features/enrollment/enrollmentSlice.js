@@ -49,12 +49,10 @@ export const getEnrollmentAsync = () => async (dispatch) => {
 
 export const searchEnrollmentAsync = (enrollment) => async (dispatch) => {
   try {
-    console.log(enrollment);
     dispatch(getEnrollmentStart());
     const data = await searchEnrollment(enrollment);
     dispatch(getEnrollmentSuccess(data));
   } catch (error) {
-    console.log(error);
     dispatch(getEnrollmentFailure(error));
   }
 };

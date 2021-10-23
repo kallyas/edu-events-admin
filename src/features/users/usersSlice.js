@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import getUsers from "../../service/getUserService";
+import getUsers, { searchUsers } from "../../service/getUserService";
 
 const initialState = {
   users: [],
@@ -26,7 +26,8 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { fetchUsers, fetchUsersSuccess, fetchUsersFailure } = usersSlice.actions;
+export const { fetchUsers, fetchUsersSuccess, fetchUsersFailure } =
+  usersSlice.actions;
 
 export const usersSelector = (state) => state?.users;
 
@@ -42,4 +43,14 @@ export const fetchUsersAsync = () => {
         dispatch(fetchUsersFailure(error));
       });
   };
+};
+
+export const searchUsersAsync = (search) => async (dispatch) => {
+  try {
+    dispatch(fetchUsers());
+    const users = await searchUsers(search);
+    dispatch(fetchUsersSuccess(users));
+  } catch (error) {
+    dispatch(fetchUsersFailure(error));
+  }
 };
