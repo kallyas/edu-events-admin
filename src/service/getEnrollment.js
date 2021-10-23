@@ -28,9 +28,7 @@ export async function searchEnrollment(search) {
     return enrollment.push({ ...doc.data(), id: doc.id });
   });
 
-  const filteredEnrollment = enrollment.filter((en) =>
-    en.firstName.toLowerCase().includes(search.toLowerCase())
+  return enrollment.filter((en) =>
+    en.name.toLowerCase().includes(search.toLowerCase())
   );
-
-  return search === "" ? enrollment : filteredEnrollment;
 }
