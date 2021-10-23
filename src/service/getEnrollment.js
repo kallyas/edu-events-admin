@@ -22,15 +22,13 @@ export default async function getEnrollment() {
 
 export async function searchEnrollment(search) {
   const enrollment = [];
-  const q = query(
-    collection(db, "enrollment"),
-    where("firstName", "==", search)
-  );
+  const q = query(collection(db, "enrollment"));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     return enrollment.push({ ...doc.data(), id: doc.id });
   });
 
-  console.log(enrollment);
-  return enrollment;
+  return enrollment.filter((en) =>
+    en.name.toLowerCase().includes(search.toLowerCase())
+  );
 }
