@@ -202,6 +202,11 @@ const Sidebar = (props = {}) => {
                 icon={faBriefcase}
                 link={"/dashboard/addProject"}
               />
+              <NavItem
+                title="Enrollment"
+                icon={faBook}
+                link={Routes.Enrollment.path}
+              />
 
               {/* <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
                 <NavItem title="Sign In" link={Routes.SignIn.path} />
@@ -209,11 +214,7 @@ const Sidebar = (props = {}) => {
               </CollapsableNavItem> */}
 
               <Dropdown.Divider className="my-3 border-indigo" />
-              <NavItem
-                title="Enrollment"
-                icon={faBook}
-                link={Routes.Enrollment.path}
-              />
+
               <NavItem title="Settings" icon={faCog} link={"/"} />
 
               {/* <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={faBook}>

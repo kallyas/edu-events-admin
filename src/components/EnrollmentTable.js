@@ -24,7 +24,18 @@ const EnrollmentTable = () => {
   const { loading, error, data } = useSelector(enrollmentSelector);
   console.log(data);
   const TableRow = (props) => {
-    const { event_id, name, email, occupation } = props;
+    const {
+      firstName,
+      lastName,
+      gender,
+      phoneNumber,
+      email,
+      education,
+      employement,
+      experience,
+      track,
+      country,
+    } = props;
 
     return (
       <tr>
@@ -34,16 +45,31 @@ const EnrollmentTable = () => {
           </Card.Link>
         </td>
         <td>
-          <span className="fw-normal">{name}</span>
+          <span className="fw-normal">{`${firstName} + ' ' + ${lastName}`}</span>
+        </td>
+        <td>
+          <span className="fw-normal">{gender}</span>
+        </td>
+        <td>
+          <span className="fw-normal">{phoneNumber}</span>
         </td>
         <td>
           <span className="fw-normal">{email}</span>
         </td>
         <td>
-          <span className="fw-normal">{occupation}</span>
+          <span className="fw-normal">{education}</span>
         </td>
         <td>
-          <span className="fw-normal">{event_id?.split("/")[2]}</span>
+          <span className="fw-normal">{employement}</span>
+        </td>
+        <td>
+          <span className="fw-normal">{experience}</span>
+        </td>
+        <td>
+          <span className="fw-normal">{track}</span>
+        </td>
+        <td>
+          <span className="fw-normal">{country}</span>
         </td>
         <td>
           <Dropdown as={ButtonGroup}>
@@ -83,10 +109,15 @@ const EnrollmentTable = () => {
           <thead>
             <tr>
               <th className="border-bottom">#</th>
-              <th className="border-bottom">Name</th>
+              <th className="border-bottom">Full Names</th>
+              <th className="border-bottom">Gender</th>
+              <th className="border-bottom">Phone Number</th>
               <th className="border-bottom">Email</th>
-              <th className="border-bottom">Occupation</th>
-              <th className="border-bottom">Event ID</th>
+              <th className="border-bottom">Education</th>
+              <th className="border-bottom">Employement</th>
+              <th className="border-bottom">Experience</th>
+              <th className="border-bottom">Track</th>
+              <th className="border-bottom">Country</th>
               <th className="border-bottom">Action</th>
             </tr>
           </thead>

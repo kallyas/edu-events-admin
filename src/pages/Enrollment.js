@@ -17,7 +17,7 @@ import {
   InputGroup,
   Dropdown,
 } from "@themesberg/react-bootstrap";
-import UserListTable from "../components/UserListTable";
+import EnrollmentTable from "../components/EnrollmentTable";
 import exportToCSV from "../utils/ExportToCSV";
 import { getEnrollmentAsync } from "../features/enrollment/enrollmentSlice";
 
@@ -104,7 +104,7 @@ const Enrollment = ({ users }) => {
           </Col>
         </Row>
       </div>
-      <UserListTable />
+      <EnrollmentTable />
     </>
   );
 };
