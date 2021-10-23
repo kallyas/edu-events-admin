@@ -29,9 +29,8 @@ export async function searchEnrollment(search) {
   });
 
   const filteredEnrollment = enrollment.filter((en) =>
-    en.name.toLowerCase().includes(search.toLowerCase())
+    en.firstName.toLowerCase().includes(search.toLowerCase())
   );
 
-  console.log(filteredEnrollment);
-  return filteredEnrollment;
+  return search === "" ? enrollment : filteredEnrollment;
 }
