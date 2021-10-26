@@ -12,7 +12,7 @@ const db = getFirestore();
 
 export default async function getEnrollment() {
   const enrollment = [];
-  const querySnapshot = await getDocs(collection(db, "enrollment_testing"));
+  const querySnapshot = await getDocs(collection(db, "enrollment"));
   querySnapshot.forEach((doc) => {
     return enrollment.push({ ...doc.data(), id: doc.id });
   });
@@ -22,7 +22,7 @@ export default async function getEnrollment() {
 
 export async function searchEnrollment(search) {
   const enrollment = [];
-  const q = query(collection(db, "enrollment_testing"));
+  const q = query(collection(db, "enrollment"));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     return enrollment.push({ ...doc.data(), id: doc.id });
