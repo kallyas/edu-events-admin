@@ -139,7 +139,7 @@ const Sidebar = (props = {}) => {
         variant="dark"
         className="navbar-theme-primary px-4 d-md-none"
       >
-        <Navbar.Brand className="me-lg-5" as={Link} to={"/"}>
+        <Navbar.Brand className="me-lg-5" as={Link} to={"/dashboard"}>
           <Image src={ReactHero} className="navbar-brand-light" />
         </Navbar.Brand>
         <Navbar.Toggle
