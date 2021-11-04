@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
@@ -20,12 +20,14 @@ import {
 import EnrollmentTable from "../components/EnrollmentTable";
 import exportToCSV from "../utils/ExportToCSV";
 import {
+  enrollmentSelector,
   getEnrollmentAsync,
   searchEnrollmentAsync,
 } from "../features/enrollment/enrollmentSlice";
 
 const Enrollment = ({ users }) => {
   const [searchTerm] = useState("");
+  const { data } = useSelector(enrollmentSelector)
   const dispatch = useDispatch();
 
   const onChangeSearchTerm = (e) => {
@@ -59,7 +61,7 @@ const Enrollment = ({ users }) => {
             <Button
               variant="outline-primary"
               size="sm"
-              onClick={() => exportToCSV(users, "userList")}
+              onClick={() => exportToCSV(data, "enrollment-list")}
             >
               Export
             </Button>
