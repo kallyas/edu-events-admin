@@ -215,7 +215,7 @@ const Sidebar = (props = {}) => {
 
               <Dropdown.Divider className="my-3 border-indigo" />
 
-              <NavItem title="Settings" icon={faCog} link={"/"} />
+              <NavItem title="Settings" icon={faCog} link={"/dashboard"} />
 
               {/* <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={faBook}>
               </CollapsableNavItem>

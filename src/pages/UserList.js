@@ -58,9 +58,6 @@ const UserList = () => {
         </div>
         <div className="btn-toolbar mb-2 mb-md-0">
           <ButtonGroup>
-            <Button variant="outline-primary" size="sm">
-              Share
-            </Button>
             <Button
               variant="outline-primary"
               size="sm"

@@ -55,9 +55,9 @@ const Enrollment = ({ users }) => {
         </div>
         <div className="btn-toolbar mb-2 mb-md-0">
           <ButtonGroup>
-            <Button variant="outline-primary" size="sm">
+            {/* <Button variant="outline-primary" size="sm">
               Share
-            </Button>
+            </Button> */}
             <Button
               variant="outline-primary"
               size="sm"
