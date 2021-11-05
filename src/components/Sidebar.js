@@ -184,7 +184,7 @@ const Sidebar = (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Edu Events" link={"/"} />
+              <NavItem title="Edu Events" link={"/dashboard"} />
 
               <NavItem title="Overview" link={"/dashboard"} icon={faChartPie} />
               <NavItem
