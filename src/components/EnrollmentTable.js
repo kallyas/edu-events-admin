@@ -95,7 +95,7 @@ const EnrollmentTable = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item>
-                <Link to={"#"}>
+                <Link to={"/dashboard/enrollmentStudent"}>
                   <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
                 </Link>
               </Dropdown.Item>
