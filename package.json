@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "^1.6.7",
+    "@chakra-ui/react": "^1.6.10",
     "@ckeditor/ckeditor5-build-classic": "^29.2.0",
     "@ckeditor/ckeditor5-react": "^3.0.2",
     "@emotion/react": "^11.5.0",
