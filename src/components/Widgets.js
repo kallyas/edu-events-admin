@@ -30,7 +30,22 @@ export const ProfileCardWidget = () => {
     </Card>
   );
 };
+export const MiniProfileCardWidget = (props) => {
+  return (
+    <Card border="light" className="text-center p-0 ">
+      <div style={{ backgroundColor: "#262B40" }} className="profile-cover rounded-top" />
+      <Card.Body >
+        <Card.Title  className="user-avatar large-avatar rounded-circle mx-auto mt-n9  border-0"  >{props.firstName} {props.lastName} </Card.Title>
+        <Card.Subtitle className="fw-normal"> <span className="h6">{props.experience}</span> </Card.Subtitle>
 
+        <Card.Subtitle className="fw-normal m-1"><span className="h6">{props.country}</span></Card.Subtitle>
+        <Card.Text className="text-gray mb-0"><span className="h6">{props.phoneNumber}</span></Card.Text>
+        <Card.Text className="text-gray mb-1"><span className="h6">{props.email}</span></Card.Text>
+
+      </Card.Body>
+    </Card>
+  );
+};
 export const ChoosePhotoWidget = (props) => {
   const { title, photo } = props;
 
@@ -369,11 +384,28 @@ export const AnalyticsWidgetPhone = (props) => {
   );
 };
 
-export const AcquisitionWidget = () => {
+export const DescriptionWidget = (props) => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Body>
-        <h5>Acquisition</h5>
+        <h5>{props.title}</h5>
+        <p className="m-0"> <span className="h6 m-0">Track:</span> {props.track}</p>
+        <p className="m-0"> <span className="h6 ">Education:</span> {props.education}</p>
+        <p className="m-0"> <span className="h6">Employment:</span> {props.employment}</p>
+        <p className="m-0"> <span className="h6">Refferal:</span> {props.referredFrom}</p>
+
+
+        
+      </Card.Body>
+    </Card>
+  );
+};
+
+export const AcquisitionWidget = (props) => {
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Body>
+        <h5>{props.title}</h5>
         <p>Tells you where your visitors originated from, such as search engines, social networks or website referrals.</p>
         <div className="d-block">
           <div className="d-flex align-items-center pt-3 me-5">

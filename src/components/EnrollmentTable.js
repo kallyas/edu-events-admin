@@ -45,6 +45,7 @@ const EnrollmentTable = () => {
       experience,
       track,
       country,
+      id,
     } = props;
 
     return (
@@ -95,7 +96,7 @@ const EnrollmentTable = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item>
-                <Link to={"/dashboard/enrollmentStudent"}>
+                <Link to={`/dashboard/enrollmentStudent/${id}`}>
                   <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
                 </Link>
               </Dropdown.Item>
