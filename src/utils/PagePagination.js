@@ -11,11 +11,13 @@ const PagePagination = (props) => {
     const onPrevItem = () => {
       const prevActiveItem = activeItem === 1 ? activeItem : activeItem - 1;
       setActiveItem(prevActiveItem);
+      props.paginate(prevActiveItem);
     };
   
     const onNextItem = (totalPages) => {
       const nextActiveItem = activeItem === totalPages ? activeItem : activeItem + 1;
       setActiveItem(nextActiveItem);
+        props.paginate(nextActiveItem);
     };
   
     const items = [];

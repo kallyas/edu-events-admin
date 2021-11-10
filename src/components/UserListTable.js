@@ -93,7 +93,7 @@ import PagePagination from '../utils/PagePagination';
               </tr>
             </thead>
             <tbody>
-              {users?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
+              {currentItems?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
             </tbody>
           </Table>
           <Card.Footer className="px-3 border-0 d-lg-flex align-items-center justify-content-between">
