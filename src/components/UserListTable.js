@@ -1,14 +1,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Card, Button, Table, Dropdown, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
 import { usersSelector } from '../features/users/usersSlice';
+import PagePagination from '../utils/PagePagination';
 
     const UserListTable = () => {
       const { loading, users } = useSelector(usersSelector)
+      const [itemsPerPage] = useState(10);
+      const [currentPage, setCurrentPage] = useState(1);
+
+      const indexOfLastItem = currentPage * itemsPerPage;
+      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+      const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
+
+      const paginate = pageNumber => setCurrentPage(pageNumber);
 
     const TableRow = (props) => {
       const { event_id, name, email, occupation } = props;
@@ -87,23 +97,13 @@ import { usersSelector } from '../features/users/usersSlice';
             </tbody>
           </Table>
           <Card.Footer className="px-3 border-0 d-lg-flex align-items-center justify-content-between">
-            <Nav>
-              <Pagination className="mb-2 mb-lg-0">
-                <Pagination.Prev>
-                  Previous
-                </Pagination.Prev>
-                <Pagination.Item active>1</Pagination.Item>
-                <Pagination.Item>2</Pagination.Item>
-                <Pagination.Item>3</Pagination.Item>
-                <Pagination.Item>4</Pagination.Item>
-                <Pagination.Item>5</Pagination.Item>
-                <Pagination.Next>
-                  Next
-                </Pagination.Next>
-              </Pagination>
-            </Nav>
+           <PagePagination 
+            itemsPerPage={itemsPerPage}
+            totalItems={users.length}
+            paginate={paginate}
+           />
             <small className="fw-bold">
-              Showing <b>{users.length}</b> out of <b>{users.length}</b> entries
+              Showing <b>{itemsPerPage}</b> out of <b>{users.length}</b> entries
             </small>
           </Card.Footer>
         </Card.Body>
