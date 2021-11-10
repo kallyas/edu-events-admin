@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-anonymous-default-export */
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,10 +20,19 @@ import {
   ButtonGroup,
 } from "@themesberg/react-bootstrap";
 import { enrollmentSelector } from "../features/enrollment/enrollmentSlice";
+import PagePagination from "../utils/PagePagination";
 
 const EnrollmentTable = () => {
   const { loading, error, data } = useSelector(enrollmentSelector);
-  console.log(data);
+  const [itemsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   const TableRow = (props) => {
     const {
       firstName,
@@ -122,25 +132,15 @@ const EnrollmentTable = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.map((t, i) => (
+            {currentItems?.map((t, i) => (
               <TableRow key={`transaction-${i}`} {...t} />
             ))}
           </tbody>
         </Table>
         <Card.Footer className="px-3 border-0 d-lg-flex align-items-center justify-content-between">
-          <Nav>
-            <Pagination className="mb-2 mb-lg-0">
-              <Pagination.Prev>Previous</Pagination.Prev>
-              <Pagination.Item active>1</Pagination.Item>
-              <Pagination.Item>2</Pagination.Item>
-              <Pagination.Item>3</Pagination.Item>
-              <Pagination.Item>4</Pagination.Item>
-              <Pagination.Item>5</Pagination.Item>
-              <Pagination.Next>Next</Pagination.Next>
-            </Pagination>
-          </Nav>
+          <PagePagination itemsPerPage={itemsPerPage} totalItems={data.length} paginate={paginate} />
           <small className="fw-bold">
-            Showing <b>{data.length}</b> out of <b>{data.length}</b> entries
+            Showing <b>{currentItems.length}</b> out of <b>{data.length}</b> entries
           </small>
         </Card.Footer>
       </Card.Body>
