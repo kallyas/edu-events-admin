@@ -5,8 +5,8 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from "@fortawesome/free-solid-s
 
 
 const PagePagination = (props) => {
-    const [activeItem, setActiveItem] = useState(props.itemsPerPage);
-    const { totalPages = props.totalItems, size = "md", withIcons = false, disablePrev = false } = props;
+    const [activeItem, setActiveItem] = useState(1);
+    const { totalPages = props.itemsPerPage, size = "md", withIcons = false, disablePrev = false } = props;
   
     const onPrevItem = () => {
       const prevActiveItem = activeItem === 1 ? activeItem : activeItem - 1;
