@@ -1,26 +1,49 @@
-import  { Nav, Pagination } from '@themesberg/react-bootstrap'
+import { useState } from "react";
+import { Pagination } from '@themesberg/react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDoubleLeft, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 
-const PagePagination = ({ itemsPerPage, totalItems, paginate}) => {
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
-        pageNumbers.push(i);
-    }
 
+const PagePagination = (props) => {
+    const [activeItem, setActiveItem] = useState(2);
+    const { totalPages = 5, size = "md", withIcons = false, disablePrev = false } = props;
+  
+    const onPrevItem = () => {
+      const prevActiveItem = activeItem === 1 ? activeItem : activeItem - 1;
+      setActiveItem(prevActiveItem);
+    };
+  
+    const onNextItem = (totalPages) => {
+      const nextActiveItem = activeItem === totalPages ? activeItem : activeItem + 1;
+      setActiveItem(nextActiveItem);
+    };
+  
+    const items = [];
+    for (let number = 1; number <= totalPages; number++) {
+      const isItemActive = activeItem === number;
+  
+      const handlePaginationChange = () => {
+        setActiveItem(number);
+      };
+  
+      items.push(
+        <Pagination.Item active={isItemActive} key={number} onClick={handlePaginationChange}>
+          {number}
+        </Pagination.Item>
+      );
+    };
+  
     return (
-        <Nav>
-        <Pagination className="mb-2 mb-lg-0">
-          <Pagination.Prev>
-            Previous
-          </Pagination.Prev>
-          {pageNumbers.map(number => (
-            <Pagination.Item key={number} onClick={() => paginate(number)}></Pagination.Item>
-          ))}
-          <Pagination.Next>
-            Next
-          </Pagination.Next>
-        </Pagination>
-      </Nav>
-    )
-}
+      <Pagination size={size} className="mt-3">
+        <Pagination.Prev disabled={disablePrev} onClick={onPrevItem}>
+          {withIcons ? <FontAwesomeIcon icon={faAngleDoubleLeft} /> : "Previous"}
+        </Pagination.Prev>
+        {items}
+        <Pagination.Next onClick={() => onNextItem(totalPages)}>
+          {withIcons ? <FontAwesomeIcon icon={faAngleDoubleRight} /> : "Next"}
+        </Pagination.Next>
+      </Pagination>
+    );
+  };
 
-export default PagePagination
+  export default PagePagination;
