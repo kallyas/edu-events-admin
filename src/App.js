@@ -56,7 +56,7 @@ function App() {
           />
            <ProtectedRoute
             exact
-            path={Routes.EnrollmentStudent.path}
+            path={`${Routes.EnrollmentStudent.path}/:id`}
             component={EnrollmentStudent}
           />
           <Route component={NotFound} />
