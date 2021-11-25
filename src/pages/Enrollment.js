@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCheck,
-  faCog,
+  // faCheck,
+  // faCog,
   faHome,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +15,7 @@ import {
   ButtonGroup,
   Breadcrumb,
   InputGroup,
-  Dropdown,
+  // Dropdown,
 } from "@themesberg/react-bootstrap";
 import EnrollmentTable from "../components/EnrollmentTable";
 import exportToCSV from "../utils/ExportToCSV";
