@@ -48,7 +48,7 @@ const Enrollment = ({ users }) => {
               <FontAwesomeIcon icon={faHome} />
             </Breadcrumb.Item>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item active>enrollment</Breadcrumb.Item>
+            <Breadcrumb.Item active>enrolment</Breadcrumb.Item>
           </Breadcrumb>
           <h4>enrolled users</h4>
           <p className="mb-0">Users who enrolled for classes.</p>

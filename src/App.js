@@ -12,6 +12,7 @@ import {
   Addproject,
   EditEvent,
   Enrollment,
+  EnrollmentStudent,
 } from "./pages/index";
 import { Routes } from "./routes";
 require("dotenv").config();
@@ -52,6 +53,11 @@ function App() {
             exact
             path={Routes.Enrollment.path}
             component={Enrollment}
+          />
+           <ProtectedRoute
+            exact
+            path={`${Routes.EnrollmentStudent.path}/:id`}
+            component={EnrollmentStudent}
           />
           <Route component={NotFound} />
         </Switch>

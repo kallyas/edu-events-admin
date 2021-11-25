@@ -7,6 +7,7 @@ import UserList from "./UserList";
 import Addproject from "./Addproject";
 import EditEvent from "./EditEvent";
 import Enrollment from "./Enrollment";
+import EnrollmentStudent from "./EnrollmentStudent";
 
 export {
   Dashboard,
@@ -18,4 +19,5 @@ export {
   Addproject,
   EditEvent,
   Enrollment,
+  EnrollmentStudent,
 };

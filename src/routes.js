@@ -7,4 +7,5 @@ export const Routes = {
   Addproject: { path: "/dashboard/addProject" },
   EditProject: { path: "/dashboard/edit/event" },
   Enrollment: { path: "/dashboard/enrollment" },
+  EnrollmentStudent: { path: "/dashboard/enrollmentStudent" },
 };
