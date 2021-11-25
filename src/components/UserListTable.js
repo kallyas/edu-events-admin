@@ -22,6 +22,7 @@ import PagePagination from '../utils/PagePagination';
 
     const TableRow = (props) => {
       const { event_id, name, email, occupation } = props;
+      let count = 0;
   
       return (
         <tr>
@@ -29,7 +30,7 @@ import PagePagination from '../utils/PagePagination';
             <Card.Link as={Link} className="fw-normal"
               to={"#"}
             >
-              {0+=1}
+              {count+=1}
             </Card.Link>
           </td>
           <td>
