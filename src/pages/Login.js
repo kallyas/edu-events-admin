@@ -51,8 +51,8 @@ function Login() {
                 style={{ backgroundColor: '#096691' }}
               >
                 <div className="card-body text-center">
-                  <h1>Outbox Edu events</h1>
-                  <p>Login to Manage outbox Edu Events</p>
+                  <h1>Outbox EDU </h1>
+                  <p>Login to Manage Outbox EDU </p>
                 </div>
               </div>
               <div className="card col-md-7 p-4 mb-0">
