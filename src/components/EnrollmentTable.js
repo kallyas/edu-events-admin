@@ -124,7 +124,7 @@ const EnrollmentTable = () => {
               <th className="border-bottom">Phone Number</th>
               <th className="border-bottom">Email</th>
               <th className="border-bottom">Education</th>
-              <th className="border-bottom">Employement</th>
+              <th className="border-bottom">Employment</th>
               <th className="border-bottom">Experience</th>
               <th className="border-bottom">Track</th>
               <th className="border-bottom">Country</th>

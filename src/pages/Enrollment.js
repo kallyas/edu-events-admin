@@ -83,7 +83,7 @@ const Enrollment = ({ users }) => {
               />
             </InputGroup>
           </Col>
-          <Col xs={4} md={2} xl={1} className="ps-md-0 text-end">
+          {/* <Col xs={4} md={2} xl={1} className="ps-md-0 text-end">
             <Dropdown as={ButtonGroup}>
               <Dropdown.Toggle
                 split
@@ -109,7 +109,7 @@ const Enrollment = ({ users }) => {
                 <Dropdown.Item className="fw-bold">30</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-          </Col>
+          </Col> */}
         </Row>
       </div>
       <EnrollmentTable />
