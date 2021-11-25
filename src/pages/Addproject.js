@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Projects from "../components/Projects";
 import AddProjectModal from "../components/AddProjectModal";
-import { useDispatch } from "react-redux";
-import { fetchProjectsAsync } from "../features/projects/projectSlice";
+import { useDispatch, useSelector } from "react-redux";
+import exportToCSV from "../utils/ExportToCSV";
+import { fetchProjectsAsync, projectsSelector } from "../features/projects/projectSlice";
 
 function AddProject() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch()
-
+  const { projects } = useSelector(projectsSelector)
 
   const handleClickOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -31,8 +32,9 @@ function AddProject() {
         </Dropdown>
 
         <ButtonGroup>
-          <Button variant="outline-primary" size="sm">Share</Button>
-          <Button variant="outline-primary" size="sm">Export</Button>
+          <Button variant="outline-primary" size="sm"
+          onClick={() => exportToCSV(projects, "projects")}
+          >Export</Button>
         </ButtonGroup>
       </div>
     <div>
