@@ -20,7 +20,7 @@ import { projectsSelector } from '../features/projects/projectSlice'
             <Card.Link as={Link} className="fw-normal"
               to={"#"}
             >
-              {"#"}
+              {id}
             </Card.Link>
           </td>
           
@@ -73,7 +73,7 @@ import { projectsSelector } from '../features/projects/projectSlice'
               </tr>
             </thead>
             <tbody>
-              {projects?.map((t, i) => <TableRow key={`transaction-${i}`} {...t} />)}
+              {projects?.map((t, i) => <TableRow key={`transaction-${i}`} id={i} {...t} />)}
             </tbody>
           </Table>
           <Card.Footer className="px-3 border-0 d-lg-flex align-data-center justify-content-between">
