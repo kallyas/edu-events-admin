@@ -32,6 +32,7 @@ const EnrollmentTable = () => {
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
+  let counter = 1;
 
   const TableRow = (props) => {
     const {
@@ -52,7 +53,7 @@ const EnrollmentTable = () => {
       <tr>
         <td>
           <Card.Link as={Link} className="fw-normal" to={"#"}>
-            {"#"}
+            {counter++}
           </Card.Link>
         </td>
         <td>

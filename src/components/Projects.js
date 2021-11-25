@@ -11,7 +11,7 @@ import { projectsSelector } from '../features/projects/projectSlice'
 
     const Projects = () => {
       const { projects } = useSelector(projectsSelector);
-      let counter = 0;
+      let counter = 1;
     const TableRow = (props) => {
       const { id, title, date } = props;
   

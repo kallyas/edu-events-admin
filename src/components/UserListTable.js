@@ -20,6 +20,7 @@ import PagePagination from '../utils/PagePagination';
 
       const paginate = pageNumber => setCurrentPage(pageNumber);
 
+      let counter = 1;
     const TableRow = (props) => {
       const { event_id, name, email, occupation } = props;
       let count = 0;
@@ -30,7 +31,7 @@ import PagePagination from '../utils/PagePagination';
             <Card.Link as={Link} className="fw-normal"
               to={"#"}
             >
-              {count+=1}
+              {counter++}
             </Card.Link>
           </td>
           <td>
