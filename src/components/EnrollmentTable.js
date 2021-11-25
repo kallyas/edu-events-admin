@@ -41,7 +41,7 @@ const EnrollmentTable = () => {
       phoneNumber,
       email,
       education,
-      employement,
+      employment,
       experience,
       track,
       country,
@@ -70,7 +70,7 @@ const EnrollmentTable = () => {
           <span className="fw-normal">{education}</span>
         </td>
         <td>
-          <span className="fw-normal">{employement}</span>
+          <span className="fw-normal">{employment}</span>
         </td>
         <td>
           <span className="fw-normal">{experience}</span>
