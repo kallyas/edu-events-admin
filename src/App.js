@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import {
@@ -15,7 +15,6 @@ import {
   EnrollmentStudent,
 } from "./pages/index";
 import { Routes } from "./routes";
-require("dotenv").config();
 
 function App() {
   return (
