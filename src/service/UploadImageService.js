@@ -12,7 +12,6 @@ export default async function UploadImageService(image) {
   const uploadTask = await uploadBytesResumable(storageRef, image)
 
   const imgUrl = await getDownloadURL(storageRef);
-  console.log(imgUrl);
 
   return imgUrl; 
 }
