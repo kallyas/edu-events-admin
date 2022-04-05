@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
+    const navigate = useNavigate()
     const { login } = useAuth();
-    const [loading, setLoading] = React.useState(false);
-    const [passwordType, setPasswordType] = useState('password');
+    const [loading, setLoading] = useState(false);
     const [data, setData] = useState({
         email: '',
         password: ''
@@ -15,31 +16,20 @@ const Login = () => {
         setData({ ...data, [e.target.name]: e.target.value });
     }
 
-    //handle password Type
-    const handlePasswordType = () => {
-        if (passwordType === 'password') {
-            setPasswordType('text');
-        } else {
-            setPasswordType('password');
-        }
-    }
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log(data);
-            // setLoading(true);
-            // await login(data);
-            // history.push('/dashboard');
-            setData({
-                email: '',
-                password: ''
-            });
-        } catch (error) {
-            console.log(error);
+            setLoading(true)
+            await login(data)
+            navigate('/dashboard')
+        } catch (err) {
+            console.log(err)
         }
-        setLoading(false);
+
+        setLoading(false)
+        
     }
 
     return (
@@ -57,7 +47,7 @@ const Login = () => {
                 </div>
                 <form className="card card-md login-form" autoComplete="off" onSubmit={handleSubmit}>
                     <div className="card-body">
-                        <h2 class="card-title mb-4">Login</h2>
+                        <h2 className="card-title mb-4">Login</h2>
                         <div className="mb-3">
                             <label className="form-label">Email address</label>
                             <input
@@ -75,7 +65,7 @@ const Login = () => {
                             </label>
                             <div className="input-group input-group-flat">
                                 <input
-                                    type={passwordType}
+                                    type="password"
                                     name='password'
                                     className="form-control"
                                     placeholder="Password"
