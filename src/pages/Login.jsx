@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
-    const history = useHistory();
     const { login } = useAuth();
     const [loading, setLoading] = React.useState(false);
     const [passwordType, setPasswordType] = useState('password');
