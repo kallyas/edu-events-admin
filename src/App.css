@@ -32,3 +32,71 @@
     justify-content: center;
     position: relative;
 }
+
+.card-body  input:focus {
+    outline: white solid 5px !important;
+}
+
+.container-flex-row {
+    display: flex;
+    flex-direction: row;
+    background-color: #096691;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    width: 55% !important;
+    font-family: "Nunito Sans", sans-serif !important;
+    padding-left: 2rem !important;
+ }
+
+.company-name {
+    color: #fff;
+}
+
+.company-name h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.company-name span {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.login-btn {
+  background-color: #096691;
+}
+
+.login-form {
+  width: 52% !important;
+}
+
+.space-create-event {
+  margin-top: 3rem;
+}
+
+.login-form h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .container-flex-row {
+    width: 100% !important;
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .container-flex-row {
+    flex-direction: column;
+    width: 100% !important;
+  }
+  .login-form {
+    width: 100% !important;
+  }
+}
