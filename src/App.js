@@ -1,23 +1,18 @@
 /* eslint-disable no-unused-vars */
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Routes } from "./routes";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes as routes } from "./routes";
 import { AuthProvider } from "./context/AuthContext";
 import { Login, Dashboard } from "./pages/index";
-import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Switch>
+        <Routes>
           {/* Add routes here */}
-          <Route exact path={Routes.Login.path} component={Login} />
-          <ProtectedRoute
-            exact
-            path={Routes.Dashboard.path}
-            component={Dashboard}
-          />
-        </Switch>
+          <Route exact path={routes.Login.path} element={<Login />} />
+          <Route exact path={routes.Dashboard.path} element={<Dashboard />} />
+        </Routes>
       </AuthProvider>
     </BrowserRouter>
   );

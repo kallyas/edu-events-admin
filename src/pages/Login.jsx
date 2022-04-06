@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useEffect } from 'react';
 
 const Login = () => {
-    const history = useHistory();
+    const navigate = useNavigate()
     const { login } = useAuth();
-    const [loading, setLoading] = React.useState(false);
-    const [passwordType, setPasswordType] = useState('password');
+    const [loading, setLoading] = useState(false);
     const [data, setData] = useState({
         email: '',
         password: ''
@@ -17,31 +17,23 @@ const Login = () => {
         setData({ ...data, [e.target.name]: e.target.value });
     }
 
-    //handle password Type
-    const handlePasswordType = () => {
-        if (passwordType === 'password') {
-            setPasswordType('text');
-        } else {
-            setPasswordType('password');
-        }
-    }
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            setLoading(true);
-            await login(data);
-            history.push('/dashboard');
-            setData({
-                email: '',
-                password: ''
-            });
-        } catch (error) {
-            console.log(error);
+            setLoading(true)
+            await login(data)
+            navigate('/dashboard')
+        } catch (err) {
+            console.log(err)
         }
-        setLoading(false);
+        setLoading(false)
     }
+
+    //useEffect
+
+
 
     return (
         <div className="page page-center">
@@ -74,7 +66,7 @@ const Login = () => {
                             </label>
                             <div className="input-group input-group-flat">
                                 <input
-                                    type={passwordType}
+                                    type="password"
                                     name='password'
                                     className="form-control"
                                     placeholder="Password"
