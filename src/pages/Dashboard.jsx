@@ -21,15 +21,10 @@ const Dashboard = () => {
                             {/* <!-- Page title actions --> */}
                             <div className="col-auto ms-auto d-print-none">
                                 <div className="btn-list">
-                                    <span className="d-none d-sm-inline">
-                                        <a href="/#" className="btn btn-white">
-                                            New view
-                                        </a>
-                                    </span>
                                     <a href="/#" className="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
                                         {/* <!-- Download SVG icon from http://tabler-icons.io/i/plus --> */}
                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
-                                        Create new report
+                                        Create new Event
                                     </a>
                                     <a href="/#" className="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
                                         {/* <!-- Download SVG icon from http://tabler-icons.io/i/plus --> */}
@@ -47,7 +42,7 @@ const Dashboard = () => {
                                 <div className="card">
                                     <div className="card-body">
                                         <div className="d-flex align-items-center">
-                                            <div className="subheader">Sales</div>
+                                            <div className="subheader">Events</div>
                                             <div className="ms-auto lh-1">
                                                 <div className="dropdown">
                                                     <a className="dropdown-toggle text-muted" href="/#" data-bs-toggle="dropdown">Last 7 days</a>
@@ -81,7 +76,7 @@ const Dashboard = () => {
                                 <div className="card">
                                     <div className="card-body">
                                         <div className="d-flex align-items-center">
-                                            <div className="subheader">Revenue</div>
+                                            <div className="subheader">Projects</div>
                                             <div className="ms-auto lh-1">
                                                 <div className="dropdown">
                                                     <a className="dropdown-toggle text-muted" href="/#" data-bs-toggle="dropdown">Last 7 days</a>
@@ -110,7 +105,7 @@ const Dashboard = () => {
                                 <div className="card">
                                     <div className="card-body">
                                         <div className="d-flex align-items-center">
-                                            <div className="subheader">New clients</div>
+                                            <div className="subheader">Enrollments</div>
                                             <div className="ms-auto lh-1">
                                                 <div className="dropdown">
                                                     <a className="dropdown-toggle text-muted" href="/#" data-bs-toggle="dropdown">Last 7 days</a>
@@ -139,7 +134,7 @@ const Dashboard = () => {
                                 <div className="card">
                                     <div className="card-body">
                                         <div className="d-flex align-items-center">
-                                            <div className="subheader">Active users</div>
+                                            <div className="subheader">users</div>
                                             <div className="ms-auto lh-1">
                                                 <div className="dropdown">
                                                     <a className="dropdown-toggle text-muted" href="/#" data-bs-toggle="dropdown">Last 7 days</a>
