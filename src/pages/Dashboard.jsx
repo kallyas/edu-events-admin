@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from "../assets/images/android-chrome-192x192.png"
 
 const Dashboard = () => {
     return (
@@ -49,11 +50,11 @@ const Dashboard = () => {
                                             <div className="subheader">Sales</div>
                                             <div className="ms-auto lh-1">
                                                 <div className="dropdown">
-                                                    <a className="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                                                    <a className="dropdown-toggle text-muted" href="/#" data-bs-toggle="dropdown">Last 7 days</a>
                                                     <div className="dropdown-menu dropdown-menu-end">
-                                                        <a className="dropdown-item active" href="#">Last 7 days</a>
-                                                        <a className="dropdown-item" href="#">Last 30 days</a>
-                                                        <a className="dropdown-item" href="#">Last 3 months</a>
+                                                        <a className="dropdown-item active" href="/#">Last 7 days</a>
+                                                        <a className="dropdown-item" href="/#">Last 30 days</a>
+                                                        <a className="dropdown-item" href="/#">Last 3 months</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,11 +84,11 @@ const Dashboard = () => {
                                             <div className="subheader">Revenue</div>
                                             <div className="ms-auto lh-1">
                                                 <div className="dropdown">
-                                                    <a className="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                                                    <a className="dropdown-toggle text-muted" href="/#" data-bs-toggle="dropdown">Last 7 days</a>
                                                     <div className="dropdown-menu dropdown-menu-end">
-                                                        <a className="dropdown-item active" href="#">Last 7 days</a>
-                                                        <a className="dropdown-item" href="#">Last 30 days</a>
-                                                        <a className="dropdown-item" href="#">Last 3 months</a>
+                                                        <a className="dropdown-item active" href="/#">Last 7 days</a>
+                                                        <a className="dropdown-item" href="/#">Last 30 days</a>
+                                                        <a className="dropdown-item" href="/#">Last 3 months</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,11 +113,11 @@ const Dashboard = () => {
                                             <div className="subheader">New clients</div>
                                             <div className="ms-auto lh-1">
                                                 <div className="dropdown">
-                                                    <a className="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                                                    <a className="dropdown-toggle text-muted" href="/#" data-bs-toggle="dropdown">Last 7 days</a>
                                                     <div className="dropdown-menu dropdown-menu-end">
-                                                        <a className="dropdown-item active" href="#">Last 7 days</a>
-                                                        <a className="dropdown-item" href="#">Last 30 days</a>
-                                                        <a className="dropdown-item" href="#">Last 3 months</a>
+                                                        <a className="dropdown-item active" href="/#">Last 7 days</a>
+                                                        <a className="dropdown-item" href="/#">Last 30 days</a>
+                                                        <a className="dropdown-item" href="/#">Last 3 months</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,11 +142,11 @@ const Dashboard = () => {
                                             <div className="subheader">Active users</div>
                                             <div className="ms-auto lh-1">
                                                 <div className="dropdown">
-                                                    <a className="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                                                    <a className="dropdown-toggle text-muted" href="/#" data-bs-toggle="dropdown">Last 7 days</a>
                                                     <div className="dropdown-menu dropdown-menu-end">
-                                                        <a className="dropdown-item active" href="#">Last 7 days</a>
-                                                        <a className="dropdown-item" href="#">Last 30 days</a>
-                                                        <a className="dropdown-item" href="#">Last 3 months</a>
+                                                        <a className="dropdown-item active" href="/#">Last 7 days</a>
+                                                        <a className="dropdown-item" href="/#">Last 30 days</a>
+                                                        <a className="dropdown-item" href="/#">Last 3 months</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,14 +256,6 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-6">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h3 className="card-title">Traffic summary</h3>
-                                        <div id="chart-mentions" className="chart-lg"></div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -271,29 +264,14 @@ const Dashboard = () => {
                         <div className="row text-center align-items-center flex-row-reverse">
                             <div className="col-lg-auto ms-lg-auto">
                                 <ul className="list-inline list-inline-dots mb-0">
-                                    <li className="list-inline-item"><a href="./docs/index.html" className="link-secondary">Documentation</a></li>
-                                    <li className="list-inline-item"><a href="./license.html" className="link-secondary">License</a></li>
-                                    <li className="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" className="link-secondary" rel="noopener">Source code</a></li>
-                                    <li className="list-inline-item">
-                                        <a href="https://github.com/sponsors/codecalm" target="_blank" className="link-secondary" rel="noopener">
-                                            {/* <!-- Download SVG icon from http://tabler-icons.io/i/heart --> */}
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="icon text-pink icon-filled icon-inline" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
-                                            Sponsor
-                                        </a>
-                                    </li>
+                                    <li className="list-inline-item"><img src={Logo} height="25" alt="OutBox EDU" className="navbar-brand-image" /></li>
                                 </ul>
                             </div>
                             <div className="col-12 col-lg-auto mt-3 mt-lg-0">
                                 <ul className="list-inline list-inline-dots mb-0">
                                     <li className="list-inline-item">
                                         Copyright &copy; 2022
-                                        <a href="." className="link-secondary">Tabler</a>.
                                         All rights reserved.
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <a href="./changelog.html" className="link-secondary" rel="noopener">
-                                            v1.0.0-beta8
-                                        </a>
                                     </li>
                                 </ul>
                             </div>

@@ -89,6 +89,16 @@
   margin-bottom: 0;
 }
 
+
+.footer {
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: #ebecee solid 1px;
+}
+
+
 @media screen and (max-width: 1200px) {
   .container-flex-row {
     width: 100% !important;
