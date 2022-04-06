@@ -30,10 +30,9 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log(data);
-            // setLoading(true);
-            // await login(data);
-            // history.push('/dashboard');
+            setLoading(true);
+            await login(data);
+            history.push('/dashboard');
             setData({
                 email: '',
                 password: ''
@@ -54,12 +53,10 @@ const Login = () => {
                     <span>
                         Login to Manage Outbox EDU DashBoard
                     </span>
-                    <div className='space-create-event'>
-                    </div>
                 </div>
                 <form className="card card-md login-form" autoComplete="off" onSubmit={handleSubmit}>
                     <div className="card-body">
-                        <h2 class="card-title mb-4">Login</h2>
+                        <h2 className="card-title mb-4">Login</h2>
                         <div className="mb-3">
                             <label className="form-label">Email address</label>
                             <input

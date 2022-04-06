@@ -40,17 +40,23 @@
 .container-flex-row {
     display: flex;
     flex-direction: row;
-    background-color: #096691;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     border-radius: 5px;
     width: 55% !important;
     font-family: "Nunito Sans", sans-serif !important;
-    padding-left: 2rem !important;
+    padding-left: 4rem !important;
  }
 
 .company-name {
+    display: flex;
+    flex-direction: column;
     color: #fff;
+    background-color: #096691;
+    padding: 2rem 2rem;
+    height: 100% !important;
+    border-radius: 10px 0 0 10px;
+
 }
 
 .company-name h1 {
