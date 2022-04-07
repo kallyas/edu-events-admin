@@ -33,8 +33,8 @@
     position: relative;
 }
 
-.card-body  input:focus {
-    outline: white solid 5px !important;
+input:focus {
+    outline: rgba(255, 255, 255, .9) solid 5px !important;
 }
 
 .container-flex-row {
@@ -95,7 +95,13 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  border-top: #ebecee solid 1px;
+  border-top: #ecedee solid 1px;
+}
+
+.app-body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
 }
 
 
@@ -114,5 +120,9 @@
   }
   .login-form {
     width: 100% !important;
+  }
+  .footer {
+    background-color: #fff;
+    position: sticky !important;
   }
 }
