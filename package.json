@@ -13,7 +13,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-regular-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@fullcalendar/bootstrap": "^5.10.0",
     "@fullcalendar/daygrid": "^5.10.0",
     "@fullcalendar/interaction": "^5.10.0",
