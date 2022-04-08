@@ -1,9 +1,10 @@
 import React from 'react'
-import { Footer } from '../components'
+import { Footer, NavBar } from '../components'
 
 const Dashboard = () => {
     return (
         <>
+            <NavBar />
             <div className="page-wrapper">
                 <div className="container-xl">
                     {/* <!-- Page title --> */}

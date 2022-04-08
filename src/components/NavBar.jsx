@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import eduLogo from '../assets/images/android-chrome-192x192.png';
+import eduLogo from '../assets/images/android-chrome-512x512-removebg-preview.png';
 import { useAuth } from '../context/AuthContext';
 
 const NavBar = () => {
@@ -28,7 +28,7 @@ const NavBar = () => {
                     </button>
                     <h1 className="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                         <Link to='/dashboard'>
-                            <img src={eduLogo} width="110" height="32" alt="OutBox EDU" className="navbar-brand-image" />
+                            <img src={eduLogo} height="50" alt="OutBox EDU" className="navbar-brand-image" />
                         </Link>
                     </h1>
                     <div className="navbar-nav flex-row order-md-last">

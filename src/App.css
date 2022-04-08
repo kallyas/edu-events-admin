@@ -33,62 +33,27 @@
     position: relative;
 }
 
-input:focus {
-    outline: rgba(255, 255, 255, .9) solid 5px !important;
-}
-
-.container-flex-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    width: 55% !important;
-    font-family: "Nunito Sans", sans-serif !important;
-    padding-left: 4rem !important;
- }
-
-.company-name {
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    background-color: #096691;
-    padding: 2rem 2rem;
-    height: 100% !important;
-    border-radius: 10px 0 0 10px;
-
-}
-
-.company-name h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 0;
-}
-
-.company-name span {
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 0;
-}
-
 .login-btn {
   background-color: #096691;
 }
 
 .login-form {
-  width: 52% !important;
+  position: relative;
 }
 
-.space-create-event {
-  margin-top: 3rem;
+.company-logo {
+  position: absolute;
+  top: -30px;
+  left: 42.5%;
+  background-color: #fff;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #b3b4b8;
 }
-
-.login-form h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0;
-}
-
 
 .footer {
   padding: 1rem;
@@ -98,31 +63,3 @@ input:focus {
   border-top: #ecedee solid 1px;
 }
 
-.app-body {
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-}
-
-
-@media screen and (max-width: 1200px) {
-  .container-flex-row {
-    width: 100% !important;
-  }
-}
-
-
-
-@media screen and (max-width: 768px) {
-  .container-flex-row {
-    flex-direction: column;
-    width: 100% !important;
-  }
-  .login-form {
-    width: 100% !important;
-  }
-  .footer {
-    background-color: #fff;
-    position: sticky !important;
-  }
-}
