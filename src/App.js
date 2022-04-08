@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Routes as routes } from "./routes";
 import { AuthProvider } from "./context/AuthContext";
-import { Login, Dashboard } from "./pages/index";
+import { Login, Dashboard, Projects } from "./pages/index";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
           {/* Add routes here */}
           <Route exact path={routes.Login.path} element={<Login />} />
           <Route exact path={routes.Dashboard.path} element={<Dashboard />} />
+          <Route exact path={routes.Projects.path} element={<Projects />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
