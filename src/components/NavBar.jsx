@@ -1,4 +1,4 @@
-import { IconBell, IconCheckbox, IconFileText, IconHome, IconMoon, IconPackage, IconSearch, IconStar, IconSun } from '@tabler/icons';
+import { IconBell, IconUsers, IconListDetails, IconLayoutDashboard, IconMoon, IconCalendarEvent, IconSearch,IconApps, IconStar, IconSun } from '@tabler/icons';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import eduLogo from '../assets/images/android-chrome-512x512-removebg-preview.png';
@@ -221,7 +221,7 @@ const NavBar = () => {
                                 <li className="nav-item active">
                                     <Link className="nav-link" to="/dashboard">
                                         <span className="nav-link-icon d-md-none d-lg-inline-block">
-                                            <IconHome />
+                                            <IconLayoutDashboard />
                                         </span>
                                         <span className="nav-link-title">Dashboard</span>
                                     </Link>
@@ -237,7 +237,7 @@ const NavBar = () => {
                                         aria-expanded={expand}
                                     >
                                         <span className="nav-link-icon d-md-none d-lg-inline-block">
-                                            <IconPackage />
+                                            <IconCalendarEvent />
                                         </span>
                                         <span className="nav-link-title">Events</span>
                                     </Link>
@@ -261,7 +261,7 @@ const NavBar = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/">
                                         <span className="nav-link-icon d-md-none d-lg-inline-block">
-                                            <IconCheckbox />
+                                            <IconUsers />
                                         </span>
                                         <span className="nav-link-title">Users</span>
                                     </Link>
@@ -269,7 +269,7 @@ const NavBar = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="#navbar-extra">
                                         <span className="nav-link-icon d-md-none d-lg-inline-block">
-                                            <IconStar />
+                                            <IconApps />
                                         </span>
                                         <span className="nav-link-title">Projects</span>
                                     </Link>
@@ -277,7 +277,7 @@ const NavBar = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/">
                                         <span className="nav-link-icon d-md-none d-lg-inline-block">
-                                            <IconFileText />
+                                            <IconListDetails />
                                         </span>
                                         <span className="nav-link-title">Enrollments</span>
                                     </Link>
