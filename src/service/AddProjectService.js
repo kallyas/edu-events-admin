@@ -19,6 +19,5 @@ export async function getProjects() {
     projects.forEach((doc) => {
         return data.push({ ...doc.data(), id: doc.id })
     });
-    console.log(data);
     return data
 }

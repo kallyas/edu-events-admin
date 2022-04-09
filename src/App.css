@@ -56,10 +56,15 @@
 }
 
 .footer {
-  padding: 1rem;
+  padding: .5rem 0;
   position: absolute;
   bottom: 0;
   width: 100%;
   border-top: #ecedee solid 1px;
+  background-color: #FFFFFF;
+}
+
+table tr th {
+  cursor: pointer;
 }
 
