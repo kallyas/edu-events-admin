@@ -79,7 +79,7 @@ const HeaderBottom = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to={'/dashboard/enrollments'}>
                   <span className="nav-link-icon d-md-none d-lg-inline-block">
                     <IconListDetails />
                   </span>
