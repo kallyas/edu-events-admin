@@ -7,7 +7,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   return (
-    <div className="theme-dark">
+    <div>
       <BrowserRouter>
         <AuthProvider>
           <Routes>

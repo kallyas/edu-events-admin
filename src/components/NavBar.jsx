@@ -1,5 +1,5 @@
 import { IconBell, IconMoon, IconStar, IconSun } from '@tabler/icons';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import eduLogo from '../assets/images/android-chrome-512x512-removebg-preview.png';
 import OutBoxLogo from "../assets/images/outbox-removebg-preview.png"
@@ -21,6 +21,14 @@ const NavBar = () => {
     await logout();
     navigate(routes.Login.path);
   };
+
+  //toggle dark mode
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => setDarkMode(!darkMode);
+
+  useEffect(() => {
+    document.body.classList.toggle('theme-dark', darkMode);
+  }, [darkMode]);
 
   return (
     <>
@@ -60,6 +68,7 @@ const NavBar = () => {
                 title="Enable dark mode"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
+                onClick={toggleDarkMode}
               >
                 <IconMoon />
               </Link>
@@ -69,6 +78,7 @@ const NavBar = () => {
                 title="Enable light mode"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
+                onClick={toggleDarkMode}
               >
                 <IconSun />
               </Link>
