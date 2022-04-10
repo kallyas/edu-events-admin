@@ -10,6 +10,7 @@ import HeaderBottom from './HeaderBottom';
 
 const NavBar = () => {
   const [expand, setExpand] = useState(false);
+  const [expandMenu, setExpandMenu] = useState(false);
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -22,23 +23,40 @@ const NavBar = () => {
     navigate(routes.Login.path);
   };
 
-  //toggle dark mode
-  const [darkMode, setDarkMode] = useState(false);
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+  //theme toggle
+  const handleTheme = (theme) => {
+    if (theme === 'dark') {
+      localStorage.setItem('OutBoxEduTheme', 'theme-dark');
+    } else {
+      localStorage.setItem('OutBoxEduTheme', 'theme-light');
+    }
+  };
 
+  //handle menu show
+  const handleMenuShow = () => setExpandMenu(!expandMenu);
+
+  const localStorageDarkMode = localStorage.getItem('OutBoxEduTheme');
   useEffect(() => {
-    document.body.classList.toggle('theme-dark', darkMode);
-  }, [darkMode]);
+    if (localStorageDarkMode === 'theme-dark') {
+      document.body.classList.remove('theme-light');
+      document.body.classList.add(localStorageDarkMode);
+    } else {
+      document.body.classList.remove('theme-dark');
+      document.body.classList.add(localStorageDarkMode);
+    }
+  }, [localStorageDarkMode]);
 
   return (
     <>
       <header className="navbar navbar-expand-md navbar-light d-print-none">
         <div className="container-xl">
           <button
-            className="navbar-toggler"
+            className={`navbar-toggler ${expandMenu ? '' : 'collapsed'}`}
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbar-menu"
+            onClick={handleMenuShow}
+            aria-expanded={expandMenu}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -68,7 +86,7 @@ const NavBar = () => {
                 title="Enable dark mode"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
-                onClick={toggleDarkMode}
+                onClick={() => handleTheme('dark')}
               >
                 <IconMoon />
               </Link>
@@ -78,7 +96,7 @@ const NavBar = () => {
                 title="Enable light mode"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
-                onClick={toggleDarkMode}
+                onClick={() => handleTheme('light')}
               >
                 <IconSun />
               </Link>
@@ -225,7 +243,7 @@ const NavBar = () => {
           </div>
         </div>
       </header>
-      <HeaderBottom />
+      <HeaderBottom expandMenu={expandMenu} />
     </>
   );
 };

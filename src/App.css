@@ -76,3 +76,7 @@ table tr th {
   flex-direction: row;
 }
 
+.text-muted-mod {
+  color: #939496;
+}
+

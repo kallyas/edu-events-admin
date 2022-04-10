@@ -53,7 +53,17 @@ const Enrollments = () => {
 
     const getData = () => {
         const allEnrollments = [...enrollments];
-        const filtered = allEnrollments.filter(enrollment => enrollment.firstName.toLowerCase().includes(searchQuery.toLowerCase()));
+        const filtered = allEnrollments.filter(
+            enrollment => enrollment.firstName.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.lastName.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.email.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.phoneNumber.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.education.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.employment.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.experience.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.track.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.country.toLowerCase().includes(searchQuery.toLowerCase())
+                || enrollment.gender.toLowerCase().includes(searchQuery.toLowerCase()));
         const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
         const paginated = paginate(sorted, currentPage, pageSize);
         return { totalCount: filtered.length, data: paginated };
@@ -71,7 +81,7 @@ const Enrollments = () => {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-header">
-                                        <h3 className="card-title">Enrollment List</h3>
+                                        <h3 className="card-title text-muted-mod">Enrollment List</h3>
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">
@@ -79,7 +89,7 @@ const Enrollments = () => {
                                                 Show
                                                 <div className="mx-2 d-inline-block">
                                                     <div className="form-group">
-                                                        <select className="form-control sm" aria-label=".form-select-lg example" name="rowNumber" onChange={(e) => handleRowNumber(e.target.value)}>
+                                                        <select className="form-control sm text-muted" aria-label=".form-select-lg example" name="rowNumber" onChange={(e) => handleRowNumber(e.target.value)}>
                                                             <option value="5">5</option>
                                                             <option value="10">10</option>
                                                             <option value="15">15</option>

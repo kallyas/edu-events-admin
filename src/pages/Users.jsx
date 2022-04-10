@@ -76,7 +76,7 @@ const Users = () => {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-header">
-                                        <h3 className="card-title">Users List</h3>
+                                        <h3 className="card-title text-muted-mod">Users List</h3>
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">
@@ -84,7 +84,7 @@ const Users = () => {
                                                 Show
                                                 <div className="mx-2 d-inline-block">
                                                     <div className="form-group">
-                                                        <select className="form-control sm" aria-label=".form-select-lg example" name="rowNumber" onChange={(e) => handleRowNumber(e.target.value)}>
+                                                        <select className="form-control sm text-muted" aria-label=".form-select-lg example" name="rowNumber" onChange={(e) => handleRowNumber(e.target.value)}>
                                                             <option value="5">5</option>
                                                             <option value="10">10</option>
                                                             <option value="15">15</option>
