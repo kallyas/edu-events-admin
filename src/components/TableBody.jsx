@@ -20,7 +20,7 @@ function TableBody(props) {
             {data.map((item, index) => (
                 <tr key={item._id || item.id}>
                     {columns.map(column => {
-                        return <td key={createKey(item, column)}>
+                        return <td key={createKey(item, column)} className="text-muted">
                             {renderCell(Object.assign({}, item, { index: index + 1 }), column)}
                         </td>
                     })}
