@@ -5,6 +5,7 @@ import Table from './Table';
 function ProjectsTable(props) {
     const columns = [
         { path: 'index', label: '#' },
+        { path: 'id', label: 'Id' },
         { path: 'title', label: 'Project', content: project => <Link to={`/projects/${project.id}`}>{project.title}</Link> },
         { path: 'date', label: 'DeadLine' },
         {

@@ -4,13 +4,13 @@ import {
   IconListDetails,
   IconLayoutDashboard,
   IconCalendarEvent,
-  IconSearch,
   IconApps,
 } from '@tabler/icons';
 import { Link } from 'react-router-dom';
+import OutBoxLogo from "../assets/images/outbox-removebg-preview.png"
+import eduLogo from '../assets/images/android-chrome-512x512-removebg-preview.png';
 
 const HeaderBottom = () => {
-  const [searchQuery, setSearchQuery] = useState('');
   const [expandEvents, setExpandEvents] = useState(false);
 
   //handle events dropdown show
@@ -63,7 +63,7 @@ const HeaderBottom = () => {
                 </div>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to={'/dashboard/users'}>
                   <span className="nav-link-icon d-md-none d-lg-inline-block">
                     <IconUsers />
                   </span>
@@ -87,21 +87,19 @@ const HeaderBottom = () => {
                 </Link>
               </li>
             </ul>
-            <div className="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-              <form>
-                <div className="input-icon">
-                  <span className="input-icon-addon">
-                    <IconSearch />
-                  </span>
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="form-control"
-                    placeholder="Search…"
-                  />
-                </div>
-              </form>
+            <div className="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last logo-side">
+              <img
+                src={OutBoxLogo}
+                height="50"
+                alt="OutBox"
+                className="navbar-brand-image"
+              />
+              <img
+                src={eduLogo}
+                height="50"
+                alt="OutBox EDU"
+                className="navbar-brand-image"
+              />
             </div>
           </div>
         </div>

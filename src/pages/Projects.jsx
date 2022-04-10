@@ -71,7 +71,7 @@ const Projects = () => {
                             <div className="col-12">
                                 <div className="card card-content">
                                     <div className="card-header">
-                                        <h3 className="card-title">Projects</h3>
+                                        <h3 className="card-title">Project List</h3>
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">

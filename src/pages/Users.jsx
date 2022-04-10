@@ -1,26 +1,27 @@
-import _ from 'lodash'
 import React, { useState, useEffect } from 'react'
+import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux'
 import { Footer, NavBar } from '../components'
-import EnrollmentTable from '../components/EnrollmentTable'
+import UserTable from '../components/UserTable';
 import SearchBar from '../components/SearchBar'
 import PagePagination from '../utils/PagePagination';
 import { paginate } from '../utils/paginate'
-import { enrollmentSelector, getEnrollmentAsync } from './../features/enrollment/enrollmentSlice';
-// import exportToCSV from './../utils/ExportToCSV';
+import {
+    fetchUsersAsync,
+    usersSelector
+} from "../features/users/usersSlice";
 
-const Enrollments = () => {
+const Users = () => {
+    const { users } = useSelector(usersSelector);
     const dispatch = useDispatch();
     const [pageSize, setPageSize] = useState(5);
     const [currentPage, setCurrentPage] = useState(1);
-    const [sortColumn, setSortColumn] = useState({ path: 'firstName', order: 'asc' });
+    const [sortColumn, setSortColumn] = useState({ path: 'name', order: 'asc' });
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        dispatch(getEnrollmentAsync());
+        dispatch(fetchUsersAsync());
     }, [dispatch]);
-
-    const { data: enrollments } = useSelector(enrollmentSelector);
 
     //handle delete
     const handleDelete = (id) => {
@@ -52,14 +53,18 @@ const Enrollments = () => {
     }
 
     const getData = () => {
-        const allEnrollments = [...enrollments];
-        const filtered = allEnrollments.filter(enrollment => enrollment.firstName.toLowerCase().includes(searchQuery.toLowerCase()));
+        const allUsers = [...users];
+        const filtered = allUsers.filter(user =>
+            user.name.toLowerCase().includes(searchQuery.toLowerCase())
+            || user.email.toLowerCase().includes(searchQuery.toLowerCase())
+            || user.occupation.toLowerCase().includes(searchQuery.toLowerCase())
+        );
         const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
         const paginated = paginate(sorted, currentPage, pageSize);
         return { totalCount: filtered.length, data: paginated };
     }
 
-    const { totalCount, data: myEnrollments } = getData();
+    const { totalCount, data: myUsers } = getData();
 
     return (
         <div className="page">
@@ -71,7 +76,7 @@ const Enrollments = () => {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card-header">
-                                        <h3 className="card-title">Enrollment List</h3>
+                                        <h3 className="card-title">Users List</h3>
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">
@@ -104,8 +109,8 @@ const Enrollments = () => {
                                     </div>
                                     <div className="table-responsive">
                                         {/* Table */}
-                                        <EnrollmentTable
-                                            enrollments={myEnrollments}
+                                        <UserTable
+                                            users={myUsers}
                                             onDelete={handleDelete}
                                             onSort={handleSort}
                                             sortColumn={sortColumn}
@@ -130,4 +135,4 @@ const Enrollments = () => {
     )
 }
 
-export default Enrollments
+export default Users

@@ -56,15 +56,23 @@
 }
 
 .footer {
-  padding: .5rem 0;
-  /* position: absolute;
-  bottom: 0;
-  width: 100%; */
+  padding: .6rem 0;
   border-top: #ecedee solid 1px;
   background-color: #FFFFFF;
 }
 
+.theme-dark .footer {
+  background-color: #1E293B;
+  border-top: #1B2434 solid 1px;
+  color: rgb(207, 201, 201);
+}
+
 table tr th {
   cursor: pointer;
+}
+
+.logo-side {
+  display: flex;
+  flex-direction: row;
 }
 

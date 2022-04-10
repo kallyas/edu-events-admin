@@ -2,6 +2,7 @@ import { IconBell, IconMoon, IconStar, IconSun } from '@tabler/icons';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import eduLogo from '../assets/images/android-chrome-512x512-removebg-preview.png';
+import OutBoxLogo from "../assets/images/outbox-removebg-preview.png"
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Routes as routes } from '../routes';
@@ -34,7 +35,14 @@ const NavBar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <h1 className="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-            <Link to="/dashboard">
+            <Link to="/dashboard" className='logo-side'>
+              <img
+                src={OutBoxLogo}
+                width="110"
+                height="32"
+                alt="OutBox EDU"
+                className="navbar-brand-image"
+              />
               <img
                 src={eduLogo}
                 width="110"
@@ -182,9 +190,8 @@ const NavBar = () => {
                 </div>
               </Link>
               <div
-                className={`dropdown-menu dropdown-menu-end dropdown-menu-arrow ${
-                  expand ? 'show' : ''
-                }`}
+                className={`dropdown-menu dropdown-menu-end dropdown-menu-arrow ${expand ? 'show' : ''
+                  }`}
                 data-bs-popper={expand ? 'none' : ''}
               >
                 <Link to="#" className="dropdown-item">

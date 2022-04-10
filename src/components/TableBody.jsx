@@ -6,7 +6,6 @@ function TableBody(props) {
     //render cell
     const renderCell = (item, column) => {
         if (column.content) return column.content(item);
-        console.log(item);
         return _.get(item, column.path);
     };
 
