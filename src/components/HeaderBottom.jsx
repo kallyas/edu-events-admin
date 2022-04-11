@@ -30,6 +30,9 @@ const HeaderBottom = ({ expandMenu }) => {
   const isEvents = pathname.includes('/dashboard/events');
   const isProjects = pathname.includes('/dashboard/projects');
 
+  //
+  //const isActive = pathname === '/dashboard' ? 'active' : pathname.includes('/dashboard/users') ? 'active' : pathname.includes('/dashboard/enrollments') ? 'active' : pathname.includes('/dashboard/events') ? 'active' : pathname.includes('/dashboard/projects') ? 'active' : '';
+
   return (
     <div className="navbar-expand-md">
       <div className={`collapse navbar-collapse ${expandMenu ? 'show' : ''}`} id="navbar-menu">
