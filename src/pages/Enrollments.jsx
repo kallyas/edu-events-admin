@@ -48,6 +48,7 @@ const Enrollments = () => {
     //handle row number
     const handleRowNumber = (value) => {
         const newPageSize = parseInt(value);
+        setCurrentPage(1);
         setPageSize(newPageSize);
     }
 
