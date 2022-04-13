@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Footer, NavBar } from '../components'
 import EnrollmentTable from '../components/EnrollmentTable'
+import ExportLabel from '../components/ExportLabel'
 import SearchBar from '../components/SearchBar'
 import PagePagination from '../utils/PagePagination';
 import { paginate } from '../utils/paginate'
@@ -81,8 +82,9 @@ const Enrollments = () => {
                         <div className="row row-cards">
                             <div className="col-12">
                                 <div className="card">
-                                    <div className="card-header">
+                                    <div className="card-header card-export">
                                         <h3 className="card-title text-muted-mod">Enrollment List</h3>
+                                        <ExportLabel data={enrollments} fileName={'EDU - Enrollments'} />
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">
@@ -102,7 +104,8 @@ const Enrollments = () => {
                                                 </div>
                                                 entries
                                             </div>
-                                            <div className="ms-auto text-muted">
+                                            <div className="ms-auto d-flex text-muted">
+
                                                 <SearchBar
                                                     value={searchQuery}
                                                     onChange={(e) => handleSearch(e.target.value)}

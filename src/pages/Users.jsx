@@ -10,6 +10,7 @@ import {
     fetchUsersAsync,
     usersSelector
 } from "../features/users/usersSlice";
+import ExportLabel from '../components/ExportLabel';
 
 const Users = () => {
     const { users } = useSelector(usersSelector);
@@ -76,8 +77,9 @@ const Users = () => {
                         <div className="row row-cards">
                             <div className="col-12">
                                 <div className="card">
-                                    <div className="card-header">
+                                    <div className="card-header card-export">
                                         <h3 className="card-title text-muted-mod">Users List</h3>
+                                        <ExportLabel data={users} fileName={'EDU - Users'} />
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">

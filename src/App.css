@@ -80,3 +80,14 @@ table tr th {
   color: #939496;
 }
 
+.card-export {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.export-dropdown {position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 38px);}
+
+.icon-export {
+  padding-right:0.5rem !important;
+}

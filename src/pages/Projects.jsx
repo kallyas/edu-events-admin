@@ -7,6 +7,7 @@ import PagePagination from '../utils/PagePagination';
 import _ from 'lodash'
 import { paginate } from '../utils/paginate';
 import SearchBar from '../components/SearchBar';
+import ExportLabel from '../components/ExportLabel';
 
 const Projects = () => {
     const dispatch = useDispatch();
@@ -71,8 +72,9 @@ const Projects = () => {
                         <div className="row row-cards">
                             <div className="col-12">
                                 <div className="card card-content">
-                                    <div className="card-header">
+                                    <div className="card-header card-export">
                                         <h3 className="card-title text-muted-mod">Project List</h3>
+                                        <ExportLabel data={projects} fileName={'EDU - Projects'} />
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">

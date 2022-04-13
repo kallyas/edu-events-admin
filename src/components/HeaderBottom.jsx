@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Routes } from '../routes';
 import { useLocation } from 'react-router-dom';
 import {
   IconUsers,
