@@ -8,7 +8,6 @@ import SearchBar from '../components/SearchBar'
 import PagePagination from '../utils/PagePagination';
 import { paginate } from '../utils/paginate'
 import { enrollmentSelector, getEnrollmentAsync } from './../features/enrollment/enrollmentSlice';
-// import exportToCSV from './../utils/ExportToCSV';
 
 const Enrollments = () => {
     const dispatch = useDispatch();
@@ -73,6 +72,15 @@ const Enrollments = () => {
 
     const { totalCount, data: myEnrollments } = getData();
 
+    const columns = [
+        { title: 'First Name', path: 'firstName' },
+        { title: 'Last Name', path: 'lastName' },
+        { title: 'Gender', path: 'gender' },
+        { title: 'Email', path: 'email' },
+        { title: 'Phone Number', path: 'phoneNumber' },
+        { title: 'Education', path: 'education' }
+    ]
+
     return (
         <div className="page">
             <NavBar />
@@ -84,7 +92,7 @@ const Enrollments = () => {
                                 <div className="card">
                                     <div className="card-header card-export">
                                         <h3 className="card-title text-muted-mod">Enrollment List</h3>
-                                        <ExportLabel data={enrollments} fileName={'EDU - Enrollments'} />
+                                        <ExportLabel data={enrollments} columns={columns} fileName={'EDU - Enrollments'} />
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">

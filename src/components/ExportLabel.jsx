@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { IconFileSpreadsheet, IconFileExport } from '@tabler/icons';
-import exportToCSV from "../utils/ExportToCSV";
+import exportToCSV, { exportToPdf } from "../utils/ExportData";
 
-const ExportLabel = ({ data, fileName }) => {
+const ExportLabel = ({ data, columns, fileName }) => {
     const [expand, setExpand] = useState(false);
     const handleClick = () => setExpand(!expand);
     const handleExportExcel = () => {
@@ -10,11 +10,9 @@ const ExportLabel = ({ data, fileName }) => {
         setExpand(false);
     };
     const handleExportPDF = () => {
-        console.log('Export PDF');
+        exportToPdf(data, columns, fileName);
         setExpand(false);
     };
-
-
 
     return (
         <div className="mb-1">

@@ -68,6 +68,14 @@ const Users = () => {
 
     const { totalCount, data: myUsers } = getData();
 
+    const columns = [
+        { title: '#', path: 'index' },
+        { title: 'Name', path: 'name' },
+        { title: 'Email', path: 'email' },
+        { title: 'Occupation', path: 'occupation' },
+        { title: 'Event Id', path: 'event_id' },
+    ]
+
     return (
         <div className="page">
             <NavBar />
@@ -79,7 +87,7 @@ const Users = () => {
                                 <div className="card">
                                     <div className="card-header card-export">
                                         <h3 className="card-title text-muted-mod">Users List</h3>
-                                        <ExportLabel data={users} fileName={'EDU - Users'} />
+                                        <ExportLabel data={users} columns={columns} fileName={'EDU - Users'} />
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">

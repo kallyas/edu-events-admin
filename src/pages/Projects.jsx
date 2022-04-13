@@ -63,6 +63,11 @@ const Projects = () => {
 
     const { totalCount, data: myProjects } = getData();
 
+    const columns = [
+        { title: 'Title', path: 'title' },
+        { title: 'Deadline', path: 'date' },
+    ]
+
     return (
         <div className="page">
             <NavBar />
@@ -74,7 +79,7 @@ const Projects = () => {
                                 <div className="card card-content">
                                     <div className="card-header card-export">
                                         <h3 className="card-title text-muted-mod">Project List</h3>
-                                        <ExportLabel data={projects} fileName={'EDU - Projects'} />
+                                        <ExportLabel data={projects} columns={columns} fileName={'EDU - Projects'} />
                                     </div>
                                     <div className="card-body border-bottom py-3">
                                         <div className="d-flex">
