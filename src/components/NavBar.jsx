@@ -223,17 +223,17 @@ const NavBar = () => {
                     }`}
                   data-bs-popper={expand ? 'none' : ''}
                 >
-                  <Link to="#" className="dropdown-item">
+                  <Link to="#" className="dropdown-item" onClick={handleDropdownShow}>
                     Set status
                   </Link>
-                  <Link to="#" className="dropdown-item">
+                  <Link to="#" className="dropdown-item" onClick={handleDropdownShow}>
                     Profile &amp; account
                   </Link>
-                  <Link to="#" className="dropdown-item">
+                  <Link to="#" className="dropdown-item" onClick={handleDropdownShow}>
                     Feedback
                   </Link>
                   <div className="dropdown-divider"></div>
-                  <Link to="#" className="dropdown-item">
+                  <Link to="#" className="dropdown-item" onClick={handleDropdownShow}>
                     Settings
                   </Link>
                   <Link to="#" className="dropdown-item" onClick={handleLogout}>

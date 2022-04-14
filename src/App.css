@@ -91,3 +91,7 @@ table tr th {
 .icon-export {
   padding-right:0.5rem !important;
 }
+.show-left {
+  z-index: 20000;
+  position: absolute; inset: -10px 0px auto auto; margin: 0px; transform: translate(0px, 39px);
+}

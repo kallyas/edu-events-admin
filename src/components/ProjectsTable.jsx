@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ActionGroup from './ActionGroup';
 import Table from './Table';
 
 function ProjectsTable(props) {
@@ -8,27 +9,8 @@ function ProjectsTable(props) {
         { path: 'id', label: 'Id' },
         { path: 'title', label: 'Project', content: project => <Link to={`/projects/${project.id}`}>{project.title}</Link> },
         { path: 'date', label: 'DeadLine' },
-        {
-            key: 'delete', content: project => (<>
-                {/* <button onClick={() => props.onDelete(project)} className="btn btn-danger">Delete</button> */}
-                <div className="btn-list flex-nowrap">
-                    <div className="dropdown">
-                        <button className="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
-                            Actions
-                        </button>
-                        <div className="dropdown-menu dropdown-menu-end">
-                            <a className="dropdown-item" href="#/">
-                                Action
-                            </a>
-                            <a className="dropdown-item" href="#/">
-                                Another action
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </>
-            )
-        }
+        { key: 'actions', label: 'Actions', content: project => <ActionGroup item={project} /> },
+        { path: 'space', label: ' ' },
     ]
     const { projects, onSort, sortColumn } = props;
     return (

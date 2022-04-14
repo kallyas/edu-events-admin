@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import ActionGroup from './ActionGroup';
 import Table from './Table';
 
 const EnrollmentTable = (props) => {
@@ -14,26 +15,7 @@ const EnrollmentTable = (props) => {
         { path: 'experience', label: 'Experience' },
         { path: 'track', label: 'Track' },
         { path: 'country', label: 'Country' },
-        {
-            key: 'delete', label: 'Actions', content: enrollment => (<>
-                <div className="btn-list flex-nowrap">
-                    <div className="dropdown">
-                        <button className="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
-                            Actions
-                        </button>
-                        <div className="dropdown-menu dropdown-menu-end">
-                            <a className="dropdown-item" href="#/">
-                                Action
-                            </a>
-                            <a className="dropdown-item" href="#/">
-                                Another action
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </>
-            )
-        },
+        { key: 'actions', label: 'Actions', content: enrollment => <ActionGroup item={enrollment} /> },
         { path: 'space', label: ' ' },
     ];
     const { enrollments, onSort, sortColumn } = props;

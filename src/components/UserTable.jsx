@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ActionGroup from './ActionGroup';
 import Table from './Table';
 
 const UserTable = (props) => {
@@ -9,26 +10,7 @@ const UserTable = (props) => {
         { path: 'email', label: 'Email' },
         { path: 'occupation', label: 'Occupation' },
         { path: 'event_id', label: 'Event Id' },
-        {
-            key: 'delete', label: 'Actions', content: user => (<>
-                <div className="btn-list flex-nowrap">
-                    <div className="dropdown">
-                        <button className="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
-                            Actions
-                        </button>
-                        <div className="dropdown-menu dropdown-menu-end">
-                            <a className="dropdown-item" href="#/">
-                                Action
-                            </a>
-                            <a className="dropdown-item" href="#/">
-                                Another action
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </>
-            )
-        },
+        { key: 'actions', label: 'Actions', content: user => <ActionGroup item={user} /> },
         { path: 'space', label: ' ' },
     ];
     const { users, onSort, sortColumn } = props;
