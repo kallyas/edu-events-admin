@@ -95,3 +95,91 @@ table tr th {
   z-index: 20000;
   position: absolute; inset: -10px 0px auto auto; margin: 0px; transform: translate(0px, 39px);
 }
+
+.theme-dark .events-col {
+  background-color: #1B2434 !important;
+}
+
+.theme-dark .events-col-2 {
+  background-color: #1E293B !important;
+}
+
+.event-item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: .5rem;
+  margin: .5rem 0;
+  border-bottom: #f1f1f5 solid 2px;
+}
+
+.padding-left-right {
+  padding: 0 .5rem;
+}
+
+.padding-top-bottom {
+  padding: .5rem 0;
+}
+
+.padding-top {
+  padding-top: .5rem !important;
+}
+
+.event-item-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-item-date .event-item-month {
+  background-color: #1D60B0;
+  color: #fff;
+  border-radius: .375rem .375rem 0 0;
+  padding: .2rem .9rem;
+  font-weight: 600;
+}
+
+.event-past .event-item-month {
+  background-color: #fa5252;
+}
+
+.event-past {
+  border-bottom: #fa5252 solid 1px !important;
+}
+
+.event-item-date .event-item-day {
+  padding: .2rem 1rem;
+  border: .1rem solid #262b40;
+  border-top: 0;
+  border-radius: 0 0 .375rem .375rem;
+  font-weight: 600;
+}
+
+.event-item-title {
+  font-weight: 500;
+}
+
+.theme-dark .event-item-date .event-item-day {
+  color: #fff;
+  border: .1rem solid #363842;
+}
+.theme-dark .event-item {
+  background-color: #1E293B;
+  border-bottom: #272e3a solid 2px;
+}
+
+.events-col-main {
+  height: 74vh !important;
+  overflow-x: hidden;
+}
+
+.position-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+.events-col-1 {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
