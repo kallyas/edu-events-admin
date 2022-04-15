@@ -3,15 +3,39 @@ import { useSelector } from 'react-redux';
 import moment from 'moment';
 import { eventsSelector } from '../features/events/eventsSlice';
 import { Footer, NavBar, FullCalendarComp } from '../components';
-import { IconCalendarEvent, IconPlus, IconCalendarStats } from '@tabler/icons';
+import { IconCalendarEvent, IconPlus, IconCalendarStats, IconFilterOff } from '@tabler/icons';
 import { Link } from 'react-router-dom';
 
 const EventCalendar = () => {
     const { events, loading } = useSelector(eventsSelector);
     const [previewDate, setPreviewDate] = React.useState('');
+    const [status, setStatus] = React.useState('');
+    const [selected, setSelected] = React.useState(false);
+
+    //handle onChange of the select
+    const handleChange = (e) => {
+        setSelected(!selected);
+        setStatus(e.target.value);
+    };
+
+    //handle clear preview date and status
+    const clearPreview = () => {
+        setSelected(true);
+        setPreviewDate('');
+        setStatus('');
+    }
+
+    const allEvents = [...events];
+    const organizer = () => {
+        if (status) {
+            return status === 'false' ? allEvents.filter(event => !event.completed) : allEvents.filter(event => event.completed);
+        } else {
+            return allEvents;
+        }
+    }
 
     //filter events by dates
-    const filteredEvents = events.filter((event) => {
+    const filteredEvents = organizer().filter((event) => {
         const eventDate = moment(event.date).format('YYYY-MM-DD');
         return eventDate === previewDate || previewDate === '';
     });
@@ -66,7 +90,7 @@ const EventCalendar = () => {
                                     <div className="row row-cards">
                                         <div className="col-sm-4 events-col-main">
                                             <div className="card card-sm">
-                                                <div className="card-body events-col">
+                                                <div className="card-body">
                                                     <div className="row">
                                                         <div className="col-auto events-col-2 ">
                                                             <span className="bg-blue text-white avatar position-sticky">
@@ -74,13 +98,21 @@ const EventCalendar = () => {
                                                             </span>
                                                         </div>
                                                         <div className="col">
-                                                            <div
-                                                                className="col events-col-2 padding-left-right padding-top position-sticky"
-                                                                style={{ background: 'white' }}
-                                                            >
+                                                            <div className="col events-col-2 padding-left-right padding-top position-sticky bg-white" >
                                                                 <div className="font-weight-medium">Events</div>
                                                                 <div className="text-muted">{`${pendingEvents?.length} Upcoming Events`}</div>
                                                                 <div className="text-muted">{`${completedEvents?.length} Past Events`}</div>
+                                                                <div className="dropdown-divider"></div>
+                                                                <div className="mb-3 padding-top select-area">
+                                                                    <select className="form-select" name='status' onChange={handleChange} >
+                                                                        <option selected={selected} value="">Select Status ...</option>
+                                                                        <option value="false">Upcoming</option>
+                                                                        <option value="true">Past</option>
+                                                                    </select>
+                                                                    <span className="clear-filter-btn" onClick={clearPreview} >
+                                                                        <IconFilterOff />
+                                                                    </span>
+                                                                </div>
                                                                 <div className="dropdown-divider"></div>
                                                             </div>
                                                             <div className="col events-col-1">
