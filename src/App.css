@@ -172,14 +172,38 @@ table tr th {
   overflow-x: hidden;
 }
 
+.position-sticky-1 {
+  position: sticky;
+  top: 0;
+  z-index: 30000;
+}
+
 .position-sticky {
   position: sticky;
   top: 0;
-  z-index: 10000;
+  z-index: 20000;
 }
 
 .events-col-1 {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
+}
+
+.fc-scrollgrid-section-header th{
+  background-color: #1D60B0 !important;
+}
+
+.fc-scrollgrid-section-header th .fc-scroller .fc-col-header-cell-cushion  {
+  color: #fff !important;
+}
+
+.select-area {
+  display: flex;
+  gap: 1rem;
+  padding: 0 .5rem;
+}
+
+.bg-white {
+  background-color: #fff !important;
 }
