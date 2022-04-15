@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.11.0",
+    "@fullcalendar/interaction": "^5.11.0",
+    "@fullcalendar/list": "^5.11.0",
+    "@fullcalendar/react": "^5.11.0",
     "@reduxjs/toolkit": "^1.8.0",
     "@tabler/icons": "^1.63.0",
     "@testing-library/cypress": "^8.0.2",

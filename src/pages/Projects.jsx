@@ -11,7 +11,7 @@ import ExportLabel from '../components/ExportLabel';
 
 const Projects = () => {
     const dispatch = useDispatch();
-    const [pageSize, setPageSize] = useState(5);
+    const [pageSize, setPageSize] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
     const [sortColumn, setSortColumn] = useState({ path: 'title', order: 'asc' });
     const [searchQuery, setSearchQuery] = useState('');
@@ -88,7 +88,6 @@ const Projects = () => {
                                                 <div className="mx-2 d-inline-block">
                                                     <div className="form-group">
                                                         <select className="form-control sm text-muted" aria-label=".form-select-lg example" name="rowNumber" onChange={(e) => handleRowNumber(e.target.value)}>
-                                                            <option value="5">5</option>
                                                             <option value="10">10</option>
                                                             <option value="15">15</option>
                                                             <option value="20">20</option>

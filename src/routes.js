@@ -4,4 +4,5 @@ export const Routes = {
     Projects: { path: '/dashboard/projects' },
     Enrollments: { path: '/dashboard/enrollments' },
     Users: { path: '/dashboard/users' },
+    EventCalendar: { path: '/dashboard/event-calendar' },
 };
