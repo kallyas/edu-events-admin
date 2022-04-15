@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
-import { eventsSelector, fetchEventsAsync } from '../features/events/eventsSlice';
+import { eventsSelector } from '../features/events/eventsSlice';
 import { Footer, NavBar, FullCalendarComp } from '../components';
 import { IconCalendarEvent, IconPlus, IconCalendarStats } from '@tabler/icons';
 import { Link } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Footer, NavBar } from '../components';
 import EnrollmentTable from '../components/EnrollmentTable';
@@ -7,7 +7,8 @@ import ExportLabel from '../components/ExportLabel';
 import SearchBar from '../components/SearchBar';
 import PagePagination from '../utils/PagePagination';
 import { paginate } from '../utils/paginate';
-import { enrollmentSelector, getEnrollmentAsync } from './../features/enrollment/enrollmentSlice';
+import usePagination from '../utils/usePagination';
+import { enrollmentSelector } from './../features/enrollment/enrollmentSlice';
 
 const Enrollments = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Enrollments = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortColumn, setSortColumn] = useState({ path: 'firstName', order: 'asc' });
   const [searchQuery, setSearchQuery] = useState('');
+  const { handlePageChange, handleRowNumber, handleSearch, handleSort } = usePagination(setCurrentPage, setPageSize, setSearchQuery, setSortColumn);
 
   const { data: enrollments } = useSelector(enrollmentSelector);
 
@@ -23,29 +25,6 @@ const Enrollments = () => {
     dispatch({
       payload: id,
     });
-  };
-
-  //handle page change
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  //handle sort
-  const handleSort = (sortColumn) => {
-    setSortColumn(sortColumn);
-  };
-
-  //handle search
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    setCurrentPage(1);
-  };
-
-  //handle row number
-  const handleRowNumber = (value) => {
-    const newPageSize = parseInt(value);
-    setCurrentPage(1);
-    setPageSize(newPageSize);
   };
 
   const getData = () => {

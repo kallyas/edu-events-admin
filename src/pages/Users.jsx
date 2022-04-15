@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { Footer, NavBar } from '../components';
@@ -6,8 +6,9 @@ import UserTable from '../components/UserTable';
 import SearchBar from '../components/SearchBar';
 import PagePagination from '../utils/PagePagination';
 import { paginate } from '../utils/paginate';
-import { fetchUsersAsync, usersSelector } from '../features/users/usersSlice';
+import {usersSelector } from '../features/users/usersSlice';
 import ExportLabel from '../components/ExportLabel';
+import usePagination from '../utils/usePagination';
 
 const Users = () => {
   const { users } = useSelector(usersSelector);
@@ -16,35 +17,18 @@ const Users = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortColumn, setSortColumn] = useState({ path: 'name', order: 'asc' });
   const [searchQuery, setSearchQuery] = useState('');
+  const { handlePageChange, handleRowNumber, handleSearch, handleSort } = usePagination(
+    setCurrentPage,
+    setPageSize,
+    setSearchQuery,
+    setSortColumn
+  );
 
   //handle delete
   const handleDelete = (id) => {
     dispatch({
       payload: id,
     });
-  };
-
-  //handle page change
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  //handle sort
-  const handleSort = (sortColumn) => {
-    setSortColumn(sortColumn);
-  };
-
-  //handle search
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    setCurrentPage(1);
-  };
-
-  //handle row number
-  const handleRowNumber = (value) => {
-    const newPageSize = parseInt(value);
-    setCurrentPage(1);
-    setPageSize(newPageSize);
   };
 
   const getData = () => {
