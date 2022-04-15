@@ -14,10 +14,10 @@ function App() {
             <Route path="/dashboard" element={<ProtectedRoutes />}>
               <Route path={routes.Dashboard.path} element={<Dashboard />} />
               <Route path={routes.Projects.path} element={<Projects />} />
+              <Route exact path={routes.Enrollments.path} element={<Enrollments />} />
+              <Route exact path={routes.Users.path} element={<Users />} />
             </Route>
             <Route exact path={routes.Login.path} element={<Login />} />
-            <Route exact path={routes.Enrollments.path} element={<Enrollments />} />
-            <Route exact path={routes.Users.path} element={<Users />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
