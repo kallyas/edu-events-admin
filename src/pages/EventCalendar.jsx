@@ -1,45 +1,23 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import moment from 'moment';
-import { eventsSelector, fetchEventsAsync } from '../features/events/eventsSlice';
-import { Footer, NavBar, FullCalendarComp } from '../components'
-import { IconCalendarEvent, IconPlus, IconCalendarStats } from '@tabler/icons'
+import { eventsSelector } from '../features/events/eventsSlice';
+import { Footer, NavBar, FullCalendarComp } from '../components';
+import { IconCalendarEvent, IconPlus, IconCalendarStats } from '@tabler/icons';
 import { Link } from 'react-router-dom';
 
 const EventCalendar = () => {
-    const dispatch = useDispatch();
     const { events, loading } = useSelector(eventsSelector);
-    const [previewDate, setPreviewDate] = useState('');
-    const [status, setStatus] = useState('');
-
-    React.useEffect(() => {
-        dispatch(fetchEventsAsync());
-    }, [dispatch]);
-
-    //handle clear preview date and status
-    const clearPreview = () => {
-        setPreviewDate('');
-        setStatus('');
-    }
-
-    const allEvents = [...events];
-    const organizer = () => {
-        if (status) {
-            return status === 'false' ? allEvents.filter(event => !event.completed) : allEvents.filter(event => event.completed);
-        } else {
-            return allEvents;
-        }
-    }
+    const [previewDate, setPreviewDate] = React.useState('');
 
     //filter events by dates
-    const filteredEvents = organizer().filter(event => {
+    const filteredEvents = events.filter((event) => {
         const eventDate = moment(event.date).format('YYYY-MM-DD');
         return eventDate === previewDate || previewDate === '';
     });
 
-    const pendingEvents = filteredEvents.filter(event => !event.completed);
-    const completedEvents = filteredEvents.filter(event => event.completed);
-
+    const pendingEvents = filteredEvents.filter((event) => !event.completed);
+    const completedEvents = filteredEvents.filter((event) => event.completed);
 
     return (
         <>
@@ -83,13 +61,12 @@ const EventCalendar = () => {
                     <div className="page-body">
                         <div className="container-xl">
                             <div className="row row-deck row-cards">
-
                                 {/* colo */}
                                 <div className="col-12">
                                     <div className="row row-cards">
                                         <div className="col-sm-4 events-col-main">
                                             <div className="card card-sm">
-                                                <div className="card-body">
+                                                <div className="card-body events-col">
                                                     <div className="row">
                                                         <div className="col-auto events-col-2 ">
                                                             <span className="bg-blue text-white avatar position-sticky">
@@ -97,28 +74,31 @@ const EventCalendar = () => {
                                                             </span>
                                                         </div>
                                                         <div className="col">
-                                                            <div className="col events-col-2 padding-left-right padding-top position-sticky bg-white">
+                                                            <div
+                                                                className="col events-col-2 padding-left-right padding-top position-sticky"
+                                                                style={{ background: 'white' }}
+                                                            >
                                                                 <div className="font-weight-medium">Events</div>
                                                                 <div className="text-muted">{`${pendingEvents?.length} Upcoming Events`}</div>
                                                                 <div className="text-muted">{`${completedEvents?.length} Past Events`}</div>
                                                                 <div className="dropdown-divider"></div>
-                                                                <div className="mb-3 padding-top select-area">
-                                                                    <select className="form-select" name='status' onChange={e => setStatus(e.target.value)} >
-                                                                        <option value="">Select Status ...</option>
-                                                                        <option value="false">Upcoming</option>
-                                                                        <option value="true">Past</option>
-                                                                    </select>
-                                                                    <span className="btn btn-primary" onClick={clearPreview} >Clear Filters</span>
-                                                                </div>
-                                                                <div className="dropdown-divider"></div>
                                                             </div>
                                                             <div className="col events-col-1">
                                                                 <div className="events-list">
-                                                                    {filteredEvents?.map(event => (
-                                                                        <div className={event.completed ? 'event-item event-past' : 'event-item'} key={event.id}>
+                                                                    {filteredEvents?.map((event) => (
+                                                                        <div
+                                                                            className={
+                                                                                event.completed ? 'event-item event-past' : 'event-item'
+                                                                            }
+                                                                            key={event.id}
+                                                                        >
                                                                             <div className="event-item-date">
-                                                                                <span className="event-item-month">{moment(event.date).format('MMM')}</span>
-                                                                                <span className="event-item-day">{moment(event.date).format('DD')}</span>
+                                                                                <span className="event-item-month">
+                                                                                    {moment(event.date).format('MMM')}
+                                                                                </span>
+                                                                                <span className="event-item-day">
+                                                                                    {moment(event.date).format('DD')}
+                                                                                </span>
                                                                             </div>
                                                                             <div className="event-item-content">
                                                                                 <Link to={`/events/${event.id}`}>
@@ -149,7 +129,7 @@ const EventCalendar = () => {
                                                         </div>
                                                         <div className="col">
                                                             <div className="font-weight-medium">Calendar</div>
-                                                            <div className="text-muted">32 shipped</div>
+                                                            <div className="text-muted">32 Events</div>
                                                             <div className="dropdown-divider"></div>
                                                             {/* <GeneralCalendar events={events} /> */}
                                                             <FullCalendarComp events={events} setPreviewDate={setPreviewDate} />
@@ -168,7 +148,7 @@ const EventCalendar = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default EventCalendar
+export default EventCalendar;
