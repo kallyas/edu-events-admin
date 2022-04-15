@@ -81,7 +81,7 @@ const EventCalendar = () => {
                                                             </span>
                                                         </div>
                                                         <div className="col">
-                                                            <div className="col events-col-2 padding-left-right padding-top position-sticky">
+                                                            <div className="col events-col-2 padding-left-right padding-top position-sticky" style={{ background: "white"}}>
                                                                 <div className="font-weight-medium">Events</div>
                                                                 <div className="text-muted">{`${pendingEvents?.length} Upcoming Events`}</div>
                                                                 <div className="text-muted">{`${completedEvents?.length} Past Events`}</div>
@@ -124,7 +124,7 @@ const EventCalendar = () => {
                                                         </div>
                                                         <div className="col">
                                                             <div className="font-weight-medium">Calendar</div>
-                                                            <div className="text-muted">32 shipped</div>
+                                                            <div className="text-muted">32 Events</div>
                                                             <div className="dropdown-divider"></div>
                                                             {/* <GeneralCalendar events={events} /> */}
                                                             <FullCalendarComp events={events} setPreviewDate={setPreviewDate} />
