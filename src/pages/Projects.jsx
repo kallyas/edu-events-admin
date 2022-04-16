@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Footer, NavBar } from '../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProjectsAsync, projectsSelector } from '../features/projects/projectSlice';
+import { projectsSelector } from '../features/projects/projectSlice';
 import ProjectsTable from '../components/ProjectsTable';
 import PagePagination from '../utils/PagePagination';
 import _ from 'lodash';
