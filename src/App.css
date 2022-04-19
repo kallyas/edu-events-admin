@@ -212,4 +212,9 @@ table tr th {
   border-radius: .375rem;
   padding: .5rem .7rem;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-filter-btn:hover {
+  background-color: #18191a;
 }
