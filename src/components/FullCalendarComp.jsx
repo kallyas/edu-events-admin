@@ -8,6 +8,9 @@ const FullCalendarComp = ({ events, setPreviewDate }) => {
   const handleDateClick = (arg) => {
     setPreviewDate(arg.dateStr);
   }
+  const handleEventClick = (arg) => {
+    console.log(arg.event.id);
+  }
   return (
     <FullCalendar
       plugins={[dayGridPlugin, interactionPlugin, listPlugin]}
@@ -19,6 +22,8 @@ const FullCalendarComp = ({ events, setPreviewDate }) => {
         right: 'dayGridMonth,dayGridWeek,dayGridDay,listWeek'
       }}
       events={events}
+      eventClick={handleEventClick}
+      nowIndicator='true'
     />
   )
 }

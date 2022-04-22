@@ -7,7 +7,7 @@ import { IconCalendarEvent, IconPlus, IconCalendarStats, IconFilterOff } from '@
 import { Link } from 'react-router-dom';
 
 const EventCalendar = () => {
-    const { events, loading } = useSelector(eventsSelector);
+    const { events } = useSelector(eventsSelector);
     const [previewDate, setPreviewDate] = React.useState('');
     const [status, setStatus] = React.useState('');
     const [selected, setSelected] = React.useState(false);
@@ -111,7 +111,7 @@ const EventCalendar = () => {
                                                                         name="status"
                                                                         onChange={handleChange}
                                                                     >
-                                                                        <option selected={selected} value="">
+                                                                        <option value="">
                                                                             Select Status ...
                                                                         </option>
                                                                         <option value="false">Upcoming</option>

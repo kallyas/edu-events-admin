@@ -9,8 +9,16 @@ import {
   IconTrendingUp,
 } from '@tabler/icons';
 import { Footer, NavBar } from '../components';
+import EventModal from '../components/EventModal';
 
 const Dashboard = () => {
+  const [showModal, setShowModal] = React.useState(false);
+
+  //handle modal
+  const handleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
       <div className="page">
@@ -29,20 +37,22 @@ const Dashboard = () => {
                 <div className="col-auto ms-auto d-print-none">
                   <div className="btn-list">
                     <a
-                      href="/#"
+                      href="#/"
                       className="btn btn-primary d-none d-sm-inline-block"
                       data-bs-toggle="modal"
                       data-bs-target="#modal-report"
+                      onClick={handleModal}
                     >
                       <IconPlus />
                       Create new Event
                     </a>
                     <a
-                      href="/#"
+                      href="#/"
                       className="btn btn-primary d-sm-none btn-icon"
                       data-bs-toggle="modal"
                       data-bs-target="#modal-report"
                       aria-label="Create new report"
+                      onClick={handleModal}
                     >
                       <IconPlus />
                     </a>
@@ -51,6 +61,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+          <EventModal show={showModal} setShowModal={setShowModal} />
           <div className="page-body">
             <div className="container-xl">
               <div className="row row-deck row-cards">
@@ -305,6 +316,7 @@ const Dashboard = () => {
           <Footer />
         </div>
       </div>
+
     </>
   );
 };

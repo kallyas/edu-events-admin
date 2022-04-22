@@ -218,3 +218,25 @@ table tr th {
 .clear-filter-btn:hover {
   background-color: #18191a;
 }
+
+.body-flow {
+  overflow: hidden;
+  padding-right: 6px;
+}
+
+.display-block {
+  display: block;
+}
+
+.events-open-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ck-content {
+  padding: .5rem .75rem !important;
+}
+
+.theme-dark .ck-content {
+  background-color: #31415c !important;
+  padding: .5rem .75rem !important;
+}
