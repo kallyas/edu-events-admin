@@ -9,7 +9,7 @@ import {
   IconTrendingUp,
 } from '@tabler/icons';
 import { Footer, NavBar } from '../components';
-import EventModal from '../components/EventModal';
+import { EventModal } from '../components';
 
 const Dashboard = () => {
   const [showModal, setShowModal] = React.useState(false);

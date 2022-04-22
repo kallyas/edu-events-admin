@@ -1,6 +1,7 @@
 import React from 'react'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ImageUpload from './ImageUpload';
 
 const EventModal = (props) => {
     const { show, setShowModal } = props;
@@ -54,6 +55,12 @@ const EventModal = (props) => {
                                     <label className="form-label">Location/Address</label>
                                     <input type="text" className="form-control" placeholder='Soliz House, Kampala Uganda' />
                                 </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="mb-3">
+                                <label className="form-label">Image</label>
+                                <ImageUpload />
                             </div>
                         </div>
                         <div className="row">

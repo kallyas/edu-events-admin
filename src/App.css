@@ -237,6 +237,55 @@ table tr th {
 }
 
 .theme-dark .ck-content {
-  background-color: #31415c !important;
+  background-color: #181f2b !important;
   padding: .5rem .75rem !important;
+}
+
+.dropzone {
+  border: 2px dashed #1D60B0;
+  background-color: #FFF;
+  border-radius: .375rem;
+  padding: .5rem .75rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.thumbsContainer  {
+   display: flex;
+   flex-direction: row;
+   margin-top: 16;
+   gap: 1rem;
+};
+.thumb {
+  display: inline-flex;
+  flex-direction: row;
+  border-radius: 20px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  width: 100;
+  height: 100;
+  padding: 4;
+  box-sizing: border-box;
+}
+
+.thumbInner {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+
+}
+
+
+.img-fluid-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: .75rem 0;
+  background-color: #096691;
+}
+
+.theme-dark .dropzone {
+  background-color: #181f2b;
 }
