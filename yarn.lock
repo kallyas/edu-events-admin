@@ -2595,12 +2595,12 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@fullcalendar/bootstrap@^5.10.0":
-  version "5.10.1"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/bootstrap/-/bootstrap-5.10.1.tgz#40a3f15e8a76bd789644afd4c45b755c76803f90"
-  integrity sha512-KQRFRc/uiOw+jhcdt3oVIJMXcchsIgoet0nYfo8TRGisP5ZJ7DLoXl4iEVah/DFVkjqSyjre4iNsWzat2U4aww==
+"@fullcalendar/bootstrap@^5.11.0":
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/bootstrap/-/bootstrap-5.11.0.tgz#94670430b485775df4a696a0b1cf7ccd66ff9524"
+  integrity sha512-F7Ks7IHSPuPkfAse5c1/T8ToDoTAzhr0VIc+2RIiwjMuV+CcdtAgnpQGY9aHWvld1x25zLSTfqCYzxmI/8d80g==
   dependencies:
-    "@fullcalendar/common" "~5.10.1"
+    "@fullcalendar/common" "~5.11.0"
     tslib "^2.1.0"
 
 "@fullcalendar/common@~5.10.1":
@@ -2617,7 +2617,7 @@
   dependencies:
     tslib "^2.1.0"
 
-"@fullcalendar/daygrid@^5.10.0":
+"@fullcalendar/daygrid@^5.10.0", "@fullcalendar/daygrid@~5.10.1":
   version "5.10.1"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-5.10.1.tgz#bdee4f58364fdab631b2abf8b56094ab5776f203"
   integrity sha512-sfUMP+rew0krsBffgNcWWKhBCiyytGfRKZJoc64E8ohX7VWjPcPZuB1xgO5U4wPLmNkT0rZiHoGeQGTXw1+ZKg==
