@@ -242,7 +242,7 @@ table tr th {
 }
 
 .dropzone {
-  border: 2px dashed #1D60B0;
+  border: 2px dashed #094561;
   background-color: #FFF;
   border-radius: .375rem;
   padding: .5rem .75rem;
@@ -288,4 +288,37 @@ table tr th {
 
 .theme-dark .dropzone {
   background-color: #181f2b;
+}
+
+.form-event input:focus {
+  outline: none;
+  box-shadow: 1px 1px 1px #eaeaea !important;
+
+}
+
+.theme-dark .form-event input:focus {
+  outline: none;
+  box-shadow: 1px 1px 1px #1E293B !important;
+}
+
+.theme-dark .form-event  .css-1keh0ws-control {
+  background-color: #181f2b !important;
+  color: white !important;
+  border: #094561 solid 1px !important;
+}
+
+.theme-dark .form-event  .css-2v6102-control {
+  background-color: #181f2b !important;
+  color: #fff !important;
+  border: #094561 solid 1px !important;
+}
+
+.theme-dark .form-event  .css-2v6102-control:focus {
+  border: #1E293B solid 1px !important;
+}
+
+.theme-dark .form-event  .css-i0syzg-menu {
+  background-color: #181f2b !important;
+  color: #fff !important;
+  border: #094561 solid 1px !important;
 }

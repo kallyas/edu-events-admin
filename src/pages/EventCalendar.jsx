@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
 import { eventsSelector } from '../features/events/eventsSlice';
-import { Footer, NavBar, FullCalendarComp } from '../components';
+import { Footer, NavBar, FullCalendarComp, EventModal } from '../components';
 import { IconCalendarEvent, IconPlus, IconCalendarStats, IconFilterOff } from '@tabler/icons';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ const EventCalendar = () => {
     const [previewDate, setPreviewDate] = React.useState('');
     const [status, setStatus] = React.useState('');
     const [selected, setSelected] = React.useState(false);
+    const [showModal, setShowModal] = React.useState(false);
 
     //handle onChange of the select
     const handleChange = (e) => {
@@ -24,6 +25,18 @@ const EventCalendar = () => {
         setPreviewDate('');
         setStatus('');
     };
+
+    //handle modal
+    const handleModal = () => {
+        setShowModal(!showModal);
+    };
+
+    //sort events by date
+    const sortedEvents = events.sort((a, b) => {
+        // return new Date(a.start) - new Date(b.start);
+    });
+
+    console.log(sortedEvents);
 
     const allEvents = [...events];
     const organizer = () => {
@@ -62,10 +75,11 @@ const EventCalendar = () => {
                                 <div className="col-auto ms-auto d-print-none">
                                     <div className="btn-list">
                                         <a
-                                            href="/#"
+                                            href="#/"
                                             className="btn btn-primary d-none d-sm-inline-block"
                                             data-bs-toggle="modal"
                                             data-bs-target="#modal-report"
+                                            onClick={handleModal}
                                         >
                                             <IconPlus />
                                             Create new Event
@@ -84,6 +98,7 @@ const EventCalendar = () => {
                             </div>
                         </div>
                     </div>
+                    <EventModal show={showModal} setShowModal={setShowModal} />
                     <div className="page-body">
                         <div className="container-xl">
                             <div className="row row-deck row-cards">

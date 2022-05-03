@@ -8,16 +8,24 @@ import {
   IconShoppingCart,
   IconTrendingUp,
 } from '@tabler/icons';
+import { useSelector } from 'react-redux';
+import _ from 'lodash';
 import { Footer, NavBar } from '../components';
 import { EventModal } from '../components';
+import { usersSelector } from '../features/users/usersSlice';
+import GroupedData from '../utils/GroupedData';
 
 const Dashboard = () => {
+  const { users } = useSelector(usersSelector);
   const [showModal, setShowModal] = React.useState(false);
+  const { eventUsers } = GroupedData(users);
 
   //handle modal
   const handleModal = () => {
     setShowModal(!showModal);
   };
+
+  console.log(eventUsers);
 
   return (
     <>

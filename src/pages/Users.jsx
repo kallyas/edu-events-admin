@@ -6,7 +6,7 @@ import UserTable from '../components/UserTable';
 import SearchBar from '../components/SearchBar';
 import PagePagination from '../utils/PagePagination';
 import { paginate } from '../utils/paginate';
-import {usersSelector } from '../features/users/usersSlice';
+import { usersSelector } from '../features/users/usersSlice';
 import ExportLabel from '../components/ExportLabel';
 import usePagination from '../utils/usePagination';
 

@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone';
+import { useDispatch } from "react-redux";
+import { uploadImageAsync } from "../features/images/imageSlice";
 
-const ImageUpload = (props) => {
+const ImageUpload = () => {
+    const dispatch = useDispatch();
     const [files, setFiles] = useState([]);
     const { getRootProps, getInputProps } = useDropzone({
         accept: 'image/*',
-        onDrop: acceptedFiles => {
-            setFiles(acceptedFiles.map(file => Object.assign(file, {
-                preview: URL.createObjectURL(file)
-            })));
-        }
+        onDrop: (files) => {
+            setFiles(
+                files.map((file) => ({
+                    ...file,
+                    preview: URL.createObjectURL(file),
+                }))
+            );
+            dispatch(uploadImageAsync(files[0]));
+        },
     });
 
     const thumbs = files.map(file => (
-        <div className='thumb' key={file.name}>
+        <div className='thumb' key={file.path}>
             <div className='thumbInner'>
                 <img
                     src={file.preview}
                     className="img-fluid-thumb"
                     alt="thumb"
                 />
-                <p>{file.name}</p>
+                <p>{file.path}</p>
             </div>
         </div>
     ));
