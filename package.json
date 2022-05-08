@@ -54,7 +54,7 @@
     "react-live": "^2.4.0",
     "react-loading-skeleton": "^2.2.0",
     "react-redux": "^7.2.7",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.1",
     "react-router-hash-link": "^2.3.1",
     "react-scripts": "5.0.1",
     "react-select": "^4.3.1",
