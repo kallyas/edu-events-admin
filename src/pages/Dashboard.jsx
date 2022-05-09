@@ -9,7 +9,6 @@ import {
   IconTrendingUp,
 } from '@tabler/icons';
 import { useSelector } from 'react-redux';
-import _ from 'lodash';
 import { Footer, NavBar } from '../components';
 import { EventModal } from '../components';
 import { usersSelector } from '../features/users/usersSlice';
