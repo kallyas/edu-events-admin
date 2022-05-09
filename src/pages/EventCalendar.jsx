@@ -32,11 +32,11 @@ const EventCalendar = () => {
     };
 
     //sort events by date
-    const sortedEvents = events.sort((a, b) => {
-        // return new Date(a.start) - new Date(b.start);
-    });
+    // const sortedEvents = events.sort((a, b) => {
+    //     // return new Date(a.start) - new Date(b.start);
+    // });
 
-    console.log(sortedEvents);
+    // console.log(sortedEvents);
 
     const allEvents = [...events];
     const organizer = () => {
@@ -184,7 +184,7 @@ const EventCalendar = () => {
                                                         </div>
                                                         <div className="col">
                                                             <div className="font-weight-medium">Calendar</div>
-                                                            <div className="text-muted">32 Events</div>
+                                                            <div className="text-muted">{`${events?.length} Events`}</div>
                                                             <div className="dropdown-divider"></div>
                                                             {/* <GeneralCalendar events={events} /> */}
                                                             <FullCalendarComp events={events} setPreviewDate={setPreviewDate} />

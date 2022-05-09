@@ -108,7 +108,7 @@ const EventModal = (props) => {
                                         className="form-control"
                                         id='title'
                                         name="title"
-                                        placeholder="Enter event title ..."
+                                        placeholder="Enter event title..."
                                         value={data.title}
                                         onChange={handleChange}
                                     />
