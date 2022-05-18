@@ -322,3 +322,14 @@ table tr th {
   color: #fff !important;
   border: #094561 solid 1px !important;
 }
+
+@media screen and (max-width: 473px) {
+  .show-data span {
+    display: none;
+  }
+
+  .show-data select {
+    height: 40px !important;
+    width: 40px !important;
+  }
+}

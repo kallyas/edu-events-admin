@@ -77,8 +77,8 @@ const Enrollments = () => {
                   </div>
                   <div className="card-body border-bottom py-3">
                     <div className="d-flex">
-                      <div className="text-muted">
-                        Show
+                      <div className="text-muted show-data">
+                        <span>Show</span>
                         <div className="mx-2 d-inline-block">
                           <div className="form-group">
                             <select
@@ -95,9 +95,9 @@ const Enrollments = () => {
                             </select>
                           </div>
                         </div>
-                        entries
+                        <span>entries</span>
                       </div>
-                      <div className="ms-auto d-flex text-muted">
+                      <div className="ms-auto text-muted">
                         <SearchBar
                           value={searchQuery}
                           onChange={(e) => handleSearch(e.target.value)}

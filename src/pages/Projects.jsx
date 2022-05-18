@@ -65,8 +65,8 @@ const Projects = () => {
                   </div>
                   <div className="card-body border-bottom py-3">
                     <div className="d-flex">
-                      <div className="text-muted-mod">
-                        Show
+                      <div className="text-muted-mod show-data">
+                        <span>Show</span>
                         <div className="mx-2 d-inline-block">
                           <div className="form-group">
                             <select
@@ -83,7 +83,7 @@ const Projects = () => {
                             </select>
                           </div>
                         </div>
-                        entries
+                        <span>entries</span>
                       </div>
                       <div className="ms-auto text-muted">
                         <SearchBar
