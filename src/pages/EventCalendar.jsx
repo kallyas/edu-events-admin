@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
@@ -32,9 +33,9 @@ const EventCalendar = () => {
     };
 
     //sort events by date
-    // const sortedEvents = events.sort((a, b) => {
-    //     // return new Date(a.start) - new Date(b.start);
-    // });
+    const sortedEvents = events.sort((a, b) => {
+        return new Date(a.start) - new Date(b.start);
+    });
 
     // console.log(sortedEvents);
 
