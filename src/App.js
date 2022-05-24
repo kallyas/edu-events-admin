@@ -16,7 +16,7 @@ function App() {
               <Route path={routes.Projects.path} element={<Projects />} />
               <Route exact path={routes.Enrollments.path} element={<Enrollments />} />
               <Route exact path={routes.Users.path} element={<Users />} />
-            <Route exact path={routes.EventCalendar.path} element={<EventCalendar />} />
+              <Route exact path={routes.EventCalendar.path} element={<EventCalendar />} />
             </Route>
             <Route exact path={routes.Login.path} element={<Login />} />
           </Routes>
