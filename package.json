@@ -28,7 +28,7 @@
     "bootstrap": "^5.1.3",
     "chartist": "^0.11.4",
     "chartist-plugin-tooltips-updated": "^0.1.4",
-    "cloudinary": "^1.29.1",
+    "cloudinary": "^1.30.0",
     "cypress": "^8.6.0",
     "datauri": "^4.1.0",
     "file-saver": "^2.0.5",
