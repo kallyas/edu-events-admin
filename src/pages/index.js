@@ -1,23 +1,15 @@
-import Dashboard from "./Dashboard";
-import Events from "./events";
 import Login from "./Login";
-import NewEvent from "./NewEvent";
-import NotFound from "./NotFound";
-import UserList from "./UserList";
-import Addproject from "./Addproject";
-import EditEvent from "./EditEvent";
-import Enrollment from "./Enrollment";
-import EnrollmentStudent from "./EnrollmentStudent";
+import Dashboard from "./Dashboard";
+import Projects from './Projects';
+import Enrollments from './Enrollments';
+import Users from './Users';
+import EventCalendar from './EventCalendar';
 
 export {
-  Dashboard,
-  Events,
-  Login,
-  NewEvent,
-  NotFound,
-  UserList,
-  Addproject,
-  EditEvent,
-  Enrollment,
-  EnrollmentStudent,
+    Login,
+    Dashboard,
+    Projects,
+    Enrollments,
+    Users,
+    EventCalendar
 };

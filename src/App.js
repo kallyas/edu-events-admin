@@ -1,67 +1,28 @@
 /* eslint-disable no-unused-vars */
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ProtectedRoute from "./components/ProtectedRoute";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes as routes } from "./routes";
 import { AuthProvider } from "./context/AuthContext";
-import {
-  Dashboard,
-  Events,
-  Login,
-  NewEvent,
-  NotFound,
-  UserList,
-  Addproject,
-  EditEvent,
-  Enrollment,
-  EnrollmentStudent,
-} from "./pages/index";
-import { Routes } from "./routes";
+import { Login, Dashboard, Projects, Enrollments, Users, EventCalendar } from "./pages/index";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Switch>
-          <Route exact path={Routes.Login.path} component={Login} />
-          <ProtectedRoute
-            exact
-            path={Routes.Dashboard.path}
-            component={Dashboard}
-          />
-          <ProtectedRoute
-            exact
-            path={Routes.AddEvent.path}
-            component={NewEvent}
-          />
-          <ProtectedRoute exact path={Routes.Events.path} component={Events} />
-          <ProtectedRoute
-            exact
-            path={Routes.UserList.path}
-            component={UserList}
-          />
-          <ProtectedRoute
-            exact
-            path={Routes.Addproject.path}
-            component={Addproject}
-          />
-          <ProtectedRoute
-            exact
-            path={`${Routes.EditProject.path}/:id`}
-            component={EditEvent}
-          />
-          <ProtectedRoute
-            exact
-            path={Routes.Enrollment.path}
-            component={Enrollment}
-          />
-           <ProtectedRoute
-            exact
-            path={`${Routes.EnrollmentStudent.path}/:id`}
-            component={EnrollmentStudent}
-          />
-          <Route component={NotFound} />
-        </Switch>
-      </AuthProvider>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route path="/dashboard" element={<ProtectedRoutes />}>
+              <Route path={routes.Dashboard.path} element={<Dashboard />} />
+              <Route path={routes.Projects.path} element={<Projects />} />
+              <Route exact path={routes.Enrollments.path} element={<Enrollments />} />
+              <Route exact path={routes.Users.path} element={<Users />} />
+              <Route exact path={routes.EventCalendar.path} element={<EventCalendar />} />
+            </Route>
+            <Route exact path={routes.Login.path} element={<Login />} />
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
+    </div>
   );
 }
 

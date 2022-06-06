@@ -53,7 +53,7 @@ export const searchEnrollmentAsync = (enrollment) => async (dispatch) => {
     const data = await searchEnrollment(enrollment);
     dispatch(getEnrollmentSuccess(data));
   } catch (error) {
-    
+
     dispatch(getEnrollmentFailure(error));
   }
 };

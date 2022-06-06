@@ -1,51 +1,59 @@
-import { useState } from "react";
-import { Pagination } from '@themesberg/react-bootstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleLeft, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+import React from 'react'
+import _ from 'lodash';
+import propTypes from 'prop-types';
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons';
 
+function PagePagination(props) {
+  const { itemsCount, pageSize, currentPage, onPageChange } = props;
+  const pageCount = Math.ceil(itemsCount / pageSize);
+  if (pageCount === 1) return null;
 
-const PagePagination = (props) => {
-    const [activeItem, setActiveItem] = useState(1);
-    const { totalPages = props.itemsPerPage, size = "md", withIcons = false, disablePrev = false } = props;
-  
-    const onPrevItem = () => {
-      const prevActiveItem = activeItem === 1 ? activeItem : activeItem - 1;
-      setActiveItem(prevActiveItem);
-      props.paginate(prevActiveItem);
-    };
-  
-    const onNextItem = (totalPages) => {
-      const nextActiveItem = activeItem === totalPages ? activeItem : activeItem + 1;
-      setActiveItem(nextActiveItem);
-        props.paginate(nextActiveItem);
-    };
-  
-    const items = [];
-    for (let number = 1; number <= totalPages; number++) {
-      const isItemActive = activeItem === number;
-  
-      const handlePaginationChange = () => {
-        setActiveItem(number);
-      };
-  
-      items.push(
-        <Pagination.Item active={isItemActive} key={number} onClick={handlePaginationChange}>
-          {number}
-        </Pagination.Item>
-      );
-    };
-  
-    return (
-      <Pagination size={size} className="mt-3">
-        <Pagination.Prev disabled={disablePrev} onClick={onPrevItem}>
-          {withIcons ? <FontAwesomeIcon icon={faAngleDoubleLeft} /> : "Previous"}
-        </Pagination.Prev>
-        {items}
-        <Pagination.Next onClick={() => onNextItem(totalPages)}>
-          {withIcons ? <FontAwesomeIcon icon={faAngleDoubleRight} /> : "Next"}
-        </Pagination.Next>
-      </Pagination>
-    );
-  };
+  //create an array of page numbers using lodash (Optimized version of Underscore Js library)
+  const pages = _.range(1, pageCount + 1);
 
-  export default PagePagination;
+  //handle previous button
+  const handlePrevious = () => {
+    if (currentPage === 1) return;
+    onPageChange(currentPage - 1);
+  }
+
+  //handle next button
+  const handleNext = () => {
+    if (currentPage === pageCount) return;
+    onPageChange(currentPage + 1);
+  }
+
+  return (
+    <div className="card-footer d-flex align-items-center">
+      <p className="m-0 text-muted">Showing <span>{currentPage}</span> to <span>{pageSize}</span> of <span>{itemsCount}</span> entries</p>
+      <ul className="pagination m-0 ms-auto">
+        <li className={currentPage === 1 ? 'page-item disabled' : 'page-item'}>
+          <a className="page-link" href='#/' onClick={handlePrevious}>
+            <IconChevronLeft />
+            prev
+          </a>
+        </li>
+        {pages.map(page => (
+          <li key={page} className={page === currentPage ? 'page-item active' : 'page-item'}>
+            <a className="page-link" href='#/' onClick={() => onPageChange(page)}>{page}</a>
+          </li>
+        ))}
+        <li className={currentPage === pageCount ? 'page-item disabled' : 'page-item'}>
+          <a className="page-link" href="#/" onClick={handleNext}>
+            next
+            <IconChevronRight />
+          </a>
+        </li>
+      </ul>
+    </div>
+  )
+}
+
+PagePagination.propTypes = {
+  itemsCount: propTypes.number.isRequired,
+  pageSize: propTypes.number.isRequired,
+  currentPage: propTypes.number.isRequired,
+  onPageChange: propTypes.func.isRequired
+}
+
+export default PagePagination

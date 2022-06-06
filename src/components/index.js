@@ -1,8 +1,14 @@
-import ScrollToTop from "./ScrollToTop";
-import Preloader from "./Preloader";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
-import EnrollmentTable from "./EnrollmentTable";
-
-export { ScrollToTop, Preloader, Footer, Navbar, Sidebar, EnrollmentTable };
+import NavBar from './NavBar';
+import Footer from './Footer';
+import FullCalendarComp from './FullCalendarComp';
+import EventModal from './EventModal';
+import ImageUpload from './ImageUpload';
+import EditEventModal from './EditEventModal';
+export {
+    NavBar,
+    Footer,
+    FullCalendarComp,
+    EventModal,
+    EditEventModal,
+    ImageUpload
+}
