@@ -12,7 +12,7 @@
     "@reduxjs/toolkit": "^1.8.0",
     "@tabler/icons": "^1.68.0",
     "@testing-library/cypress": "^8.0.2",
-    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "cypress": "^8.6.0",
