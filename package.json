@@ -21,7 +21,7 @@
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.25",
     "lodash": "^4.17.10",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.33",
     "prop-types": "^15.6.2",
     "react": "^17.0.2",
