@@ -7,7 +7,7 @@
     "@ckeditor/ckeditor5-react": "^5.0.1",
     "@fullcalendar/daygrid": "^5.11.0",
     "@fullcalendar/interaction": "^5.11.0",
-    "@fullcalendar/list": "^5.11.0",
+    "@fullcalendar/list": "^5.11.2",
     "@fullcalendar/react": "^5.11.1",
     "@reduxjs/toolkit": "^1.8.3",
     "@tabler/icons": "^1.73.0",
