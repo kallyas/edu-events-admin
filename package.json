@@ -9,7 +9,7 @@
     "@fullcalendar/interaction": "^5.11.3",
     "@fullcalendar/list": "^5.11.3",
     "@fullcalendar/daygrid": "^5.11.3",
-    "@reduxjs/toolkit": "^1.8.4",
+    "@reduxjs/toolkit": "^1.8.6",
     "@tabler/icons": "^1.99.0",
     "@testing-library/cypress": "^8.0.3",
     "@testing-library/jest-dom": "^5.16.5",
