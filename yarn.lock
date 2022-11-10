@@ -9942,10 +9942,10 @@ svgo@^2.7.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
-sweetalert2-react-content@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/sweetalert2-react-content/-/sweetalert2-react-content-5.0.3.tgz#1c7d38d01cbaf7abc7311ef5d77698ed23dc1087"
-  integrity sha512-DQXblZn0LHTvmaZquNQncZIE3Ljox85sAKKbXjYlDyFejyOibHwprAVvtQQpAUG3bgvyDUeAOE/BDFcVx6KUow==
+sweetalert2-react-content@^5.0.5:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/sweetalert2-react-content/-/sweetalert2-react-content-5.0.7.tgz#6fd7299978b2e0221d3049746ff2b39c1a7aa72d"
+  integrity sha512-8Fk82Mpk45lFXpJWKIFF/lq8k/dJKDDQGFcuqVosaL/qRdViyAs5+u37LoTGfnOIvf+rfQB3PAXcp1XLLn+0ew==
 
 sweetalert2@^11.4.35:
   version "11.6.0"
