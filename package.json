@@ -33,7 +33,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.5.0",
     "redux": "^4.2.0",
-    "redux-thunk": "^2.4.1",
+    "redux-thunk": "^2.4.2",
     "sweetalert2": "^11.6.10",
     "sweetalert2-react-content": "^5.0.5",
     "web-vitals": "^1.0.1",
