@@ -19,7 +19,7 @@
     "file-saver": "2.0.5",
     "firebase": "^10.2.0",
     "jspdf": "^2.5.1",
-    "jspdf-autotable": "^3.5.25",
+    "jspdf-autotable": "^3.5.28",
     "lodash": "^4.17.10",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.39",
