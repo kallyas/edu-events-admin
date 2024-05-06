@@ -1287,10 +1287,10 @@
   dependencies:
     ckeditor5 "^34.2.0"
 
-"@ckeditor/ckeditor5-react@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-react/-/ckeditor5-react-5.0.3.tgz#06446d63923147a56a5f2c531df409384cf2ee90"
-  integrity sha512-uUVz8HOe7M1h/TnEjaM9F77Gqyn5SrTwzy8p1KwtKSccUPbNtKY96aPkO/ZiG3kCDJtp7Vi26XJThaoaiLZdjQ==
+"@ckeditor/ckeditor5-react@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-react/-/ckeditor5-react-5.1.0.tgz#af747cd6e3e7c4fcdbffcd1f750005ca5b7fbc41"
+  integrity sha512-7+okLprneCOD/zXceiONstUjRQtMSnsYiW7C2uODgXpglYDANw9QbAoyA4+M0ZC2Sjxok56YPy46F7uXB+a6mA==
   dependencies:
     prop-types "^15.7.2"
 
