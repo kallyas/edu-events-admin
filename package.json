@@ -20,7 +20,7 @@
     "firebase": "^11.0.0",
     "jspdf": "^4.0.0",
     "jspdf-autotable": "^3.8.2",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.23",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.45",
     "prop-types": "^15.6.2",
