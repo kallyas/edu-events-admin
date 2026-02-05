@@ -18,7 +18,7 @@
     "cypress": "^13.7.3",
     "file-saver": "2.0.5",
     "firebase": "^11.0.0",
-    "jspdf": "^4.0.0",
+    "jspdf": "^4.1.0",
     "jspdf-autotable": "^3.8.2",
     "lodash": "^4.17.23",
     "moment": "^2.29.4",
